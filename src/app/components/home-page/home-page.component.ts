@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppComponent } from "../../app.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -7,11 +8,16 @@ import { AppComponent } from "../../app.component";
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  searchValue: string = "";
 
-  constructor(private appComponent: AppComponent) {
+  constructor(private router: Router, private appComponent: AppComponent) {
   }
 
   get appTitle() {
     return this.appComponent.title;
   };
+
+  navigateToSearchPage(){
+    this.router.navigate(['search', this.searchValue]);
+  }
 }

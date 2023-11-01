@@ -2,8 +2,8 @@
     <h1> {{ appTitle }} </h1>
 
     <div id="search-bar">
-        <input type="text" id="search-input" placeholder="Barre de recherche...">
-        <button id="search-button">
+        <input type="text" id="search-input" placeholder="Barre de recherche..." [(ngModel)]="searchValue" )]>
+        <button id="search-button" (click)="navigateToSearchPage()">
             <mat-icon>search</mat-icon>
         </button>
     </div>

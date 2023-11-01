@@ -8,13 +8,13 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { DiscoverPageComponent } from './components/discover-page/discover-page.component';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import {MatInputModule} from "@angular/material/input";
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
