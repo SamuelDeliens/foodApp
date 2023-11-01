@@ -1,1 +1,11 @@
-<p>search-page works!</p>
+<form (ngSubmit)="search()" #searchForm="ngForm">
+    <input type="text" name="query" [(ngModel)]="query" placeholder="Rechercher des images de nourriture ou de cocktails">
+    <button type="submit">Rechercher</button>
+  </form>
+  
+  <div class="image-list">
+    <div class="image" *ngFor="let image of images">
+      <img [src]="image.webformatURL" alt="{{ image.tags }}">
+    </div>
+  </div>
+ 
