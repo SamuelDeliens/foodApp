@@ -8,8 +8,8 @@ import {NotFoundPageComponent} from "./components/not-found-page/not-found-page.
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomePageComponent },
-  { path: 'search', component: SearchPageComponent },
   { path: 'search/:param', component: SearchPageComponent },
+  { path: 'search', component: SearchPageComponent },
   { path: 'discover', component: DiscoverPageComponent },
   { path: '**', component: NotFoundPageComponent },
 ];
