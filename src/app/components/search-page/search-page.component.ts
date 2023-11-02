@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ImageService } from '../../services/image.service';
+import { ActivatedRoute } from '@angular/router';
+import {FoodService} from "../../services/food.service";
 
 @Component({
   selector: 'app-search-page',
@@ -7,18 +8,23 @@ import { ImageService } from '../../services/image.service';
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent {
-  images: any[] = [];
-  query: string = '';
-  constructor(private imageService: ImageService) {}
+  searchValue: string = '';
+  recipes: any = [];
 
-  search(): void {
-    this.imageService.searchImages(this.query)
-      .subscribe(data => {
-        console.log(data); // Affichez la réponse de l'API dans la console
-        this.images = data.hits;
-      });
+  constructor(private route: ActivatedRoute, private foodService: FoodService) {
+    this.searchValue = <string>this.route.snapshot.paramMap.get('param');
+
+    if (this.searchValue != "") {
+      this.searchRecipes();
+    }
   }
-  
 
-
+  searchRecipes(): void {
+    this.foodService.searchRecipes(this.searchValue)
+        .subscribe(data => {
+          this.recipes = data.results;
+          console.log(typeof data);
+          console.log(data);
+        });
+  }
 }
