@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {FoodService} from "../../services/food.service";
+import {FoodService} from "../../../services/food.service";
 
 @Component({
   selector: 'app-search-page',
@@ -14,6 +14,7 @@ export class SearchPageComponent {
   constructor(private route: ActivatedRoute, private foodService: FoodService) {
     this.searchValue = <string>this.route.snapshot.paramMap.get('param');
 
+    console.log(this.searchValue);
     if (this.searchValue != "") {
       this.searchRecipes();
     }
