@@ -1,23 +1,5 @@
-.home-page {
-    width: 100%;
-    height: calc(100vh - 6rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: color-mix(in srgb, var(--primary-color) 20%, transparent);
-}
-
-h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    padding-bottom: 3rem;
-}
-
 #search-bar {
-    width: 40%;
     background-color: var(--tertiary-color);
-    margin-bottom: 10%;
     padding: 1rem 3rem;
     border-radius: 75px;
     display: flex;

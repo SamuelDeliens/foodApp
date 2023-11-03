@@ -1,0 +1,6 @@
+<form id="search-bar" #searchForm="ngForm" (ngSubmit)="search()">
+    <input type="text" id="search-input" placeholder="Barre de recherche..." [(ngModel)]="searchValue" name="searchValue">
+    <button id="search-button" type="submit">
+        <mat-icon>search</mat-icon>
+    </button>
+</form>
