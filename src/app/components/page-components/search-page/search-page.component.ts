@@ -1,31 +1,30 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {FoodService} from "../../../services/food.service";
+import {SharedSearchService} from "../../../services/shared-search.service";
 
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.css']
+  styleUrls: ['./search-page.component.css'],
 })
 export class SearchPageComponent {
-  searchValue: string = '';
   recipes: any = [];
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService) {
-    this.searchValue = <string>this.route.snapshot.paramMap.get('param');
-
-    console.log(this.searchValue);
-    if (this.searchValue != "") {
-      this.searchRecipes();
-    }
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private sharedSearchService: SharedSearchService) {
+      this.sharedSearchService.setSearchValue(<string>this.route.snapshot.paramMap.get('param'));
+      if (this.sharedSearchService.searchValue != "") {
+        this.searchRecipes(this.sharedSearchService.searchValue);
+      }
   }
 
-  searchRecipes(): void {
-    this.foodService.searchRecipes(this.searchValue)
-        .subscribe(data => {
-          this.recipes = data.results;
-          console.log(typeof data);
-          console.log(data);
-        });
+  searchRecipes: any = (query: string) => {
+      this.foodService.searchRecipes(query)
+          .subscribe(data => {
+              this.recipes = data.results;
+              console.log(typeof data);
+              console.log(data);
+          });
   }
+
 }

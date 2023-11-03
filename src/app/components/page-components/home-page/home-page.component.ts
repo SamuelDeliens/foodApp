@@ -11,8 +11,6 @@ import {Router} from "@angular/router";
 })
 export class HomePageComponent {
 
-  searchValue: string = "";
-
   constructor(private appComponent: AppComponent, private router: Router) {
   }
 

@@ -13,47 +13,8 @@
     align-items: center;
 }
 
-#search-bar {
+app-search-bar {
     width: 40%;
-    background-color: var(--tertiary-color);
-    padding: 1rem 3rem;
-    border-radius: 75px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#search-bar input {
-    background: none;
-    border: none;
-    width: 95%;
-    color: var(--secondary-color);
-    font-size: 1.3rem;
-    padding: 10px;
-}
-
-#search-bar input::placeholder {
-    color: rgba(var(--secondary-color), 0.1);
-}
-
-#search-bar input:focus {
-    outline: none;
-    border-bottom: 2px var(--secondary-color) solid;
-}
-
-#search-bar button {
-    width: 5%;
-    background: none;
-    border: none;
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#search-bar button mat-icon {
-    font-size: 2rem;
 }
 
 

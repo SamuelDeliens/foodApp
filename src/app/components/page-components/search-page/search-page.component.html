@@ -1,12 +1,7 @@
 <div class="search-page">
 
     <div class="search-div">
-        <div id="search-bar">
-            <input type="text" id="search-input" placeholder="Barre de recherche..." [(ngModel)]="searchValue">
-            <button id="search-button" (click)="searchRecipes()">
-                <mat-icon>search</mat-icon>
-            </button>
-        </div>
+        <app-search-bar [comportement]="searchRecipes"></app-search-bar>
     </div>
 
     <div class="result-div">
