@@ -16,9 +16,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { CardsComponent } from './components/cards/cards.component';
-import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +27,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     DiscoverPageComponent,
     MainNavComponent,
     NotFoundPageComponent,
-    CardsComponent,
-    CarrouselComponent,
     SearchBarComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

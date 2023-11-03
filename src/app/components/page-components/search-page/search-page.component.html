@@ -17,12 +17,8 @@
                 <h1>Food</h1>
                 <div class="cards">
                     <div class="fake-card"></div>
-                    <div class="card" *ngFor="let recipe of recipes">
-                        <img class="image" [src]="recipe.thumbnail_url" alt="{{ recipe.thumbnail_url }}"/>
-                        <div class="content">
-                            <h2>{{ recipe.name }}</h2>
-                        </div>
-                    </div>
+                    <app-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-card>
+                    <div class="fake-card"></div>
                 </div>
             </div>
             <div class="cocktail-div"></div>
