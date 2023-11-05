@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {FoodService} from "../../../services/food.service";
 import {SharedSearchService} from "../../../services/shared-search.service";
+import {Recipe} from "../../../data/recipe";
 
 @Component({
   selector: 'app-search-page',
@@ -9,7 +10,7 @@ import {SharedSearchService} from "../../../services/shared-search.service";
   styleUrls: ['./search-page.component.css'],
 })
 export class SearchPageComponent {
-  recipes: any = [];
+  recipes: Recipe[] = [];
 
   constructor(private route: ActivatedRoute, private foodService: FoodService, private sharedSearchService: SharedSearchService) {
       this.sharedSearchService.setSearchValue(<string>this.route.snapshot.paramMap.get('param'));
