@@ -1,0 +1,32 @@
+.discover-page{
+    background: color-mix(in srgb, var(--primary-color) 20%, transparent);
+    width: 100%;
+    height: calc(100vh - 6rem);
+    flex-direction: column;
+    
+    align-items: center;
+}
+
+.food{
+    align-self: flex-start;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: purple;
+    border-radius: 5px;
+    background-color:white;
+    width:auto;
+    height: auto;
+    margin:10px;
+}
+
+.drink{
+    align-self: flex-start;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: purple;
+    border-radius: 5px;
+    background-color:white;
+    width:auto;
+    height: auto;
+    margin:10px;
+}
