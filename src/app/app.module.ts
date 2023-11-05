@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
+import { CocktailPageComponent } from './components/page-components/cocktail-page/cocktail-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CardComponent } from './components/card/card.component';
     NotFoundPageComponent,
     SearchBarComponent,
     CardComponent,
+    CocktailPageComponent,
   ],
   imports: [
     BrowserModule,

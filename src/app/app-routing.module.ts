@@ -4,6 +4,7 @@ import {HomePageComponent} from "./components/page-components/home-page/home-pag
 import {SearchPageComponent} from "./components/page-components/search-page/search-page.component";
 import {DiscoverPageComponent} from "./components/page-components/discover-page/discover-page.component";
 import {NotFoundPageComponent} from "./components/page-components/not-found-page/not-found-page.component";
+import { CocktailPageComponent } from './components/page-components/cocktail-page/cocktail-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -11,7 +12,10 @@ const routes: Routes = [
   { path: 'search/:param', component: SearchPageComponent },
   { path: 'search', component: SearchPageComponent },
   { path: 'discover', component: DiscoverPageComponent },
+  { path: 'cocktail/:param', component: CocktailPageComponent },
+  { path: 'cocktail', component: CocktailPageComponent},
   { path: '**', component: NotFoundPageComponent },
+  
 ];
 
 @NgModule({
