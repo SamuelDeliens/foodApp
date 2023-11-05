@@ -28,7 +28,9 @@ export class CocktailService {
     const params = new HttpParams()
         .set("s", query);
 
-    return this.http.get(apiUri, { headers, params });
+    //TODO replace this for final version => avoid api use
+    return this.http.get('assets/data/recipeCocktail.json');
+    //return this.http.get(apiUri, { headers, params });
   }
 
   searchIngredient(query: string): Observable<any> {

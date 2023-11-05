@@ -1,37 +1,32 @@
-<div >
-    <div >
-        <app-search-bar [comportement]="searchName"></app-search-bar>
+<div class="search-page">
+
+    <div class="search-div">
+        <app-search-bar [comportment]="searchName"></app-search-bar>
     </div>
-    <div >
-        <div >
-            <div ></div>
-            <div ></div>
-            <div ></div>
-            <div ></div>
-            <div ></div>
+
+    <div class="result-div">
+        <div class="blur-wall blur-wall-left">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div >
-            <div >
-                <h1>Cocktails</h1>
-                <div >
-                    <div ></div>
-                    <app-card *ngFor="let cocktail of cocktail " [recipe]="cocktail"></app-card>
-                    <div ></div>
-                </div>
+        <div class="result-wrapper">
+            <div class="cocktail-div">
+                <h1>Cocktail</h1>
+                <app-carrousel [recipes]="cocktail"></app-carrousel>
             </div>
-            <div ></div>
+            <div class="cocktail-div"></div>
         </div>
-        <div >
-            <div ></div>
-            <div ></div>
-            <div ></div>
-            <div ></div>
-            <div ></div>
+        <div class="blur-wall blur-wall-right">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+    </div>
 
 
-    
-  
-    
-  </div>
-  
+</div>

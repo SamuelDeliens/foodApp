@@ -5,6 +5,7 @@ import { SearchPageComponent } from "./components/page-components/search-page/se
 import { DiscoverPageComponent } from "./components/page-components/discover-page/discover-page.component";
 import { NotFoundPageComponent } from "./components/page-components/not-found-page/not-found-page.component";
 import { RecipeDetailsPageComponent } from "./components/page-components/recipe-details-page/recipe-details-page.component";
+import { CocktailPageComponent } from "./components/page-components/cocktail-page/cocktail-page.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },

@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class CardComponent {
 
   @Input()
-  recipe: Recipe = new Recipe({});
+  recipe: Recipe = new Recipe("", {});
 
   constructor(private router: Router) {
   }

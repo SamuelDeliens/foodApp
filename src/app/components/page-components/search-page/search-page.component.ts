@@ -28,7 +28,7 @@ export class SearchPageComponent {
                     alert("No recipes found for " + query);
                 } else {
                     this.sharedSearchService.setRecipes(
-                        data.results.map((recipe: any) => new Recipe(recipe))
+                        data.results.map((recipe: any) => new Recipe("food", recipe))
                     );
                     this.recipes = this.sharedSearchService.recipes;
                 }
