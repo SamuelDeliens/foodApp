@@ -12,9 +12,24 @@ h1 {
     font-size: 5rem;
     font-weight: 700;
     padding-bottom: 3rem;
+    padding-top: 50px;
 }
 
 app-search-bar {
     width: 40%;
     margin-bottom: 10%;
+}
+
+.feed{
+    padding-left: 10px;
+    padding-top: 10px;
+    color: purple;
+    border-radius: 5px;
+    background-color:white;
+    width:500px;
+    height: auto;
+}
+
+.title{
+    font-weight: bold;
 }

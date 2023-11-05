@@ -1,5 +1,18 @@
-<div class="home-page">
+<div class="home-page scrollable-container">
     <h1> {{ appTitle }} </h1>
 
     <app-search-bar [comportement]="navigateToSearchPage"></app-search-bar>
+    
+    <div class="feed" >
+        <table>
+            <tr><td><h3>À la une de {{appTitle}}</h3></td></tr>
+            <tr>
+              <td><img *ngIf="searchFeed.results" [src]="searchFeed.results[0].item.thumbnail_url" alt="" style="width: 400px;height: 250px; border-radius: 5px;">
+              </td></tr>
+              <tr><td><p class="title">{{searchFeed.results[0].item.name}}</p></td></tr>
+              <tr><td><h3>{{searchFeed.results[0].item.description}}</h3></td></tr>
+             
+        </table>
+       
+
 </div>
