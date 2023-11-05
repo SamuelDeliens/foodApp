@@ -1,0 +1,31 @@
+.fake-card {
+    width: calc(5rem - 1rem);
+}
+
+.cards {
+    width: 100%;
+    padding-bottom: 1rem;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    overflow: scroll;
+    gap: 1.5rem;
+}
+
+.cards::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0.2rem;
+    border-radius: 50px;
+}
+
+.cards::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cards::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.cards::-webkit-scrollbar-thumb:hover {
+    background: transparent; /* Couleur de la barre de défilement au survol */
+}
