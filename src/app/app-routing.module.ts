@@ -13,7 +13,10 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent },
   { path: 'recipe/:id', component: RecipeDetailsPageComponent},
   { path: 'discover', component: DiscoverPageComponent },
+  { path: 'cocktail/:param', component: CocktailPageComponent },
+  { path: 'cocktail', component: CocktailPageComponent},
   { path: '**', component: NotFoundPageComponent },
+  
 ];
 
 @NgModule({
