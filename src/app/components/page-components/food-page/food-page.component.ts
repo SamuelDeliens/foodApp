@@ -27,7 +27,7 @@ export class FoodPageComponent {
               if (data.results.length == 0) {
                 alert("No recipes found for " + query);
               } else {
-                this.recipes = data.results.map((recipe: any) => new Recipe(recipe));
+                this.recipes = data.results.map((recipe: any) => new Recipe("food", recipe));
               }
             },
             (error: any) => {

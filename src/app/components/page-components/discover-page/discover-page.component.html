@@ -10,9 +10,12 @@
         <div class="result-wrapper">
             <div class="food-div">
                 <h1>Food</h1>
-                <app-carrousel [recipes]="recipes"></app-carrousel>
+                <app-carrousel [recipes]="foodRecipes"></app-carrousel>
             </div>
-            <div class="cocktail-div"></div>
+            <div class="cocktail-div">
+                <h1>Cocktail</h1>
+                <app-carrousel [recipes]="cocktailRecipes"></app-carrousel>
+            </div>
         </div>
         <div class="blur-wall blur-wall-right">
             <div></div>

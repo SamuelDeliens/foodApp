@@ -1,6 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {SharedSearchService} from "../../services/shared-search.service";
-
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
