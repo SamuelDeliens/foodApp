@@ -30,7 +30,6 @@ export class FoodService {
   searchRecipes(query: string): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/recipes/list"
-    console.log(apiUri);
 
     const headers = new HttpHeaders({
       "x-rapidapi-host": this.apiHost,
