@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppComponent } from "../../app.component";
 
 @Component({
   selector: 'app-main-nav',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-
+    appName: string = this.appComponent.title;
+    constructor(private appComponent: AppComponent) {
+    }
 }

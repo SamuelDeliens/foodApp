@@ -28,6 +28,10 @@ mat-toolbar button, span {
   color: var(--secondary-color);
 }
 
+span {
+  font-weight: 700;
+}
+
 mat-toolbar img {
   height: auto;
   width: 2rem;
