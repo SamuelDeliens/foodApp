@@ -8,21 +8,17 @@ import {SharedSearchService} from "../../services/shared-search.service";
 })
 export class SearchBarComponent {
 
+  @Input()
   searchValue: string = "";
 
   @Input()
   comportment: any = () => {
   };
 
-  constructor(private sharedSearchService: SharedSearchService) {
-    this.searchValue = sharedSearchService.searchValue;
+  constructor() {
   }
 
   search() {
     this.comportment(this.searchValue);
-  }
-
-  setSearchValue(newSearch: string) {
-    this.sharedSearchService.searchValue = newSearch;
   }
 }
