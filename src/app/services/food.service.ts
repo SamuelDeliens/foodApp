@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
-  private apiKey = '7befa77546mshdf2022a200c25d3p1793aejsn0ca0d0c39c91';
+  private apiKey = '5b0d8c475fmsh85217c2c3c6fc2ap1093a0jsn947a9ec4d69b';
   private apiUrl = 'https://tasty.p.rapidapi.com';
   private apiHost = "tasty.p.rapidapi.com";
   private apiUa = "RapidAPI-Playground";
@@ -14,17 +14,16 @@ export class FoodService {
   constructor(private http: HttpClient) { }
 
   autoComplete(query: string): Observable<any> {
-    const apiUri = this.apiUrl + "/recipes/auto-complete"
+    const apiUri = this.apiUrl + "/recipes/list"
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
       'X-RapidAPI-Host': this.apiUrl
     });
 
-    const params = new HttpParams()
-        .set("prefix", query);
+   
 
-    return this.http.get(apiUri, { headers, params });
+    return this.http.get(apiUri, { headers });
   }
 
   searchRecipes(query: string): Observable<any> {
@@ -41,7 +40,7 @@ export class FoodService {
     const params = new HttpParams()
         .set("from", "0")
         .set("size", "24")
-        //.set("tags", "under_30_minutes");
+        .set("tags", "under_30_minutes")
         .set("q", query)
 
     return this.http.get<any>(apiUri, { headers, params });
@@ -74,6 +73,7 @@ export class FoodService {
 
     return this.http.get(apiUri, { headers, params });
   }
+
 
   getTags(): Observable<any> {
     const apiUri = this.apiUrl + "/recipes/get-more-info"
