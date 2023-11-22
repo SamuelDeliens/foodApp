@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import {Recipe} from "../../../data/recipe";
-import {ActivatedRoute} from "@angular/router";
-import {FoodService} from "../../../services/food.service";
-import {SharedSearchService} from "../../../services/shared-search.service";
-import {CocktailService} from "../../../services/cocktail.service";
+import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
+import { DrinkService } from 'src/app/services/drink.service';
+import { FoodService } from 'src/app/services/food.service';
 
 @Component({
   selector: 'app-discover-page',
@@ -14,44 +13,20 @@ export class DiscoverPageComponent {
   foodRecipes: Recipe[] = [];
   cocktailRecipes: Recipe[] = [];
 
-  constructor(private foodService: FoodService, private cocktailService: CocktailService) {
-      this.searchRecipes("");
+  constructor(private appComponent: AppComponent, private router: Router,private drinkService: DrinkService, private foodService:FoodService){}
+  public searchPopularDrinks!:any;
+  public searchPopularFood!:any;
+  ngOnInit(): void {
+    this.drinkService.searchPopularDrinks().subscribe((result) => {
+      this.searchPopularDrinks=result
+      console.log('Données récupérées :', result);
+      this.foodService.searchRecipes("potatoes").subscribe((result) => {
+        this.searchPopularFood=result
+        console.log('Données récupérées :', result);
+        
+  
+      });
+
+    });
   }
-
-  searchRecipes = (query: string) => {
-      this.searchFoodRecipes();
-      this.searchCocktailRecipes();
-  }
-
-  searchFoodRecipes: any = (query: string) => {
-    this.foodService.searchRecipes(query)
-        .subscribe(data => {
-              console.log(data);
-              if (data.results.length == 0) {
-                alert("No recipes found for " + query);
-              } else {
-                this.foodRecipes = data.results.map((recipe: any) => new Recipe("food", recipe));
-              }
-            },
-            (error: any) => {
-              console.error("An error occurred:", error);
-              alert(error.error.message);
-        });
-    }
-
-    searchCocktailRecipes: any = (query: string) => {
-        this.cocktailService.searchName(query)
-            .subscribe(data => {
-                    console.log(data);
-                    if (data.drinks.length == 0) {
-                        alert("No recipes found for " + query);
-                    } else {
-                        this.cocktailRecipes = data.drinks.map((recipe: any) => new Recipe("cocktail", recipe));
-                    }
-                },
-                (error: any) => {
-                    console.error("An error occurred:", error);
-                    alert(error.error.message);
-                });
-    }
 }
