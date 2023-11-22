@@ -19,4 +19,7 @@ export class RecipeDetailsPageComponent {
     this.recipe = this.sharedSearchService.currentRecipe;
   }
 
+  onInit() {
+  }
+
 }

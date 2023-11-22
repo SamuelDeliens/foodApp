@@ -10,13 +10,15 @@ import {FoodService} from "../../../services/food.service";
 })
 export class FoodPageComponent {
 
-  searchValue: string;
+  searchValue: string = "";
   recipes: Recipe[] = [];
 
   constructor(private route: ActivatedRoute, private foodService: FoodService) {
     this.searchValue = <string>this.route.snapshot.paramMap.get('param');
     if (this.searchValue != "" && this.searchValue != null) {
-      this.searchRecipes(this.searchValue);
+        this.searchRecipes(this.searchValue);
+    } else {
+        this.searchRecipes("");
     }
   }
 
