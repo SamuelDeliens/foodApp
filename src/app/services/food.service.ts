@@ -29,7 +29,6 @@ export class FoodService {
   searchRecipes(query: string): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/recipes/list"
-    console.log(apiUri);
 
     const headers = new HttpHeaders({
       "x-rapidapi-host": this.apiHost,
@@ -43,7 +42,9 @@ export class FoodService {
         .set("tags", "under_30_minutes")
         .set("q", query)
 
-    return this.http.get<any>(apiUri, { headers, params });
+    //TODO replace this for final version => avoid api use
+    //return this.http.get<any>(apiUri, { headers, params });
+    return this.http.get('assets/data/recipeFood.json');
   }
 
   searchSimilarRecipes(id: number): Observable<any> {

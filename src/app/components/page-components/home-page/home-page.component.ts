@@ -29,7 +29,7 @@ export class HomePageComponent {
   };
 
   navigateToSearchPage: any = (query: string) => {
-    this.router.navigate(['search', query]);
+    this.router.navigate(['food', query]);
   }
 
 }

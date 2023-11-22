@@ -1,7 +1,4 @@
 import {Component, Input} from '@angular/core';
-import { Router } from '@angular/router';
-import {SharedSearchService} from "../../services/shared-search.service";
-
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -9,21 +6,17 @@ import {SharedSearchService} from "../../services/shared-search.service";
 })
 export class SearchBarComponent {
 
+  @Input()
   searchValue: string = "";
 
   @Input()
-  comportement: any = () => {
+  comportment: any = () => {
   };
 
-  constructor(private sharedSearchService: SharedSearchService) {
-    this.searchValue = sharedSearchService.searchValue;
+  constructor() {
   }
 
   search() {
-    this.comportement(this.searchValue);
-  }
-
-  setSearchValue(newSearch: string) {
-    this.sharedSearchService.searchValue = newSearch;
+    this.comportment(this.searchValue);
   }
 }

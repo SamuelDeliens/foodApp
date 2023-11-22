@@ -3,12 +3,15 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { DrinkService } from 'src/app/services/drink.service';
 import { FoodService } from 'src/app/services/food.service';
+
 @Component({
   selector: 'app-discover-page',
   templateUrl: './discover-page.component.html',
   styleUrls: ['./discover-page.component.css']
 })
 export class DiscoverPageComponent {
+  foodRecipes: Recipe[] = [];
+  cocktailRecipes: Recipe[] = [];
 
   constructor(private appComponent: AppComponent, private router: Router,private drinkService: DrinkService, private foodService:FoodService){}
   public searchPopularDrinks!:any;

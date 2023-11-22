@@ -1,0 +1,53 @@
+.search-page {
+    width: 100%;
+    height: calc(100vh - 6rem - 2.5rem);
+    padding-top: 2.5rem;
+    background: color-mix(in srgb, var(--primary-color) 20%, transparent);
+}
+
+.search-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+app-search-bar {
+    width: 40%;
+}
+
+
+.result-div {
+    padding: 3rem 0;
+    position: relative;
+    overflow: scroll;
+    width: 100%;
+}
+
+.result-wrapper {
+    position: relative;
+    z-index: 0;
+}
+
+h1 {
+    margin-left: 5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    padding-bottom: 3rem;
+}
+
+.grid-card {
+    width: calc(100% - 5rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.5rem;
+}
+
+app-card {
+    height: 100%;
+}
