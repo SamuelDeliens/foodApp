@@ -6,6 +6,7 @@ mat-toolbar {
   grid-template-columns: 1fr auto 1fr; /* 1fr pour les espaces à gauche et à droite, auto pour le centre */
   align-content: center;
   justify-content: space-between; /* Pour aligner les éléments en les espacant */
+  position: relative;
 }
 
 mat-toolbar div {

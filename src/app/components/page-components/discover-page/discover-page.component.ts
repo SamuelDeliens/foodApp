@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
+import { DrinkService } from 'src/app/services/drink.service';
+import { FoodService } from 'src/app/services/food.service';
 
 @Component({
   selector: 'app-discover-page',
@@ -6,5 +10,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./discover-page.component.css']
 })
 export class DiscoverPageComponent {
+  foodRecipes: Recipe[] = [];
+  cocktailRecipes: Recipe[] = [];
 
+  constructor(private appComponent: AppComponent, private router: Router,private drinkService: DrinkService, private foodService:FoodService){}
+  public searchPopularDrinks!:any;
+  public searchPopularFood!:any;
+  ngOnInit(): void {
+    this.drinkService.searchPopularDrinks().subscribe((result) => {
+      this.searchPopularDrinks=result
+      console.log('Données récupérées :', result);
+      this.foodService.searchRecipes("potatoes").subscribe((result) => {
+        this.searchPopularFood=result
+        console.log('Données récupérées :', result);
+        
+  
+      });
+
+    });
+  }
 }

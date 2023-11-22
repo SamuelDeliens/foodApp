@@ -12,9 +12,29 @@ h1 {
     font-size: 5rem;
     font-weight: 700;
     padding-bottom: 3rem;
+    padding-top: 50px;
 }
 
 app-search-bar {
     width: 40%;
     margin-bottom: 10%;
+}
+
+.feed{
+    align-self: flex-start;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: purple;
+    border-radius: 5px;
+    background-color:white;
+    width:auto;
+    height: auto;
+    margin:10px;
+}
+
+.title{
+    font-weight: bold;
+}
+.scrollable-container{
+    overflow: scroll;
 }

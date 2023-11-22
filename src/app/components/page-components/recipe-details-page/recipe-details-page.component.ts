@@ -12,11 +12,14 @@ export class RecipeDetailsPageComponent {
 
   private idRecipe: string = "";
   @Input()
-  recipe: Recipe = new Recipe({});
+  recipe: Recipe = new Recipe("", {});
 
   constructor(private route: ActivatedRoute, private sharedSearchService: SharedSearchService) {
     this.idRecipe = <string>this.route.snapshot.paramMap.get('param');
     this.recipe = this.sharedSearchService.currentRecipe;
+  }
+
+  onInit() {
   }
 
 }

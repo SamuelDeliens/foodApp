@@ -10,13 +10,13 @@ import {Router} from "@angular/router";
 export class CardComponent {
 
   @Input()
-  recipe: Recipe = new Recipe({});
+  recipe: Recipe = new Recipe("", {});
 
   constructor(private router: Router) {
   }
 
   navigateToRecipeDetails() {
     console.log('navigateToRecipeDetails');
-    this.router.navigate(['/recipe', this.recipe.id]);
+    this.router.navigate(['/recipe/food', this.recipe.id]);
   }
 }
