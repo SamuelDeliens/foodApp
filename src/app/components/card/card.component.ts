@@ -17,6 +17,6 @@ export class CardComponent {
 
   navigateToRecipeDetails() {
     console.log('navigateToRecipeDetails');
-    this.router.navigate(['/recipe', this.recipe.id]);
+    this.router.navigate(['/recipe/food', this.recipe.id]);
   }
 }
