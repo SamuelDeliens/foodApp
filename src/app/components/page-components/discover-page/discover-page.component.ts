@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { DrinkService } from 'src/app/services/drink.service';
 import { FoodService } from 'src/app/services/food.service';
+import {Recipe} from "../../../data/recipe";
 
 @Component({
   selector: 'app-discover-page',
