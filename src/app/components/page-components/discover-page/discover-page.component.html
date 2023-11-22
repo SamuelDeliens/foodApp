@@ -1,7 +1,7 @@
 <div class="discover-page scrollable-container">
 <h1 style="color: purple;margin-left: 10px;">Découvrir ...</h1>
 <h2 style="color: purple; margin-left: 10px;">Plats les plus populaires chez nos utilisateurs</h2>
-<div class="food">
+<!-- <div class="food">
 
     <div class='carousel'>
         <input checked='checked' class='activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-</div>
+</div> -->
 <h2 style="color: purple; margin-left: 10px;">Ils ont aussi aimé</h2>
 <div class="drink">
         <div class='carousel'>
@@ -37,7 +37,7 @@
           <div class='controls'>
             <label class='control control--forward' for='carousel-slide-activator-2'>&#8250;</label>
           </div>
-          <div class='controls' *ngFor="let item of searchPopularDrinks.drinks">
+          <div class='controls' *ngFor="let item of searchPopularDrinks?.drinks">
             <label class='control control--backward' for='carousel-slide-activator-1'>&#8249;</label>
             <label class='control control--forward' for='carousel-slide-activator-3'>&#8250;</label>
           </div>
@@ -46,7 +46,7 @@
           </div>
           <div class='screen'>
             <div class='track'>
-              <div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'  *ngFor="let item of searchPopularDrinks.drinks">
+              <div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'  *ngFor="let item of searchPopularDrinks?.drinks">
                 <div class='demo-content'><img [src]="item.strDrinkThumb" class="card-drinks"/></div>
               </div>
                

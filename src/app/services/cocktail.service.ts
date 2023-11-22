@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CocktailService {
-  private apiKey = '8b4dd2d6e5msh6d6bbfad360372fp15c90cjsn7b9a2b255c39'
+  private apiKey = '5b0d8c475fmsh85217c2c3c6fc2ap1093a0jsn947a9ec4d69b'
   private apiUrl = 'https://the-cocktail-db.p.rapidapi.com'
   private apiHost = "the-cocktail-db.p.rapidapi.com"
   private apiUa = "RapidAPI-Playground"
@@ -22,7 +22,6 @@ export class CocktailService {
       'X-RapidAPI-Host': this.apiHost,
       "x-rapidapi-ua": this.apiUa,
 
-
     });
 
     const params = new HttpParams()
@@ -33,12 +32,25 @@ export class CocktailService {
     return this.http.get(apiUri, { headers, params });
   }
 
+  searchPopularCocktails(): Observable<any>{
+    const apiUri = this.apiUrl + "/popular.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams();
+        //.set("i", "query");
+    return this.http.get(apiUri, { headers, params });
+  }
   searchIngredient(query: string): Observable<any> {
     const apiUri = this.apiUrl + "/filter.php"
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -52,7 +64,8 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -66,7 +79,8 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -80,7 +94,8 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -94,7 +109,8 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -108,7 +124,8 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
