@@ -278,6 +278,14 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/youtube-player@^17.0.1":
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/@angular/youtube-player/-/youtube-player-17.0.1.tgz#be145f98f44d35429d99e5bcb9e098356613f8f3"
+  integrity sha512-j3SQlLNWaGUBkg9vibuHf2luIDMcX1QcNbeafpthz64uydJtq6nCH8VwsW3sUyf3GBErNjTu29jQq2srnqMalA==
+  dependencies:
+    "@types/youtube" "^0.0.42"
+    tslib "^2.3.0"
+
 "@assemblyscript/loader@^0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.10.1.tgz#70e45678f06c72fa2e350e8553ec4a4d72b92e06"
@@ -2672,6 +2680,16 @@
   integrity sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==
   dependencies:
     "@types/node" "*"
+
+"@types/youtube@0.0.46":
+  version "0.0.46"
+  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.46.tgz#925afdf741f35279114da7c58c98013868a949f5"
+  integrity sha512-Yf1Y4bDj/QIn8v+zdy0l7+OW6s1uoUvzVn5cGqPNCsL4iUW4gYUlIdQIRtH9NOHVgwZNLbVeeRDEn6N4RMq6Nw==
+
+"@types/youtube@^0.0.42":
+  version "0.0.42"
+  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.42.tgz#c3568e3e82e04cbd00cac3b66564ebcd21fd9d90"
+  integrity sha512-Nqo3HMPFPcNyZ7HNFZJjpH+N4yXqpxBItG+41e7nL9zednovMRZMXWj36CctSznbBcbj6ucvkJDo5iZ8SKqLIw==
 
 "@vitejs/plugin-basic-ssl@1.0.1":
   version "1.0.1"
@@ -5636,6 +5654,21 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+ngx-videogular@^13.2.4:
+  version "13.2.4"
+  resolved "https://registry.yarnpkg.com/ngx-videogular/-/ngx-videogular-13.2.4.tgz#6b2bebf38e55c9727abf4d0e399254301f65fd62"
+  integrity sha512-CXOWvhc9iSMGxw/O1tlFcSLIV9NdGYPBzIjz7e6q2NmkKMCt4NUKC7ayYWPflPobzxy7g6yRgT+h4aaKLpFDsw==
+  dependencies:
+    tslib "^2.0.0"
+
+ngx-youtube-player@^12.0.2:
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-youtube-player/-/ngx-youtube-player-12.0.2.tgz#42b7bf49cd9580eb6991e6fbda2e0b4843ad9783"
+  integrity sha512-swVZ1MUQRmEAw0fyOl9saoa1XLBvm8UBfYjJzl+iP05DX250nQN2BOaPIPEqS8FliBgzN5HjHds5zREC+puQCw==
+  dependencies:
+    "@types/youtube" "0.0.46"
+    tslib "^2.0.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"
@@ -7105,7 +7138,7 @@ tslib@2.6.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.1.tgz#fd8c9a0ff42590b25703c0acb3de3d3f4ede0410"
   integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
 
-tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.0:
+tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==

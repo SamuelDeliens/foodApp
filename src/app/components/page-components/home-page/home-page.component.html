@@ -1,19 +1,14 @@
-<div class="home-page scrollable-container">
+<div class="home-page">
     <h1> {{ appTitle }} </h1>
 
-    <app-search-bar [comportment]="navigateToSearchPage"></app-search-bar>
+    <app-search-bar style="margin-top: 900px; position: absolute;" [comportment]="navigateToSearchPage"></app-search-bar>
+    <div class=" div-scrollable-vertical">
+    <div class="card" *ngFor ="let item of searchCocktailFeed.drinks" >
+  
+      <img *ngIf="searchCocktailFeed.drinks" [src]="item.strDrinkThumb" [routerLink]="['/recipe/food/', item.idDrink]"alt="Avatar" style="width:100%">
     
-    <div class="feed" >
-        <table>
-            <tr><td><h3>À la une de {{appTitle}}</h3></td></tr>
-            <tr rowspan="4">
-              <td ><img *ngIf="searchFeed.results" [src]="searchFeed.results[0].item.thumbnail_url" alt="" style="width: 400px;height: 250px; border-radius: 5px;">
-              </td>
-              <td  *ngFor ="let item of searchFeed.results[1].items[0].thumbnail_urls">
-                <img [src]="item" style="width: 100px;height: 80px;"/>
-            </td></tr>
-              <tr><td><p class="title">{{searchFeed.results[0].item.name}}</p></td></tr>
-              <tr><td><h3>{{searchFeed.results[0].item.description}}</h3></td></tr>
-             
-        </table>
-</div>
+      <div class="container">
+        <h4><b>{{item.strDrink}}</b></h4> 
+      </div>
+    </div>
+  </div>

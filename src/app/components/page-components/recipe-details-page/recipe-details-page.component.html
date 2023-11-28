@@ -1,8 +1,26 @@
 <div class="recipe-details-page">
     <div>
-        <h1>{{ recipe.name }}</h1>
-        <img class="image" [src]="recipe.image" alt="{{ recipe.image_alt }}"/>
-        <span>{{ recipe.creation_date }}</span>
-        <p>{{ recipe.description }}</p>
+        
+        <div class='youtube-container'>
+        <youtube-player class="detail-content" *ngIf="fetchCocktailDetails.drinks[0]?.strVideo" [videoId]="getYoutubeId(fetchCocktailDetails.drinks[0]?.strVideo)"
+        > </youtube-player>
+        <img class="detail-content"  *ngIf="!fetchCocktailDetails.drinks[0]?.strVideo" class="image" [src]="fetchCocktailDetails.drinks[0]?.strDrinkThumb" alt="recipe"/>
+        <span class="text-style"> {{ fetchCocktailDetails.drinks[0]?.strDrink }}</span>
+        <br/>
+            <span class="text-style" >{{ fetchCocktailDetails.drinks[0]?.dateModified }}</span>
+            <br/>
+            <span class="text-style" >{{ fetchCocktailDetails.drinks[0]?.strInstructions }}</span> 
+            <br>
+            <span *ngIf="fetchCocktailDetails.drinks[0]?.strCategory" class="text-style" >Category: </span> 
+            <br *ngIf="fetchCocktailDetails.drinks[0]?.strCategory" >
+            <span *ngIf="fetchCocktailDetails.drinks[0]?.strCategory"> {{fetchCocktailDetails.drinks[0]?.strCategory}}</span>
+            <br>
+            <span class="text-style" >You will need: </span> 
+            <ul *ngFor="let ingredient of cocktailIngredientsById(fetchCocktailDetails.drinks[0])">
+            <li>{{ingredient}}</li>
+            </ul>
+    </div>
+
+   
     </div>
 </div>

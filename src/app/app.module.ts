@@ -8,11 +8,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-
+import {HttpClientModule} from "@angular/common/http"; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomePageComponent } from './components/page-components/home-page/home-page.component';
 import { DiscoverPageComponent } from './components/page-components/discover-page/discover-page.component';
 import { FoodPageComponent } from './components/page-components/food-page/food-page.component';
@@ -20,10 +18,12 @@ import { RecipeDetailsPageComponent } from './components/page-components/recipe-
 import { CocktailPageComponent } from './components/page-components/cocktail-page/cocktail-page.component';
 import { NotFoundPageComponent } from './components/page-components/not-found-page/not-found-page.component';
 
-import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component'; 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
-import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';  
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import {  FooterDownComponent } from './components/footer-down/footer-down.component';
 
 @NgModule({
   declarations: [
@@ -37,15 +37,19 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     CarrouselComponent,
     RecipeDetailsPageComponent,
     FoodPageComponent,
-    CocktailPageComponent,
+    CocktailPageComponent, 
+    FooterDownComponent,  
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    YouTubePlayerModule,
+ 
 
     //Material
+   
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

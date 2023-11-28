@@ -7,6 +7,10 @@
     align-items: center;
     background: color-mix(in srgb, var(--primary-color) 20%, transparent);
 }
+.div-scrollable-vertical {
+    max-height: 300px; /* Hauteur maximale avant que le défilement ne s'active */
+    overflow-y: auto; /* Active une barre de défilement si nécessaire */
+}
 
 h1 {
     font-size: 5rem;
@@ -29,7 +33,7 @@ app-search-bar {
     background-color:white;
     width:auto;
     height: auto;
-    margin:10px;
+    margin:300px;
 }
 
 .title{
@@ -37,4 +41,26 @@ app-search-bar {
 }
 .scrollable-container{
     overflow: scroll;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.card-content {
+    padding: 2px 16px;
 }
