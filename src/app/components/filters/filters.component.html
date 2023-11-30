@@ -1,0 +1,14 @@
+<div class="search-button">
+    <a (click)="openFilters()">Advanced Search</a>
+</div>
+<div id="filters" class="filters close">
+    <app-filter *ngFor="let category of categories" [category]="category"></app-filter>
+</div>
+<div id="selected-filters" class="selected-filters">
+    <div class="selected-filter" *ngFor="let filter of selectedFilters">
+        <span class="filter-name">{{filter.value}}</span>
+        <div class="filter-remove" (click)="removeFilter(filter.category)">
+            <span>x</span>
+        </div>
+    </div>
+</div>

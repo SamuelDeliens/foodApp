@@ -24,6 +24,8 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     RecipeDetailsPageComponent,
     FoodPageComponent,
     CocktailPageComponent,
+    FiltersComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

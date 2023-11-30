@@ -21,12 +21,10 @@ export class FoodService {
       'X-RapidAPI-Host': this.apiUrl
     });
 
-   
-
     return this.http.get(apiUri, { headers });
   }
 
-  searchRecipes(query: string): Observable<any> {
+  searchRecipes(query: string, tags: string = "", from: string = "0"): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/recipes/list"
 
@@ -37,14 +35,14 @@ export class FoodService {
     });
 
     const params = new HttpParams()
-        .set("from", "0")
+        .set("from", from)
         .set("size", "24")
-        .set("tags", "under_30_minutes")
+        .set("tags", tags)
         .set("q", query)
 
     //TODO replace this for final version => avoid api use
-    return this.http.get<any>(apiUri, { headers, params });
-    //return this.http.get('assets/data/recipeFood.json');
+    //return this.http.get<any>(apiUri, { headers, params });
+    return this.http.get('assets/data/recipeFood.json');
   }
 
   searchSimilarRecipes(id: number): Observable<any> {
@@ -77,16 +75,7 @@ export class FoodService {
 
 
   getTags(): Observable<any> {
-    const apiUri = this.apiUrl + "/recipes/get-more-info"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
-    });
-
-    const params = new HttpParams();
-
-    return this.http.get(apiUri, { headers, params });
+    return this.http.get("assets/data/tagsFood.json");
   }
 
 }
