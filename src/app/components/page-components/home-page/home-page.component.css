@@ -11,7 +11,10 @@
     max-height: 300px; /* Hauteur maximale avant que le défilement ne s'active */
     overflow-y: auto; /* Active une barre de défilement si nécessaire */
 }
-
+* {
+    box-sizing: border-box;
+  }
+  
 h1 {
     font-size: 5rem;
     font-weight: 700;

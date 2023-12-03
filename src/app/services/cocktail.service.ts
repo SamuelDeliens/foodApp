@@ -44,6 +44,7 @@ export class CocktailService {
 
     return this.http.get(apiUri, { headers, params });
   }
+
   fetchCocktailDetailsById(id : string): Observable<any>{
     const apiUri = this.apiUrl + "/lookup.php"
 
