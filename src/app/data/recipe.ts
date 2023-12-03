@@ -49,16 +49,17 @@ export class Recipe {
         this.description = "";
         this.image = recipe_json.strDrinkThumb;
         this.image_alt = recipe_json.thumbnail_alt_text;
-
-        const dateModified = recipe_json.dateModified;
-        const date = new Date(dateModified);
-        this.creation_date_int = date.getTime().toString();
-        this.creation_date = date.getDate().toString() + "/" + (date.getMonth() + 1).toString() + "/" + date.getFullYear().toString();
-        
-
-
-        
     
+        const dateModified = recipe_json.dateModified;
+    
+        if (dateModified) {
+            const date = new Date(dateModified);
+            if (!isNaN(date.getTime())) {
+                this.creation_date_int = date.getTime().toString();
+                this.creation_date = date.getDate().toString() + "/" + (date.getMonth() + 1).toString() + "/" + date.getFullYear().toString();
+            }
+        } 
         
     }
 }
+    

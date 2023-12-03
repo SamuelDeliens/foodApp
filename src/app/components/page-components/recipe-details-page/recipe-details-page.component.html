@@ -2,7 +2,7 @@
     <div>
         <h1>{{ recipe.name }}</h1>
         <img class="image" [src]="recipe.image" alt="{{ recipe.image_alt }}"/>
-        <span>{{ recipe.creation_date }}</span>
+        <span *ngIf="recipe.creation_date">{{ recipe.creation_date }}</span>
         <p>{{ recipe.description }}</p>
     </div>
 </div>

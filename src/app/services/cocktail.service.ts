@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CocktailService {
-  private apiKey = '8b4dd2d6e5msh6d6bbfad360372fp15c90cjsn7b9a2b255c39'
+  private apiKey = '5b0d8c475fmsh85217c2c3c6fc2ap1093a0jsn947a9ec4d69b';
   private apiUrl = 'https://the-cocktail-db.p.rapidapi.com'
   private apiHost = "the-cocktail-db.p.rapidapi.com"
   private apiUa = "RapidAPI-Playground"
@@ -20,9 +20,7 @@ export class CocktailService {
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
       'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa,
-
-
+      "X-RapidApi-Ua": this.apiUa,
     });
 
     const params = new HttpParams()
@@ -52,7 +50,8 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiUrl,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -61,59 +60,25 @@ export class CocktailService {
     return this.http.get(apiUri, { headers, params });
   }
 
-  filterByCategory(query: string): Observable<any> {
+  filter(alcoholic: string, category: string, glass: string, ingredient: string): Observable<any> {
     const apiUri = this.apiUrl + "/filter.php"
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "X-RapidApi-Ua": this.apiUa,
     });
 
     const params = new HttpParams()
-        .set("c", query);
+        .set("a", alcoholic)
+        .set("c", category)
+        .set("g", glass)
+        .set("i", ingredient);
 
-    return this.http.get(apiUri, { headers, params });
-  }
 
-  filterByAlcoholic(query: string): Observable<any> {
-    const apiUri = this.apiUrl + "/filter.php"
 
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
-    });
 
-    const params = new HttpParams()
-        .set("a", query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
-  filterByGlass(query: string): Observable<any> {
-    const apiUri = this.apiUrl + "/filter.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
-    });
-
-    const params = new HttpParams()
-        .set("g", query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
-  filterByMultiIngredient(query: string): Observable<any> {
-    const apiUri = this.apiUrl + "/filter.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
-    });
-
-    const params = new HttpParams()
-        .set("i", query);
-
+ 
     return this.http.get(apiUri, { headers, params });
   }
 
