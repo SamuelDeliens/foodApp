@@ -31,12 +31,25 @@ export class CocktailService {
     //return this.http.get(apiUri, { headers, params });
   }
 
+  searchPopularCocktails(): Observable<any>{
+    const apiUri = this.apiUrl + "/popular.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams();
+        //.set("i", "query");
+    return this.http.get(apiUri, { headers, params });
+  }
   searchIngredient(query: string): Observable<any> {
     const apiUri = this.apiUrl + "/filter.php"
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
@@ -50,7 +63,7 @@ export class CocktailService {
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl,
+      'X-RapidAPI-Host': this.apiHost,
       "x-rapidapi-ua": this.apiUa
     });
 
@@ -74,10 +87,6 @@ export class CocktailService {
         .set("c", category)
         .set("g", glass)
         .set("i", ingredient);
-
-
-
-
  
     return this.http.get(apiUri, { headers, params });
   }
