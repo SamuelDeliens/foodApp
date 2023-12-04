@@ -1,0 +1,14 @@
+<div id="{{category.name}}" class="filter" (click)="choose()">
+    <span class="filter-title">{{selected}}</span>
+
+    <div class=""></div>
+
+    <div class="filter-content">
+        <div class="choice" (click)="unselect(category.name)" *ngIf="category.name != selected">
+            <span>---</span>
+        </div>
+        <div class="choice" *ngFor="let tag of category.tags" (click)="select(tag.name)">
+            <span>{{tag.name}}</span>
+        </div>
+    </div>
+</div>

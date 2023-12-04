@@ -1,7 +1,9 @@
 <div class="search-page">
 
     <div class="search-div">
+        <div id="back" class="close"></div>
         <app-search-bar [comportment]="searchRecipes" [searchValue]="searchValue"></app-search-bar>
+        <app-filters></app-filters>
     </div>
 
     <div class="result-div">
@@ -15,6 +17,4 @@
             <div class="cocktail-div"></div>
         </div>
     </div>
-
-
 </div>

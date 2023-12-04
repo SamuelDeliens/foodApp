@@ -8,7 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,8 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +40,15 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     RecipeDetailsPageComponent,
     FoodPageComponent,
     CocktailPageComponent,
+    FiltersComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
 
     //Material
     MatToolbarModule,
