@@ -1,0 +1,267 @@
+{
+  "cuisines": {
+    "count": 23,
+    "results": [
+      {
+        "name": "brazilian",
+        "display_name": "Brazilian"
+      },
+      {
+        "name": "british",
+        "display_name": "British"
+      },
+      {
+        "name": "german",
+        "display_name": "German"
+      },
+      {
+        "name": "italian",
+        "display_name": "Italian"
+      },
+      {
+        "name": "african",
+        "display_name": "African"
+      },
+      {
+        "name": "jewish",
+        "display_name": "Jewish"
+      },
+      {
+        "name": "north_american",
+        "display_name": "North American"
+      },
+      {
+        "name": "japanese",
+        "display_name": "Japanese"
+      },
+      {
+        "name": "korean",
+        "display_name": "Korean"
+      },
+      {
+        "name": "hawaiian",
+        "display_name": "Hawaiian"
+      },
+      {
+        "name": "cuban",
+        "display_name": "Cuban"
+      },
+      {
+        "name": "chinese",
+        "display_name": "Chinese"
+      },
+      {
+        "name": "dominican",
+        "display_name": "Dominican"
+      },
+      {
+        "name": "mediterranean",
+        "display_name": "Mediterranean"
+      },
+      {
+        "name": "thai",
+        "display_name": "Thai"
+      },
+      {
+        "name": "haitian",
+        "display_name": "Haitian"
+      },
+      {
+        "name": "lebanese",
+        "display_name": "Lebanese"
+      },
+      {
+        "name": "venezuelan",
+        "display_name": "Venezuelan"
+      },
+      {
+        "name": "asian",
+        "display_name": "Asian"
+      },
+      {
+        "name": "european",
+        "display_name": "European"
+      },
+      {
+        "name": "french",
+        "display_name": "French"
+      },
+      {
+        "name": "indian",
+        "display_name": "Indian"
+      },
+      {
+        "name": "mexican",
+        "display_name": "Mexican"
+      }
+    ]
+  },
+  "dietary": {
+    "count": 6,
+    "results": [
+      {
+        "name": "gluten_free",
+        "display_name": "Gluten-Free"
+      },
+      {
+        "name": "vegan",
+        "display_name": "Vegan"
+      },
+      {
+        "name": "vegetarian",
+        "display_name": "Vegetarian"
+      },
+      {
+        "name": "contains_alcohol",
+        "display_name": "Contains Alcohol"
+      },
+      {
+        "name": "dairy_free",
+        "display_name": "Dairy-Free"
+      },
+      {
+        "name": "pescatarian",
+        "display_name": "Pescatarian"
+      }
+    ]
+  },
+  "meals": {
+    "count": 15,
+    "results": [
+      {
+        "name": "seafood",
+        "display_name": "Seafood"
+      },
+      {
+        "name": "pasta",
+        "display_name": "Pasta"
+      },
+      {
+        "name": "soups",
+        "display_name": "Soups"
+      },
+      {
+        "name": "chicken",
+        "display_name": "Chicken"
+      },
+      {
+        "name": "pork",
+        "display_name": "Pork"
+      },
+      {
+        "name": "beef",
+        "display_name": "Beef"
+      },
+      {
+        "name": "pizza",
+        "display_name": "Pizza"
+      },
+      {
+        "name": "meat_loaf",
+        "display_name": "Meat Loaf"
+      },
+      {
+        "name": "chilis",
+        "display_name": "Chilis"
+      },
+      {
+        "name": "pot_roast",
+        "display_name": "Pot Roast"
+      },
+      {
+        "name": "quiches",
+        "display_name": "Quiches"
+      },
+      {
+        "name": "burgers",
+        "display_name": "Burgers"
+      },
+      {
+        "name": "stews",
+        "display_name": "Stews"
+      },
+      {
+        "name": "stir_fry",
+        "display_name": "Stir Fry"
+      },
+      {
+        "name": "tacos_burritos",
+        "display_name": "Tacos & Burritos"
+      },
+      {
+        "name": "wok",
+        "display_name": "Wok"
+      }
+    ]
+  },
+  "difficulty": {
+    "count": 6,
+    "results": [
+      {
+        "name": "easy",
+        "display_name": "Easy"
+      },
+      {
+        "name": "under_15_minutes",
+        "display_name": "Under 15 Minutes"
+      },
+      {
+        "name": "under_30_minutes",
+        "display_name": "Under 30 Minutes"
+      },
+      {
+        "name": "under_45_minutes",
+        "display_name": "Under 45 Minutes"
+      },
+      {
+        "name": "under_1_hour",
+        "display_name": "Under 1 Hour"
+      },
+      {
+        "name": "5_ingredients_or_less",
+        "display_name": "5 Ingredients or Less"
+      }
+    ]
+  },
+  "appliances": {
+    "count": 9,
+    "results": [
+      {
+        "name": "freezer_friendly",
+        "display_name": "Freezer Friendly"
+      },
+      {
+        "name": "microwave",
+        "display_name": "Microwave"
+      },
+      {
+        "name": "food_processor",
+        "display_name": "Food Processor"
+      },
+      {
+        "name": "hand_mixer",
+        "display_name": "Hand Mixer"
+      },
+      {
+        "name": "pressure_cooker",
+        "display_name": "Pressure Cooker"
+      },
+      {
+        "name": "air_fryer",
+        "display_name": "Air Fryer"
+      },
+      {
+        "name": "blender",
+        "display_name": "Blender"
+      },
+      {
+        "name": "stove_top",
+        "display_name": "Stove Top"
+      },
+      {
+        "name": "broiler",
+        "display_name": "Broiler"
+      }
+    ]
+  }
+}

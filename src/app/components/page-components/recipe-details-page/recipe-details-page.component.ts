@@ -1,7 +1,9 @@
 import {Component, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {SharedSearchService} from "../../../services/shared-search.service";
 import {Recipe} from "../../../data/recipe";
+import {FoodService} from "../../../services/food.service";
+import {RecipeDetails} from "../../../data/detailFood";
+import {ImageSearchService} from "../../../services/image-search.service";
 
 @Component({
   selector: 'app-recipe-details-page',
@@ -12,14 +14,54 @@ export class RecipeDetailsPageComponent {
 
   private idRecipe: string = "";
   @Input()
-  recipe: Recipe = new Recipe("", {});
+  recipe: RecipeDetails = new RecipeDetails("");
 
-  constructor(private route: ActivatedRoute, private sharedSearchService: SharedSearchService) {
-    this.idRecipe = <string>this.route.snapshot.paramMap.get('param');
-    this.recipe = this.sharedSearchService.currentRecipe;
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private imageSearchService: ImageSearchService) {
+    this.idRecipe = <string>this.route.snapshot.paramMap.get('id');
+
+    if (this.idRecipe != "") {
+        this.searchDetails(parseInt(this.idRecipe));
+    } else {
+        alert("No recipe send");
+    }
   }
 
-  onInit() {
-  }
 
+    searchDetails: any = (id: number) => {
+        console.log(id);
+        this.foodService.searchDetails(id)
+            .subscribe(data => {
+                    this.recipe = new RecipeDetails(data);
+                    console.log(this.recipe);
+
+                    for (let ingredient of this.recipe.ingredients) {
+                        this.imageSearchService.searchImages(ingredient.name)
+                            .subscribe(data => {
+                                console.log(data);
+                                let image = data.photos.photo[0];
+                                ingredient.image = "https://live.staticflickr.com/" + image.server +
+                                    "/" + image.id + "_" + image.secret + ".jpg";
+                                console.log(ingredient.name);
+                                console.log(ingredient.description);
+                                console.log(ingredient.image);
+                            });
+                    }
+
+                  },
+                  (error: any) => {
+                    console.log(error);
+                    alert("No recipes found for " + id);
+                  });
+    }
+
+    protected readonly Array = Array;
+    protected readonly Math = Math;
+
+    decreasePortion() {
+        this.recipe.portion--;
+    }
+
+    increasePortion() {
+        this.recipe.portion++;
+    }
 }
