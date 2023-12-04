@@ -119,29 +119,42 @@
     font-size: 0.8rem;
 }
 
-/* Mid Details */
+/* Nutrition */
 
-.nutrition, .ingredients {
+.nutrition {
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.nutrition h2, .ingredients h2 {
+.nutrition h2 {
     grid-column: 1/4;
 }
 
 
+/* Ingredients */
 
-.nutrition, .ingredients {
+.ingredients {
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.nutrition h2, .ingredients h2 {
+.ingredients h2 {
     grid-column: 1/5;
 }
+
+.nutrition .type {
+    width: 30%;
+    margin: 0;
+    display: inline-block;
+}
+
+.nutrition span:nth-child(2) {
+    font-weight: bold;
+}
+
+
 
 .ingredients .portion {
     grid-column: 1/5;
@@ -183,18 +196,6 @@
 .ingredients .name {
     font-size: 1rem;
     color: var(--secondary-color);
-}
-
-
-
-.nutrition .type {
-    width: 30%;
-    margin: 0;
-    display: inline-block;
-}
-
-.nutrition span:nth-child(2) {
-    font-weight: bold;
 }
 
 
