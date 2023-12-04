@@ -18,12 +18,7 @@ export class HomePageComponent {
   public searchFeed!:any;
   public searchCocktailFeed!:any;
   ngOnInit(): void {
-    // this.feedService.searchFeeds("meal_plan_carousel").subscribe((result) => {
-    //   this.searchFeed=result
-    //   console.log('Données récupérées :', result);
-      
 
-    // });
     this.cocktailService.searchPopularCocktails().subscribe((result) =>{
       this.searchCocktailFeed = result
       console.log('Données récupérées :', result);

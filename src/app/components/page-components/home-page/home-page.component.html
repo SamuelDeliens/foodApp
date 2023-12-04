@@ -1,14 +1,25 @@
 <div class="home-page">
-    <h1> {{ appTitle }} </h1>
 
-    <app-search-bar style="margin-top: 900px; position: absolute;" [comportment]="navigateToSearchPage"></app-search-bar>
-    <div class=" div-scrollable-vertical">
-    <div class="card" *ngFor ="let item of searchCocktailFeed.drinks" >
-  
-      <img *ngIf="searchCocktailFeed.drinks" [src]="item.strDrinkThumb" [routerLink]="['/recipe/food/', item.idDrink]"alt="Avatar" style="width:100%">
-    
-      <div class="container">
-        <h4><b>{{item.strDrink}}</b></h4> 
+    <app-search-bar style="margin-top: 0px;" [comportment]="navigateToSearchPage"></app-search-bar>
+
+    <div class = "food-items">
+      <div  *ngFor="let item of searchCocktailFeed.drinks" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
+        <div class = "food-img">
+          <img [src] = "item.strDrinkThumb" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.strDrink}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
       </div>
-    </div>
-  </div>
+
+
