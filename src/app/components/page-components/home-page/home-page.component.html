@@ -1,9 +1,83 @@
 <div class="home-page">
 
     <app-search-bar style="margin-top: 0px;" [comportment]="navigateToSearchPage"></app-search-bar>
-
+<!--Displaying cocktail and food together mixed by rows-->
     <div class = "food-items">
-      <div  *ngFor="let item of searchCocktailFeed.drinks" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
+      <div  *ngFor="let item of searchCocktailFeed.drinks.slice(0,2)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
+        <div class = "food-img">
+          <img [src] = "item.strDrinkThumb" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.strDrink}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price"></h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+        </div> 
+        </div>  
+  <div    *ngFor="let item of searchFirstRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
+        <div class = "food-img">
+          <img [src] = "item.image" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.name}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+        </div>
+ 
+      <div  *ngFor="let item of searchCocktailFeed.drinks.slice(2,4)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
+        <div class = "food-img">
+          <img [src] = "item.strDrinkThumb" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.strDrink}}</h2>
+          <div class = "line"></div>
+          
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+        </div>
+      </div>
+      <div    *ngFor="let item of searchSecondRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
+        <div class = "food-img">
+          <img [src] = "item.image" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.name}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+        </div>
+
+        <div  *ngFor="let item of searchCocktailFeed.drinks.slice(4,6)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
         <div class = "food-img">
           <img [src] = "item.strDrinkThumb" alt = "food image">
         </div>
@@ -18,8 +92,60 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>Featured</span></p>
+          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
         </div>
       </div>
-
-
+      <div    *ngFor="let item of searchThirdRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
+        <div class = "food-img">
+          <img [src] = "item.image" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.name}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+        </div>
+        <div  *ngFor="let item of searchCocktailFeed.drinks.slice(6,8)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
+        <div class = "food-img">
+          <img [src] = "item.strDrinkThumb" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.strDrink}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+        </div>
+      </div>
+      <div    *ngFor="let item of searchFourthRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
+        <div class = "food-img">
+          <img [src] = "item.image" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.name}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+        </div>

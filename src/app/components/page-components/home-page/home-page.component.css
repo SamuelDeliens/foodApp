@@ -32,12 +32,13 @@ img{
     overflow: hidden;
     background: #fff;
     color: #000;
-    margin-left: 3.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.75);
     display: table;
     animation: fadeIn 2s;
     align-self: center;
-    width: 80%;
+    width: 90%;
 }
 @keyframes fadeIn{
     from{
@@ -51,18 +52,19 @@ img{
     border-radius: 4px;
 }
 .food-content{
-    padding: 1rem;
+    padding: .5rem;
 }
 .food-name{
     font-family: var(--Inter);
-    color: #ff9505;
+    font-size: 18px;
+    color: var(--fourthy-color);
     font-weight: 500;
     text-transform: capitalize;
 }
 .line{
     width: 100px;
     height: 3px;
-    background: #ff9505;
+    background: var(--fourthy-color);
 }
 .food-price{
     padding: 0.4rem 0;
@@ -71,17 +73,18 @@ img{
     opacity: 0.8;
 }
 .rating{
+    margin: 6px;
     display: flex;
     list-style: none;
 }
 .rating .fa-star{
     margin-right: 0.4rem;
-    color: #44355b;
+    color: var(--primary-color);
 }
 .category{
     padding-top: 0.2rem;
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 700;
     font-family: var(--Inter);
 }
  
