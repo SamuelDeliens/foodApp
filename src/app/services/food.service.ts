@@ -40,8 +40,7 @@ export class FoodService {
         .set("tags", tags)
         .set("q", query)
 
-    //TODO replace this for final version => avoid api use
-    //return this.http.get<any>(apiUri, { headers, params });
+
     return this.http.get('assets/data/recipeFood.json');
   }
 

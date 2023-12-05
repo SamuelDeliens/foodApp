@@ -21,7 +21,7 @@ app-search-bar {
 .result-div {
     padding: 3rem 0;
     position: relative;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 100%;
 }
 
