@@ -1,15 +1,18 @@
 #search-bar {
     background-color: var(--tertiary-color);
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     border-radius: 75px;
     display: flex;
     justify-content: space-between;
+    margin:3rem;
+    animation: fadeIn 2s;
+    width: 70%;
 }
 
 #search-bar input {
     background: none;
     border: none;
-    width: 95%;
+    width: 100%;
     color: var(--secondary-color);
     font-size: 1.3rem;
     padding: 10px;
@@ -25,7 +28,7 @@
 }
 
 #search-bar button {
-    width: 5%;
+    
     background: none;
     border: none;
     margin: 0;

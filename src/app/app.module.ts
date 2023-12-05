@@ -12,7 +12,6 @@ import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomePageComponent } from './components/page-components/home-page/home-page.component';
 import { DiscoverPageComponent } from './components/page-components/discover-page/discover-page.component';
 import { FoodPageComponent } from './components/page-components/food-page/food-page.component';
@@ -20,12 +19,16 @@ import { RecipeDetailsPageComponent } from './components/page-components/recipe-
 import { CocktailPageComponent } from './components/page-components/cocktail-page/cocktail-page.component';
 import { NotFoundPageComponent } from './components/page-components/not-found-page/not-found-page.component';
 
-import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component'; 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { FilterComponent } from './components/filter/filter.component';
+
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { FooterDownComponent } from './components/footer-down/footer-down.component';
+
 
 @NgModule({
   declarations: [
@@ -39,18 +42,21 @@ import { FilterComponent } from './components/filter/filter.component';
     CarrouselComponent,
     RecipeDetailsPageComponent,
     FoodPageComponent,
-    CocktailPageComponent,
+    CocktailPageComponent, 
+    FooterDownComponent,  
     FiltersComponent,
     FilterComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    YouTubePlayerModule,
     HttpClientJsonpModule,
 
     //Material
+   
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,

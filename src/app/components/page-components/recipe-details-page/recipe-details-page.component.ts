@@ -13,6 +13,9 @@ import {ImageSearchService} from "../../../services/image-search.service";
 export class RecipeDetailsPageComponent {
 
   private idRecipe: string = "";
+  public fetchCocktailDetails!:any;
+  public safeURL!: SafeResourceUrl;
+  public videoURL!: string; 
   @Input()
   recipe: RecipeDetails = new RecipeDetails("");
 
