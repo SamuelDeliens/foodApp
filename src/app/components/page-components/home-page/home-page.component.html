@@ -1,19 +1,25 @@
-<div class="home-page scrollable-container">
-    <h1> {{ appTitle }} </h1>
+<div class="home-page">
 
-    <app-search-bar [comportment]="navigateToSearchPage"></app-search-bar>
-    
-    <div class="feed" >
-        <table>
-            <tr><td><h3>À la une de {{appTitle}}</h3></td></tr>
-            <tr rowspan="4">
-              <td ><img *ngIf="searchFeed.results" [src]="searchFeed.results[0].item.thumbnail_url" alt="" style="width: 400px;height: 250px; border-radius: 5px;">
-              </td>
-              <td  *ngFor ="let item of searchFeed.results[1].items[0].thumbnail_urls">
-                <img [src]="item" style="width: 100px;height: 80px;"/>
-            </td></tr>
-              <tr><td><p class="title">{{searchFeed.results[0].item.name}}</p></td></tr>
-              <tr><td><h3>{{searchFeed.results[0].item.description}}</h3></td></tr>
-             
-        </table>
-</div>
+    <app-search-bar style="margin-top: 0px;" [comportment]="navigateToSearchPage"></app-search-bar>
+
+    <div class = "food-items">
+      <div  *ngFor="let item of searchCocktailFeed.drinks" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
+        <div class = "food-img">
+          <img [src] = "item.strDrinkThumb" alt = "food image">
+        </div>
+        <div class = "food-content">
+          <h2 class = "food-name">{{item.strDrink}}</h2>
+          <div class = "line"></div>
+          <h3 class = "food-price">$25.00</h3>
+          <ul class = "rating">
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "fas fa-star"></i></li>
+            <li><i class = "far fa-star"></i></li>
+          </ul>
+          <p class = "category">Categories: <span>Featured</span></p>
+        </div>
+      </div>
+
+
