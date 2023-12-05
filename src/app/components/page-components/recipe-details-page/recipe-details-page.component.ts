@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {SharedSearchService} from "../../../services/shared-search.service";
 import {Recipe} from "../../../data/recipe";
-import { CocktailService } from 'src/app/services/cocktail.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import {FoodService} from "../../../services/food.service";
+import {RecipeDetails} from "../../../data/detailFood";
+import {ImageSearchService} from "../../../services/image-search.service";
 
 @Component({
   selector: 'app-recipe-details-page',
@@ -17,35 +17,54 @@ export class RecipeDetailsPageComponent {
   public safeURL!: SafeResourceUrl;
   public videoURL!: string; 
   @Input()
-  recipe: Recipe = new Recipe("", {});
+  recipe: RecipeDetails = new RecipeDetails("");
 
-  constructor(private route: ActivatedRoute, private sharedSearchService: SharedSearchService,
-    private cocktailService: CocktailService, private sanitizer: DomSanitizer) {
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private imageSearchService: ImageSearchService) {
     this.idRecipe = <string>this.route.snapshot.paramMap.get('id');
-    this.recipe = this.sharedSearchService.currentRecipe; 
+
+    if (this.idRecipe != "") {
+        this.searchDetails(parseInt(this.idRecipe));
+    } else {
+        alert("No recipe send");
+    }
   }
 
-  ngOnInit() {
-    this.cocktailService.fetchCocktailDetailsById(this.idRecipe ).subscribe((result) =>{
-      this.fetchCocktailDetails = result
-      console.log('Données récupérées :', result);
-    }); 
- 
-  }
-  getYoutubeId(url: string): string {
-    const parts = url.split('v=');
-    return parts.length > 1 ? parts[1] : '';
-  }
-  cocktailIngredientsById(data: any): string[] {
-    console.log(data)
-    let ingredients: string[] = [];
-  
-    for (let key in data) {
-      if (data.hasOwnProperty(key) && key.startsWith('strIngredient') && data[key]) {
-        ingredients.push(data[key]);
-      }
-    } 
-    console.log(ingredients)
-    return ingredients;
-  }
+
+    searchDetails: any = (id: number) => {
+        console.log(id);
+        this.foodService.searchDetails(id)
+            .subscribe(data => {
+                    this.recipe = new RecipeDetails(data);
+                    console.log(this.recipe);
+
+                    for (let ingredient of this.recipe.ingredients) {
+                        this.imageSearchService.searchImages(ingredient.name)
+                            .subscribe(data => {
+                                console.log(data);
+                                let image = data.photos.photo[0];
+                                ingredient.image = "https://live.staticflickr.com/" + image.server +
+                                    "/" + image.id + "_" + image.secret + ".jpg";
+                                console.log(ingredient.name);
+                                console.log(ingredient.description);
+                                console.log(ingredient.image);
+                            });
+                    }
+
+                  },
+                  (error: any) => {
+                    console.log(error);
+                    alert("No recipes found for " + id);
+                  });
+    }
+
+    protected readonly Array = Array;
+    protected readonly Math = Math;
+
+    decreasePortion() {
+        this.recipe.portion--;
+    }
+
+    increasePortion() {
+        this.recipe.portion++;
+    }
 }

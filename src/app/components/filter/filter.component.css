@@ -1,0 +1,77 @@
+.filter {
+    width: auto;
+    height: calc(1rem + 0.2rem);
+    background-color: var(--tertiary-color);
+    padding: 0.7rem 2rem;
+    border-radius: 5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-title {
+    cursor: pointer;
+}
+
+.filter span {
+    font-size: 1rem;
+}
+
+
+.filter-content {
+    position: absolute;
+    background-color: var(--tertiary-color);
+    z-index: 1000;
+    max-width: 1rem;
+    top: 1rem;
+    left: calc(50% - 1rem);
+    max-height: 0px;
+    overflow-y: scroll;
+    grid-template-columns: 1fr;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-out;
+}
+
+.filter-content.open {
+    display: grid;
+    top: calc(100% + 1rem);
+    left: calc(50% - 5rem);
+    max-height: 200px;
+    max-width: 15rem;
+    transition: all 0.1s ease-out;
+}
+
+.choice {
+    padding: 10px 1.5rem;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.choice:first-child {
+    padding: 1.5rem 1.5rem 10px 1.5rem;
+}
+
+.choice:last-child {
+    border-bottom: none;
+    padding: 10px 1.5rem 1.5rem 1.5rem;
+}
+
+.choice:hover {
+    background-color: #f2f2f2;
+}
+
+.triangle {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1000;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.5rem solid var(--tertiary-color);
+    opacity: 1;
+}

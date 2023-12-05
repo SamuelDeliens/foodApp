@@ -8,7 +8,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http"; 
+import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/page-components/home-page/home-page.component';
@@ -21,9 +22,13 @@ import { NotFoundPageComponent } from './components/page-components/not-found-pa
 import { MainNavComponent } from './components/main-nav/main-nav.component'; 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CardComponent } from './components/card/card.component';
-import { CarrouselComponent } from './components/carrousel/carrousel.component';  
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { FilterComponent } from './components/filter/filter.component';
+
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import {  FooterDownComponent } from './components/footer-down/footer-down.component';
+import { FooterDownComponent } from './components/footer-down/footer-down.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +44,8 @@ import {  FooterDownComponent } from './components/footer-down/footer-down.compo
     FoodPageComponent,
     CocktailPageComponent, 
     FooterDownComponent,  
+    FiltersComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule, 
@@ -46,7 +53,7 @@ import {  FooterDownComponent } from './components/footer-down/footer-down.compo
     BrowserAnimationsModule,
     HttpClientModule,
     YouTubePlayerModule,
- 
+    HttpClientJsonpModule,
 
     //Material
    

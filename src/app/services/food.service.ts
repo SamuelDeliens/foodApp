@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
-  private apiKey = '5b0d8c475fmsh85217c2c3c6fc2ap1093a0jsn947a9ec4d69b';
+  private apiKey = 'f84786a83emshddc7548c0d36a4fp15646fjsna3ae3a7af6b4';
   private apiUrl = 'https://tasty.p.rapidapi.com';
   private apiHost = "tasty.p.rapidapi.com";
   private apiUa = "RapidAPI-Playground";
@@ -21,12 +21,10 @@ export class FoodService {
       'X-RapidAPI-Host': this.apiUrl
     });
 
-   
-
     return this.http.get(apiUri, { headers });
   }
 
-  searchRecipes(query: string): Observable<any> {
+  searchRecipes(query: string, tags: string = "", from: string = "0"): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/recipes/list"
 
@@ -37,14 +35,14 @@ export class FoodService {
     });
 
     const params = new HttpParams()
-        .set("from", "0")
+        .set("from", from)
         .set("size", "24")
-        .set("tags", "under_30_minutes")
+        .set("tags", tags)
         .set("q", query)
 
     //TODO replace this for final version => avoid api use
-    return this.http.get<any>(apiUri, { headers, params });
-    //return this.http.get('assets/data/recipeFood.json');
+    //return this.http.get<any>(apiUri, { headers, params });
+    return this.http.get('assets/data/recipeFood.json');
   }
 
   searchSimilarRecipes(id: number): Observable<any> {
@@ -65,28 +63,21 @@ export class FoodService {
     const apiUri = this.apiUrl + "/recipes/get-more-info"
 
     const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      "x-rapidapi-host": this.apiHost,
+      "x-rapidapi-key": this.apiKey,
+      "x-rapidapi-ua": this.apiUa,
     });
 
     const params = new HttpParams()
-        .set("recipe_id", id)
+        .set("id", id)
 
-    return this.http.get(apiUri, { headers, params });
+    //return this.http.get(apiUri, { headers, params });
+    return this.http.get('assets/data/detailFood2.json');
   }
 
 
   getTags(): Observable<any> {
-    const apiUri = this.apiUrl + "/recipes/get-more-info"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
-    });
-
-    const params = new HttpParams();
-
-    return this.http.get(apiUri, { headers, params });
+    return this.http.get("assets/data/tagsFood.json");
   }
 
 }
