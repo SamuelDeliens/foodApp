@@ -18,7 +18,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass ?? item.strCategory}}</span></p>
         </div> 
         </div>  
   <div    *ngFor="let item of searchFirstRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
@@ -28,7 +28,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.name}}</h2>
           <div class = "line"></div>
-          <h3 class = "food-price">$25.00</h3>
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -36,7 +36,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>Featured</span></p>
+          <p class = "category">Category: <span>Featured</span></p>
         </div>
         </div>
  
@@ -47,7 +47,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.strDrink}}</h2>
           <div class = "line"></div>
-          
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -55,7 +55,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass ?? item.strCategory}}</span></p>
         </div>
       </div>
       <div    *ngFor="let item of searchSecondRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
@@ -65,7 +65,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.name}}</h2>
           <div class = "line"></div>
-          <h3 class = "food-price">$25.00</h3>
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -73,7 +73,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>Featured</span></p>
+          <p class = "category">Category: <span>Featured</span></p>
         </div>
         </div>
 
@@ -84,7 +84,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.strDrink}}</h2>
           <div class = "line"></div>
-          <h3 class = "food-price">$25.00</h3>
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -92,7 +92,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass ?? item.strCategory}}</span></p>
         </div>
       </div>
       <div    *ngFor="let item of searchThirdRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
@@ -102,7 +102,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.name}}</h2>
           <div class = "line"></div>
-          <h3 class = "food-price">$25.00</h3>
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -110,7 +110,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>Featured</span></p>
+          <p class = "category">Category: <span>Featured</span></p>
         </div>
         </div>
         <div  *ngFor="let item of searchCocktailFeed.drinks.slice(6,8)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
@@ -120,7 +120,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.strDrink}}</h2>
           <div class = "line"></div>
-          <h3 class = "food-price">$25.00</h3>
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -128,7 +128,7 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>{{item.strCategory}}</span></p>
+          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass?? item.strCategory}}</span></p>
         </div>
       </div>
       <div    *ngFor="let item of searchFourthRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
@@ -138,7 +138,7 @@
         <div class = "food-content">
           <h2 class = "food-name">{{item.name}}</h2>
           <div class = "line"></div>
-          <h3 class = "food-price">$25.00</h3>
+          <h3 class = "food-price"></h3>
           <ul class = "rating">
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "fas fa-star"></i></li>
@@ -146,6 +146,6 @@
             <li><i class = "fas fa-star"></i></li>
             <li><i class = "far fa-star"></i></li>
           </ul>
-          <p class = "category">Categories: <span>Featured</span></p>
+          <p class = "category">Category: <span>Featured</span></p>
         </div>
         </div>

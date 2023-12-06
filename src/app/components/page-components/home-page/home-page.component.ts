@@ -24,7 +24,7 @@ export class HomePageComponent {
   public searchCocktailFeed!:any;
   ngOnInit(): void {
 
-    this.cocktailService.searchPopularCocktails().subscribe((result) =>{
+    this.cocktailService.searchLatestCocktails().subscribe((result) =>{
   
       this.searchCocktailFeed = result
       console.log('Données récupérées :', result);
