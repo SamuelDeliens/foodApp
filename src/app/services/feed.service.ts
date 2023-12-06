@@ -14,7 +14,7 @@ export class FeedService {
 
   constructor(private http: HttpClient) { }
 
-  searchFeeds(query: string): Observable<any> {
+  searchCocktails(query: string): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/feeds/list"
     console.log(apiUri);
@@ -49,4 +49,24 @@ export class FeedService {
     return this.http.get(apiUri, { headers, params });
   }
  
+  searchFoods(query: string, tags: string = "", from: string = "0"): Observable<any> {
+    //const apiUri = this.apiUrl + "/recipes/list"
+    const apiUri = this.apiUrl + "/recipes/list"
+
+    const headers = new HttpHeaders({
+      "x-rapidapi-host": this.apiHost,
+      "x-rapidapi-key": this.apiKey,
+      "x-rapidapi-ua": this.apiUa,
+    });
+
+    const params = new HttpParams()
+        .set("from", from)
+        .set("size", "24")
+        .set("tags", tags)
+        .set("q", query)
+
+    //TODO replace this for final version => avoid api use
+    //return this.http.get<any>(apiUri, { headers, params });
+    return this.http.get('assets/data/recipeFood.json');
+  }
 }

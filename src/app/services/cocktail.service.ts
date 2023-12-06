@@ -31,6 +31,18 @@ export class CocktailService {
     //return this.http.get('assets/data/recipeCocktail.json');
     return this.http.get(apiUri, { headers, params });
   }
+  searchLatestCocktails(): Observable<any>{
+    const apiUri = this.apiUrl + "/latest.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams();
+
+    return this.http.get(apiUri, { headers, params });
+  }
 //Cocktails etrieving methods
   searchPopularCocktails(): Observable<any>{
     const apiUri = this.apiUrl + "/popular.php"

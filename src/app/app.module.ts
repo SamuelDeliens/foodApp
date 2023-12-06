@@ -29,6 +29,7 @@ import { CocktailDetailsPageComponent } from './components/page-components/cockt
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FooterDownComponent } from './components/footer-down/footer-down.component';
+import { CocktailCardComponent } from './components/cocktail-card/cocktail-card.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FooterDownComponent } from './components/footer-down/footer-down.compon
     FooterDownComponent,  
     FiltersComponent,
     FilterComponent,
+    CocktailCardComponent,
     CocktailDetailsPageComponent,
   ],
   imports: [
