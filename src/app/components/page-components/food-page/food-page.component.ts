@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Recipe} from "../../../data/recipe";
 import {ActivatedRoute} from "@angular/router";
 import {FoodService} from "../../../services/food.service";
-import {BehaviorSubject, Observable, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {FoodFilterService} from "../../../services/food-filter.service";
 
 @Component({

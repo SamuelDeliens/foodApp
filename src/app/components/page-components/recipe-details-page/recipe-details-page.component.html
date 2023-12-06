@@ -69,16 +69,21 @@
     </div>
     <div class="ingredients">
         <h2>Ingredients</h2>
-        <div class="portion">
-            <button class="minus" (click)="decreasePortion()">-</button>
-            <span class="type">{{recipe.portion}} People</span>
-            <button class="plus" (click)="increasePortion()">+</button>
+        <div class="portion-wrapper">
+            <div class="portion">
+                <button class="minus" (click)="decreasePortion()">-</button>
+                <div class="portion-input">
+                    <input type="number" [(ngModel)]="recipe.portion" min="1" max="100"/>
+                    <span>People</span>
+                </div>
+                <button class="plus" (click)="increasePortion()">+</button>
+            </div>
         </div>
         <div class="group_ingredients" *ngFor="let ingredient of recipe.ingredients">
             <div class="img">
                 <img src="{{ingredient.image}}" alt="check"/>
             </div>
-            <div class="group_ingredients_details_1">
+            <div class="group_ingredients_details_1" *ngIf="ingredient.quantity != 0">
                 <span class="quantity">{{ ingredient.quantity * recipe.portion}} {{ ingredient.unit }}</span>
             </div>
             <div class="group_ingredients_details_2">
@@ -86,16 +91,18 @@
             </div>
         </div>
     </div>
-    <div class="Preparation">
+    <div class="preparation">
         <h2>Preparation</h2>
         <div class="group_preparation" *ngFor="let instruction of recipe.instructions">
-            <h3>{{ recipe.instructions.indexOf(instruction) + 1 }}</h3>
+            <h3>Step {{ recipe.instructions.indexOf(instruction) + 1 }}</h3>
             <div class="group_preparation_details">
-                <span>{{ instruction.start_time }}</span>
-                <span>{{ instruction.end_time }}</span>
-                <span>{{ instruction.temperature }}</span>
+                <span *ngIf="instruction.start_time != instruction.end_time">start-time: {{ instruction.start_time }} s</span>
+                <span *ngIf="instruction.start_time != instruction.end_time">end-time: {{ instruction.end_time }} s</span>
+                <span *ngIf="instruction.temperature">temperature: {{ instruction.temperature }}</span>
             </div>
             <span>{{ instruction.description }}</span>
         </div>
     </div>
 </div>
+<img class="foody1" src="assets/images/foody1.png" alt="foody1"/>
+<img class="foody3" src="assets/images/foody3.png" alt="foody3"/>

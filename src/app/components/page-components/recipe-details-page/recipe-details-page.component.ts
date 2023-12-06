@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Recipe} from "../../../data/recipe";
 import {FoodService} from "../../../services/food.service";
 import {RecipeDetails} from "../../../data/detailFood";
 import {ImageSearchService} from "../../../services/image-search.service";
