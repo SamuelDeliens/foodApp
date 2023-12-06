@@ -3,7 +3,7 @@ import {Recipe} from "../../../data/recipe";
 import {ActivatedRoute} from "@angular/router";
 import {FoodService} from "../../../services/food.service";
 import {Subscription} from "rxjs";
-import {FoodFilterService} from "../../../services/food-filter.service";
+import {FilterService} from "../../../services/filter.service";
 
 @Component({
   selector: 'app-search-food-page',
@@ -21,8 +21,8 @@ export class FoodPageComponent implements OnInit, OnDestroy {
 
     constructor(
         private route: ActivatedRoute,
-        private foodService: FoodService,
-        private foodFilterService: FoodFilterService
+        public foodService: FoodService,
+        private foodFilterService: FilterService
     ) {
         if (this.searchValue != "" && this.searchValue != null) {
             this.searchRecipes(this.searchValue);

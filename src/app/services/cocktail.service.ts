@@ -10,6 +10,7 @@ export class CocktailService {
   private apiUrl = 'https://the-cocktail-db.p.rapidapi.com'
   private apiHost = "the-cocktail-db.p.rapidapi.com"
   private apiUa = "RapidAPI-Playground"
+  selectedFilters: any;
   constructor(private http: HttpClient) { }
 
   searchName(query: string): Observable<any> {
@@ -27,10 +28,10 @@ export class CocktailService {
         .set("s", query);
 
     //TODO replace this for final version => avoid api use
-    return this.http.get('assets/data/recipeCocktail.json');
-    //return this.http.get(apiUri, { headers, params });
+    //return this.http.get('assets/data/recipeCocktail.json');
+    return this.http.get(apiUri, { headers, params });
   }
-
+//Cocktails etrieving methods
   searchPopularCocktails(): Observable<any>{
     const apiUri = this.apiUrl + "/popular.php"
 
@@ -40,9 +41,23 @@ export class CocktailService {
       "x-rapidapi-ua": this.apiUa
     });
     const params = new HttpParams();
-        //.set("i", "query");
+
     return this.http.get(apiUri, { headers, params });
   }
+
+  fetchCocktailDetailsById(id : string): Observable<any>{
+    const apiUri = this.apiUrl + "/lookup.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams()
+        .set("i", id);
+    return this.http.get(apiUri, { headers, params });
+  }
+//food ones
   searchIngredient(query: string): Observable<any> {
     const apiUri = this.apiUrl + "/filter.php"
 
@@ -89,6 +104,10 @@ export class CocktailService {
         .set("i", ingredient);
  
     return this.http.get(apiUri, { headers, params });
+  }
+
+  getTags(): Observable<any> {
+    return this.http.get("assets/data/tagsCocktail.json");
   }
 
 }

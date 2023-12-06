@@ -1,57 +1,18 @@
 <div class="discover-page scrollable-container">
-<h1 style="color: purple;margin-left: 10px;">Découvrir ...</h1>
+<h1 style="color: purple;margin-left: 10px;padding-top: 40px;">Découvrir ...</h1>
 <h2 style="color: purple; margin-left: 10px;">Plats les plus populaires chez nos utilisateurs</h2>
-<!-- <div class="food">
 
-    <div class='carousel'>
-        <input checked='checked' class='activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
-        <input class='activator' id='carousel-slide-activator-2' name='carousel' type='radio'>
-        <input class='activator' id='carousel-slide-activator-3' name='carousel' type='radio'>
-        <div class='controls'>
-          <label class='control control--forward' for='carousel-slide-activator-2'>&#8250;</label>
-        </div>
-        <div class='controls' *ngFor="let item of searchPopularFood.results">
-          <label class='control control--backward' for='carousel-slide-activator-1'>&#8249;</label>
-          <label class='control control--forward' for='carousel-slide-activator-3'>&#8250;</label>
-        </div>
-        <div class='controls'>
-          <label class='control control--backward' for='carousel-slide-activator-2'>&#8249;</label>
-        </div>
-        <div class='screen'>
-          <div class='track'>
-            <div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'  *ngFor="let item of searchPopularDrinks.results">
-              <div class='demo-content' *ngIf="searchPopularDrinks.results"> hello<img [src]="item.thumbnail_url" class="card-drinks"/></div>
-            </div>
-             
-        
-        </div>
+<div (scroll)="onScroll($event)">
+  <div class="row" *ngFor="let row of drinkRows" >
+    <div class="column" *ngFor="let drink of row">
+      <div class="card">
+        <p><img [src]="drink.strDrinkThumb"/></p>
+        <p>{{drink.strDrink}}</p>
       </div>
     </div>
-</div> -->
-<h2 style="color: purple; margin-left: 10px;">Ils ont aussi aimé</h2>
-<div class="drink">
-        <div class='carousel'>
-          <input checked='checked' class='activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
-          <input class='activator' id='carousel-slide-activator-2' name='carousel' type='radio'>
-          <input class='activator' id='carousel-slide-activator-3' name='carousel' type='radio'>
-          <div class='controls'>
-            <label class='control control--forward' for='carousel-slide-activator-2'>&#8250;</label>
-          </div>
-          <div class='controls' *ngFor="let item of searchPopularDrinks?.drinks">
-            <label class='control control--backward' for='carousel-slide-activator-1'>&#8249;</label>
-            <label class='control control--forward' for='carousel-slide-activator-3'>&#8250;</label>
-          </div>
-          <div class='controls'> 
-            <label class='control control--backward' for='carousel-slide-activator-2'>&#8249;</label>
-          </div>
-          <div class='screen'>
-            <div class='track'>
-              <div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'  *ngFor="let item of searchPopularDrinks?.drinks">
-                <div class='demo-content'><img [src]="item.strDrinkThumb" class="card-drinks"/></div>
-              </div>
-               
-          
-          </div>
-        </div>
-      </div>
+  </div> 
 </div>
+
+
+
+ 
