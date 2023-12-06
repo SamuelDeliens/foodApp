@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CocktailService } from '../../../services/cocktail.service';
+import { FilterService } from '../../../services/filter.service';
 import { Recipe } from 'src/app/data/recipe';
-import { query } from '@angular/animations';
-import { elementAt } from 'rxjs';
+import { Subscription, elementAt } from 'rxjs';
 
 
 @Component({
@@ -13,14 +13,43 @@ import { elementAt } from 'rxjs';
 })
 export class CocktailPageComponent {
   cocktail: Recipe[] = [];
-  category: string = "";
-  alcoholic: string = "";
-  glass: string = "";
+  subscription: Subscription = new Subscription();
+  selectedFilters: Array<any> = [];
 
-  constructor(private route: ActivatedRoute, private cocktailService: CocktailService) {
+
+  constructor(
+    private route: ActivatedRoute, 
+    public cocktailService: CocktailService, 
+    private filterService: FilterService) {
     const queryParam = <string>this.route.snapshot.paramMap.get('param');
     if (queryParam) {
       this.searchName(queryParam);
+    }
+  }
+
+  ngOnInit(): void {
+    this.subscription = this.filterService.selectedFilters.subscribe(selectedFilters => {
+      this.selectedFilters = selectedFilters; 
+    }); 
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  search: any = (query: string) => {
+    let alcoholic = "";
+    let category = "";
+    let glass = "";
+    for (let tag of this.selectedFilters) {
+      if (tag.category == "alcoholic") alcoholic = tag.value;
+      if (tag.category == "category") category = tag.value;
+      if (tag.category == "glass") glass = tag.value;
+    }
+
+    if (alcoholic == "" && glass == "" && category == "") {
+      this.searchName(query);
+    } else {
+      this.searchFilters(alcoholic, category, glass, query);
     }
   }
 
@@ -33,15 +62,7 @@ export class CocktailPageComponent {
       });
   }
 
-  search: any = (query: string) => {
-    if (this.alcoholic == "" && this.glass == "" && this.category == "") {
-      this.searchName(query);
-    } else {
-      this.searchFilters(this.alcoholic, this.category, this.glass, query);
-    }
-  }
-
-  searchFilters: any = (alcoholic: string, category: string, glass: string, ingredient: string) => {
+  searchFilters: any = (alcoholic: any, category: any, glass: any, ingredient: any) => {
     this.cocktailService.filter(alcoholic, category, glass, ingredient)
       .subscribe(data => {
         this.cocktail = data.drinks.map((cocktail: any) => new Recipe("cocktail", cocktail));

@@ -25,6 +25,7 @@ import { CardComponent } from './components/card/card.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { CocktailDetailsPageComponent } from './components/page-components/cocktail-details-page/cocktail-details-page.component';
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FooterDownComponent } from './components/footer-down/footer-down.component';
@@ -48,6 +49,7 @@ import { CocktailCardComponent } from './components/cocktail-card/cocktail-card.
     FiltersComponent,
     FilterComponent,
     CocktailCardComponent,
+    CocktailDetailsPageComponent,
   ],
   imports: [
     BrowserModule, 

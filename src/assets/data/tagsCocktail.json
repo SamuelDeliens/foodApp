@@ -1,0 +1,42 @@
+{
+    "category": {
+        "count": 2,
+        "results": [
+            {
+                "name": "Ordinary_Drink",
+                "display_name": "Ordinary Drink"
+            },
+            {
+                "name": "Cocktail",
+                "display_name": "Cocktail"
+            }
+        ]
+    },
+    "alcoholic": {
+        "count": 2,
+        "results": [
+            {
+                "name": "Alcoholic",
+                "display_name": "Alcoholic"
+            },
+            {
+                "name": "Non_Alcoholic",
+                "display_name": "Non alcoholic"
+            }
+            
+        ]
+    },
+    "glass": {
+        "count": 2,
+        "results": [
+            {
+                "name": "Cocktail_glass",
+                "display_name": "Cocktail glass"
+            },
+            {
+                "name": "Champagne_flute",
+                "display_name": "Champagne flute"
+            }
+        ]
+    }
+}
