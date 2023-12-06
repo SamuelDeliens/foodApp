@@ -141,8 +141,8 @@ export class Instruction {
         temperature: number
     ) {
         this.description = description;
-        this.start_time = start_time;
-        this.end_time = end_time;
+        this.start_time = start_time / 1000;
+        this.end_time = end_time / 1000;
         this.temperature = temperature;
     }
 }

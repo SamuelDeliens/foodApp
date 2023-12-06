@@ -1,28 +1,8 @@
 <div class="search-page">
     <div class="search-div">
+        <div id="back" class="close"></div>
         <app-search-bar [comportment]="search"></app-search-bar>
-    </div>
-
-    <div class="filter-div">
-        <div>
-            <select id="category" [(ngModel)]="category">
-                <option value="Ordinary_Drink">Ordinary_Drink</option>
-                <option value="Cocktail">Cocktail</option>
-            </select> 
-
-        </div>
-        <div>
-            <select id="alcohol"  [(ngModel)]="alcoholic">
-                <option value="Alcoholic">Alcoholic</option>
-                <option value="Non_Alcoholic">Non_Alcoholic</option>
-            </select>
-        </div>
-        <div>
-            <select id="glass" [(ngModel)]="glass">
-                <option value="Cocktail_glass">Cocktail_glass</option>
-                <option value="Champagne_flute">Champagne flute</option>
-            </select>
-        </div>
+        <app-filters [service]="cocktailService"></app-filters>
     </div>
 
     <div class="result-div">

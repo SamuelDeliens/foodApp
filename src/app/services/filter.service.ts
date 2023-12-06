@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class FoodFilterService {
+export class FilterService {
 
   private _selectedFilters = new BehaviorSubject<Array<any>>([]);
   selectedFilters: Observable<Array<any>>;
