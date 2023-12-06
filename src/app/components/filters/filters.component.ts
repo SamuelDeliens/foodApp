@@ -6,7 +6,7 @@ import {
 import {FoodService} from "../../services/food.service";
 import {Category, Tag} from "../../data/tag";
 import {Subscription} from "rxjs";
-import {FoodFilterService} from "../../services/food-filter.service";
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-filters',
@@ -16,16 +16,19 @@ import {FoodFilterService} from "../../services/food-filter.service";
 export class FiltersComponent implements OnInit, OnDestroy {
 
     @Input()
+    service: any = FoodService;
     subscription: Subscription = new Subscription();
     selectedFilters: Array<any> = [];
 
     categories: Array<Category> = new Array<Category>();
 
-    constructor(private foodService: FoodService, private foodFilterService: FoodFilterService) {
+    constructor(private filterService: FilterService) {
     }
 
     ngOnInit(): void {
-        this.foodService.getTags().subscribe(data => {
+        this.service.getTags().subscribe((data: { [x: string]: {
+            count: string; results: any; 
+}; }) => {
             for (let category_name in data) {
                 let category: Category = new Category(category_name, data[category_name].count, new Array<Tag>());
                 for (let tag of data[category_name].results) {
@@ -36,7 +39,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
         });
 
         this.subscription =
-            this.foodFilterService.selectedFilters.subscribe(selectedFilters => {
+            this.filterService.selectedFilters.subscribe(selectedFilters => {
                 this.selectedFilters = selectedFilters;
             });
     }
@@ -54,6 +57,6 @@ export class FiltersComponent implements OnInit, OnDestroy {
     removeFilter(category: any) {
         console.log("remove filter");
         console.log(category);
-        this.foodFilterService.removeFilter(category);
+        this.filterService.removeFilter(category);
     }
 }

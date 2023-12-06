@@ -10,6 +10,7 @@ export class CocktailService {
   private apiUrl = 'https://the-cocktail-db.p.rapidapi.com'
   private apiHost = "the-cocktail-db.p.rapidapi.com"
   private apiUa = "RapidAPI-Playground"
+  selectedFilters: any;
   constructor(private http: HttpClient) { }
 
   searchName(query: string): Observable<any> {
@@ -27,8 +28,8 @@ export class CocktailService {
         .set("s", query);
 
     //TODO replace this for final version => avoid api use
-    return this.http.get('assets/data/recipeCocktail.json');
-    //return this.http.get(apiUri, { headers, params });
+    //return this.http.get('assets/data/recipeCocktail.json');
+    return this.http.get(apiUri, { headers, params });
   }
 //Cocktails etrieving methods
   searchPopularCocktails(): Observable<any>{
@@ -103,6 +104,10 @@ export class CocktailService {
         .set("i", ingredient);
  
     return this.http.get(apiUri, { headers, params });
+  }
+
+  getTags(): Observable<any> {
+    return this.http.get("assets/data/tagsCocktail.json");
   }
 
 }
