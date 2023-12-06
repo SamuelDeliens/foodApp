@@ -3,7 +3,7 @@
     <div class="search-div">
         <div id="back" class="close"></div>
         <app-search-bar [comportment]="searchRecipes" [searchValue]="searchValue"></app-search-bar>
-        <app-filters></app-filters>
+        <app-filters [service]="foodService"></app-filters>
     </div>
 
     <div class="result-div">

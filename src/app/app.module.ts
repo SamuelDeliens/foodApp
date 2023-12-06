@@ -26,6 +26,7 @@ import { CardComponent } from './components/card/card.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { CocktailDetailsPageComponent } from './components/page-components/cocktail-details-page/cocktail-details-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FilterComponent } from './components/filter/filter.component';
     CocktailPageComponent,
     FiltersComponent,
     FilterComponent,
+    CocktailDetailsPageComponent,
   ],
   imports: [
     BrowserModule,

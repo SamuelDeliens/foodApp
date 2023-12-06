@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Category, Tag} from "../../data/tag";
 import {Subscription} from "rxjs";
-import {FoodFilterService} from "../../services/food-filter.service";
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-filter',
@@ -16,14 +16,14 @@ export class FilterComponent implements OnInit, OnDestroy {
     subscription: Subscription = new Subscription();
     selectedFilters: Array<any> = [];
 
-    constructor(private foodFilterService: FoodFilterService) {
+    constructor(private filterService: FilterService) {
     }
 
     ngOnInit(): void {
         this.selected = this.category.name;
 
         this.subscription =
-            this.foodFilterService.selectedFilters.subscribe(selectedFilters => {
+            this.filterService.selectedFilters.subscribe(selectedFilters => {
                 this.selectedFilters = selectedFilters;
             });
     }
@@ -39,11 +39,11 @@ export class FilterComponent implements OnInit, OnDestroy {
 
     select(tag_name: string) {
         this.selected = tag_name;
-        this.foodFilterService.addFilter(this.category.name, tag_name);
+        this.filterService.addFilter(this.category.name, tag_name);
     }
 
     unselect(tag_name: string) {
         this.selected = tag_name;
-        this.foodFilterService.removeFilter(this.category.name);
+        this.filterService.removeFilter(this.category.name);
     }
 }
