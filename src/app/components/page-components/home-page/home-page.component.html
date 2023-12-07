@@ -1,5 +1,3 @@
-
-<!--
 <div class="container">
   <div class="coast">
     <div class="wave-rel-wrap">
@@ -18,13 +16,10 @@
   <div class="text text-u">y</div>
   <div class="text text-love">&hearts;</div>
 </div>
--->
 
 
 <div class="home-page">
-
     <app-search-bar [comportment]="navigateToSearchPage"></app-search-bar>
-<!--Displaying cocktail and food together mixed by rows-->
     <div class = "food-items">
       <div class="row-food-items" *ngFor="let cocktailRecipe of searchCocktailFeed; index as indexOfElement;">
         <div class = "food-item" (click)="navigateToRecipeDetails(cocktailRecipe.id, 'cocktail')">
