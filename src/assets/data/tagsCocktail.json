@@ -1,6 +1,6 @@
 {
     "category": {
-        "count": 2,
+        "count": 11,
         "results": [
             {
                 "name": "Ordinary_Drink",
@@ -9,6 +9,42 @@
             {
                 "name": "Cocktail",
                 "display_name": "Cocktail"
+            },
+            {
+                "name": "Shake",
+                "display_name": "Shake"
+            },
+            {
+                "name": "Other \/ Unknown",
+                "display_name": "Other"
+            },
+            {
+                "name": "Cocoa",
+                "display_name": "Cocoa"
+            },
+            {
+                "name": "Shot",
+                "display_name": "Shot"
+            },
+            {
+                "name": "Coffee \/ Tea",
+                "display_name": "Coffee / Tea"
+            },
+            {
+                "name": "Homemade Liqueur",
+                "display_name": "Homemade Liqueur"
+            },
+            {
+                "name": "Punch",
+                "display_name": "Punch \/ Party Drink"
+            },
+            {
+                "name": "Beer",
+                "display_name": "Beer"
+            },
+            {
+                "name": "Soft Drink",
+                "display_name": "Soft Drink"
             }
         ]
     },
@@ -27,7 +63,7 @@
         ]
     },
     "glass": {
-        "count": 2,
+        "count": 31,
         "results": [
             {
                 "name": "Cocktail_glass",
@@ -36,6 +72,122 @@
             {
                 "name": "Champagne_flute",
                 "display_name": "Champagne flute"
+            },
+            {
+                "name": "Highball glass",
+                "display_name": "Highball glass"
+            },
+            {
+                "name": "Old-fashioned glass",
+                "display_name": "Old fashioned glass"
+            },
+            {
+                "name": "Whiskey Glass",
+                "display_name": "Whiskey Glass"
+            },
+            {
+                "name": "Collins glass",
+                "display_name": "Collins glass"
+            },
+            {
+                "name": "Pousse cafe glass",
+                "display_name": "Pousse cafe glass"
+            },
+            {
+                "name": "Whiskey sour glass",
+                "display_name": "Whiskey sour glass"
+            },
+            {
+                "name": "Cordial glass",
+                "display_name": "Cordial glass"
+            },
+            {
+                "name": "Brandy snifter",
+                "display_name": "Brandy snifter"
+            },
+            {
+                "name": "White wine glass",
+                "display_name": "White wine glass"
+            },
+            {
+                "name": "Nick and Nora Glass",
+                "display_name": "Nick and Nora Glass"
+            },
+            {
+                "name": "Hurricane glass",
+                "display_name": "Hurricane glass"
+            },
+            {
+                "name": "Coffee mug",
+                "display_name": "Coffee mug"
+            },
+            {
+                "name": "Jar",
+                "display_name": "Jar"
+            },
+            {
+                "name": "Irish coffee cup",
+                "display_name": "Irish coffee cup"
+            },
+            {
+                "name": "Punch bowl",
+                "display_name": "Punch bowl"
+            },
+            {
+                "name": "Pitcher",
+                "display_name": "Pitcher"
+            },
+            {
+                "name": "Pint glass",
+                "display_name": "Pint glass"
+            },
+            {
+                "name": "Copper Mug",
+                "display_name": "Copper Mug"
+            },
+            {
+                "name": "Wine Glass",
+                "display_name": "Wine Glass"
+            },
+            {
+                "name": "Beer mug",
+                "display_name": "Beer mug"
+            },
+            {
+                "name": "Margarita\\/Coupette glass",
+                "display_name": "Coupette glass"
+            },
+            {
+                "name": "Beer pilsner",
+                "display_name": "Beer pilsner"
+            },
+            {
+                "name": "Beer Glass",
+                "display_name": "Beer Glass"
+            },
+            {
+                "name": "Parfait glass",
+                "display_name": "Parfait glass"
+            },
+            {
+                "name": "Mason jar",
+                "display_name": "Mason jar"
+            },
+            {
+                "name": "Margarita glass",
+                "display_name": "Margarita glass"
+            },
+            {
+                "name": "Martini Glass",
+                "display_name": "Martini Glass"
+            },
+            {
+                "name": "Balloon Glass",
+                "display_name": "Balloon Glass"
+            },
+            {
+                "name": "Coupe Glass",
+                "display_name": "Coupe Glass"
             }
         ]
     }
