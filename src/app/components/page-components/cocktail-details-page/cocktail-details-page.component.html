@@ -1,1 +1,38 @@
-<p>cocktail-details-page works!</p>
+<div class="recipe-details-page">
+    <div class="top_details">
+        <img class="image" [src]="recipe.image" alt="{{ recipe.image_alt }}"/>
+        <div class="right_top_details">
+            <h1 class="name">{{ recipe.name }}</h1>
+            <div class="notes-wrapper">
+                <div class="notes">
+                    <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
+                    <img src="assets/images/cherry2.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
+                </div>
+            </div>
+            <p class="description">{{ recipe.description }}</p>
+            <span class="credit">{{ recipe.credit }}</span>
+            <span class="date">{{ recipe.creation_date }}</span>
+        </div>
+    </div>
+    <div class="tags">
+        <div class="tag" *ngFor="let tag of recipe.tags">
+            <span>{{ tag.display_name }}</span>
+        </div>
+    </div>
+    <div class="ingredients">
+        <h2>Ingredients</h2>
+        <div class="group_ingredients" *ngFor="let ingredient of recipe.ingredients">
+            <div class="img">
+                <img src="{{ingredient.image}}" alt="check"/>
+            </div>
+            <div class="group_ingredients_details_1" *ngIf="ingredient.quantity != 0">
+                <span class="quantity">{{ ingredient.quantity * recipe.portion}} {{ ingredient.unit }}</span>
+            </div>
+            <div class="group_ingredients_details_2">
+                <span class="name">{{ ingredient.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<img class="foody1" src="assets/images/foody1.png" alt="foody1"/>
+<img class="foody3" src="assets/images/foody3.png" alt="foody3"/>

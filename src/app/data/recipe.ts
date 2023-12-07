@@ -10,8 +10,9 @@ export class Recipe {
     public creation_date: string;
 
 
+
     constructor(
-        private type: string,
+        public type: string,
         public recipe_json: any
     ) {
         this.id = 0;
