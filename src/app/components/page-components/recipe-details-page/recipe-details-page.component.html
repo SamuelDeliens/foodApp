@@ -30,55 +30,54 @@
         </div>
     </div>
     <div class="tags">
-        <div class="tag" *ngFor="let tag of recipe.tags">
+        <div class="tag" *ngFor="let tag of recipe.tags; index as indexOfelement;" style="animation-delay:{{indexOfelement*0.01}}s">
             <span>{{ tag.display_name }}</span>
+        </div>
+    </div>
+    <div class="portion-wrapper">
+        <div class="portion">
+            <button class="minus" (click)="decreasePortion()">-</button>
+            <div class="portion-input">
+                <input type="number" [(ngModel)]="recipe.portion" min="1" max="100"/>
+                <span>People</span>
+            </div>
+            <button class="plus" (click)="increasePortion()">+</button>
         </div>
     </div>
     <div class="nutrition">
         <h2>Nutrition</h2>
         <div class="group_nutrition">
             <span class="type">Calories: </span>
-            <span>{{ recipe.nutrition.calories }}</span>
-            <span> %</span>
+            <span>{{ recipe.nutrition.calories * recipe.portion}}</span>
         </div>
         <div class="group_nutrition">
             <span class="type">Protein: </span>
-            <span>{{ recipe.nutrition.protein }}</span>
+            <span>{{ recipe.nutrition.protein * recipe.portion }}</span>
             <span> %</span>
         </div>
         <div class="group_nutrition">
             <span class="type">Carbs: </span>
-            <span>{{ recipe.nutrition.carbs }}</span>
+            <span>{{ recipe.nutrition.carbs * recipe.portion }}</span>
             <span> %</span>
         </div>
         <div class="group_nutrition">
             <span class="type">Fat: </span>
-            <span>{{ recipe.nutrition.fat }}</span>
+            <span>{{ recipe.nutrition.fat * recipe.portion }}</span>
             <span> %</span>
         </div>
         <div class="sugar">
             <span class="type">Sugar: </span>
-            <span>{{ recipe.nutrition.sugar }}</span>
+            <span>{{ recipe.nutrition.sugar * recipe.portion }}</span>
             <span> %</span>
         </div>
         <div class="fiber">
             <span class="type">Fiber: </span>
-            <span>{{ recipe.nutrition.fiber }}</span>
+            <span>{{ recipe.nutrition.fiber * recipe.portion }}</span>
             <span> %</span>
         </div>
     </div>
     <div class="ingredients">
         <h2>Ingredients</h2>
-        <div class="portion-wrapper">
-            <div class="portion">
-                <button class="minus" (click)="decreasePortion()">-</button>
-                <div class="portion-input">
-                    <input type="number" [(ngModel)]="recipe.portion" min="1" max="100"/>
-                    <span>People</span>
-                </div>
-                <button class="plus" (click)="increasePortion()">+</button>
-            </div>
-        </div>
         <div class="group_ingredients" *ngFor="let ingredient of recipe.ingredients">
             <div class="img">
                 <img src="{{ingredient.image}}" alt="check"/>
@@ -106,3 +105,4 @@
 </div>
 <img class="foody1" src="assets/images/foody1.png" alt="foody1"/>
 <img class="foody3" src="assets/images/foody3.png" alt="foody3"/>
+<img class="foody4" src="./assets/images/foody4.png" alt="foody4"/>

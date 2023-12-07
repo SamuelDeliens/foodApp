@@ -47,7 +47,6 @@ export class RecipeDetailsPageComponent {
                                 console.log(ingredient.image);
                             });
                     }
-
                   },
                   (error: any) => {
                     console.log(error);
