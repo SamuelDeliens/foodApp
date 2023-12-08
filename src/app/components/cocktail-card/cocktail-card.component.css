@@ -5,11 +5,11 @@
 }
 
 .card {
-    width: 250px;
-    height: 300px;
+    width: 150px;
+    height: 200px;
     position: relative;
     overflow: hidden;
-    border-radius: 25px;
+    border-radius: 10px;
     border: none;
     padding: 0;
     background-color: white;
@@ -18,7 +18,7 @@
 
 .card .image {
     width: 100%;
-    height: 175px;
+    height: 150px;
     position: absolute;
     top: 0;
     left: 0;
@@ -33,20 +33,22 @@
 
 .card .content {
     width: 100%;
-    height: calc(100% - 200px);
+    height: calc(100% - 160px);
     position: absolute;
     bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: smaller;
+    
 }
 
 .content, .content * {
     background: none;
 }
 
-h2 {
-    font-size: 1.2rem;
+p {
+  
     color: var(--secondary-color);
 }

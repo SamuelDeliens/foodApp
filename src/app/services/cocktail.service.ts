@@ -27,10 +27,52 @@ export class CocktailService {
     const params = new HttpParams()
         .set("s", query);
 
-    //TODO replace this for final version => avoid api use
-    //return this.http.get('assets/data/recipeCocktail.json');
+
     return this.http.get(apiUri, { headers, params });
   }
+  
+  searchCategorizedCocktails(query : string): Observable<any>{
+    const apiUri = this.apiUrl + "/filter.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams()
+    .set('c', query);
+
+    return this.http.get(apiUri, { headers, params });
+  }
+
+  searchAlcoholicCocktails(query : string): Observable<any>{
+    const apiUri = this.apiUrl + "/filter.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams()
+    .set('a', query);
+
+    return this.http.get(apiUri, { headers, params });
+  }
+
+  searchGlassCocktails(query:string): Observable<any>{
+    const apiUri = this.apiUrl + "/filter.php"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams()
+    .set('g', query);
+
+    return this.http.get(apiUri, { headers, params });
+  }
+
   searchLatestCocktails(): Observable<any>{
     const apiUri = this.apiUrl + "/latest.php"
 
@@ -43,7 +85,7 @@ export class CocktailService {
 
     return this.http.get(apiUri, { headers, params });
   }
-//Cocktails etrieving methods
+//Cocktails retrieving methods
   searchPopularCocktails(): Observable<any>{
     const apiUri = this.apiUrl + "/popular.php"
 
