@@ -6,26 +6,14 @@
     </div>
 
     <div class="result-div">
-        <div class="blur-wall blur-wall-left">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
         <div class="result-wrapper">
-            <div class="cocktail-div">
+            <div class="food-div">
                 <h1>Cocktail</h1>
-                <app-carrousel [recipes]="cocktail"></app-carrousel>
+                <div class="grid-card">
+                    <app-card *ngFor="let recipe of cocktail, index as index" [recipe]="recipe" style="animation-delay:{{index*0.02}}s"></app-card>
+                </div>
             </div>
             <div class="cocktail-div"></div>
-        </div>
-        <div class="blur-wall blur-wall-right">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
         </div>
     </div>
 </div>

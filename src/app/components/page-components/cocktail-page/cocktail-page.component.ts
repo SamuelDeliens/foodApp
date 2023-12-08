@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CocktailService } from '../../../services/cocktail.service';
 import { FilterService } from '../../../services/filter.service';
@@ -12,6 +12,8 @@ import { Subscription, elementAt } from 'rxjs';
   styleUrls: ['./cocktail-page.component.css']
 })
 export class CocktailPageComponent {
+
+  @Input()
   cocktail: Recipe[] = [];
   subscription: Subscription = new Subscription();
   selectedFilters: Array<any> = [];
@@ -24,6 +26,8 @@ export class CocktailPageComponent {
     const queryParam = <string>this.route.snapshot.paramMap.get('param');
     if (queryParam) {
       this.searchName(queryParam);
+    } else {
+      this.searchName("Gin");
     }
   }
 
