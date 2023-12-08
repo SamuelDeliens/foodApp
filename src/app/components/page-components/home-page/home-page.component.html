@@ -1,151 +1,59 @@
+<div class="container">
+  <div class="coast">
+    <div class="wave-rel-wrap">
+      <div class="wave"></div>
+    </div>
+  </div>
+  <div class="coast delay">
+    <div class="wave-rel-wrap">
+      <div class="wave delay"></div>
+    </div>
+  </div>
+  <div class="text text-w">F</div>
+  <div class="text text-a">o</div>
+  <div class="text text-v">o</div>
+  <div class="text text-e">d</div>
+  <div class="text text-u">y</div>
+  <div class="text text-love">&hearts;</div>
+</div>
+
+
 <div class="home-page">
-
-    <app-search-bar style="margin-top: 0px;" [comportment]="navigateToSearchPage"></app-search-bar>
-<!--Displaying cocktail and food together mixed by rows-->
+    <app-search-bar [comportment]="navigateToSearchPage"></app-search-bar>
     <div class = "food-items">
-      <div  *ngFor="let item of searchCocktailFeed.drinks.slice(0,2)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
-        <div class = "food-img">
-          <img [src] = "item.strDrinkThumb" alt = "food image">
+      <div class="row-food-items" *ngFor="let cocktailRecipe of searchCocktailFeed; index as indexOfElement;">
+        <div class = "food-item" (click)="navigateToRecipeDetails(cocktailRecipe.id, 'cocktail')">
+          <img class="food-img" [src]="cocktailRecipe.image" alt = "food image">
+          <div class = "food-content">
+            <div class="top-food-content">
+              <h2 class = "food-name">{{cocktailRecipe.name}}</h2>
+              <div class = "line"></div>
+            </div>
+            <div class="bottom-food-content">
+              <div class="notes">
+                <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(cocktailRecipe.notes))"/>
+                <img src="assets/images/cherry2.png" alt="star" *ngIf="cocktailRecipe.notes % 1 !== 0"/>
+              </div>
+              <p class = "category">Category: <span>{{cocktailRecipe.type}}</span></p>
+            </div>
+          </div>
         </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.strDrink}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass ?? item.strCategory}}</span></p>
-        </div> 
-        </div>  
-  <div    *ngFor="let item of searchFirstRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
-        <div class = "food-img">
-          <img [src] = "item.image" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.name}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>Featured</span></p>
-        </div>
-        </div>
- 
-      <div  *ngFor="let item of searchCocktailFeed.drinks.slice(2,4)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
-        <div class = "food-img">
-          <img [src] = "item.strDrinkThumb" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.strDrink}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass ?? item.strCategory}}</span></p>
+        <div class = "food-item" *ngIf="searchFoodFeed.length > indexOfElement" (click)="navigateToRecipeDetails(searchFoodFeed[indexOfElement].id, 'food')">
+          <img class="food-img" [src]="searchFoodFeed[indexOfElement].image" alt = "food image">
+          <div class = "food-content">
+            <div class="top-food-content">
+              <h2 class = "food-name">{{searchFoodFeed[indexOfElement].name}}</h2>
+              <div class = "line"></div>
+            </div>
+            <div class="bottom-food-content">
+              <div class="notes">
+                <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(searchFoodFeed[indexOfElement].notes))"/>
+                <img src="assets/images/cherry2.png" alt="star" *ngIf="searchFoodFeed[indexOfElement].notes % 1 !== 0"/>
+              </div>
+              <p class = "category">Category: <span>{{searchFoodFeed[indexOfElement].type}}</span></p>
+            </div>
+          </div>
         </div>
       </div>
-      <div    *ngFor="let item of searchSecondRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
-        <div class = "food-img">
-          <img [src] = "item.image" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.name}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>Featured</span></p>
-        </div>
-        </div>
-
-        <div  *ngFor="let item of searchCocktailFeed.drinks.slice(4,6)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
-        <div class = "food-img">
-          <img [src] = "item.strDrinkThumb" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.strDrink}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass ?? item.strCategory}}</span></p>
-        </div>
-      </div>
-      <div    *ngFor="let item of searchThirdRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
-        <div class = "food-img">
-          <img [src] = "item.image" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.name}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>Featured</span></p>
-        </div>
-        </div>
-        <div  *ngFor="let item of searchCocktailFeed.drinks.slice(6,8)" class = "food-item featured" [routerLink]="['/recipe/food/', item.idDrink]">
-        <div class = "food-img">
-          <img [src] = "item.strDrinkThumb" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.strDrink}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>{{item.strIBA ?? item.strGlass?? item.strCategory}}</span></p>
-        </div>
-      </div>
-      <div    *ngFor="let item of searchFourthRowFoodFeed"  class = "food-item featured" [routerLink]="['/recipe/food/', item.id]">
-        <div class = "food-img">
-          <img [src] = "item.image" alt = "food image">
-        </div>
-        <div class = "food-content">
-          <h2 class = "food-name">{{item.name}}</h2>
-          <div class = "line"></div>
-          <h3 class = "food-price"></h3>
-          <ul class = "rating">
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "fas fa-star"></i></li>
-            <li><i class = "far fa-star"></i></li>
-          </ul>
-          <p class = "category">Category: <span>Featured</span></p>
-        </div>
-        </div>
+    </div>
+</div>

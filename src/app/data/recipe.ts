@@ -1,3 +1,4 @@
+import {CookingTime} from "./detailFood";
 
 export class Recipe {
 
@@ -8,6 +9,7 @@ export class Recipe {
     public image_alt: string;
     public creation_date_int: string;
     public creation_date: string;
+    public notes: number = 0;
 
 
 
@@ -22,6 +24,7 @@ export class Recipe {
         this.image_alt = "";
         this.creation_date_int = "";
         this.creation_date = "";
+        this.notes = 0;
 
         if (type == "food") {
             this.createRecipeFood(recipe_json);
@@ -41,6 +44,11 @@ export class Recipe {
 
         let date: Date = new Date(Number(this.creation_date_int) * 1000);
         this.creation_date = date.getDate().toString() + "/" + (date.getMonth() + 1).toString() + "/" + date.getFullYear().toString();
+
+        if (recipe_json.user_ratings && recipe_json.user_ratings.score) {
+            this.notes = Math.round(recipe_json.user_ratings.score * 500) / 100;
+            this.notes = Math.round(this.notes * 2) / 2;
+        }
     }
 
 

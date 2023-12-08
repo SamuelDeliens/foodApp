@@ -144,7 +144,13 @@ export class RecipeDetails {
         for (let instruction of recipe_json.instructions) {
             this.instructions.push(new Instruction(instruction.display_text, instruction.start_time, instruction.end_time, instruction.temperature));
         }
-        this.nutrition = new Nutrition(recipe_json.nutrition.fiber, recipe_json.nutrition.calories, recipe_json.nutrition.fat, recipe_json.nutrition.protein, recipe_json.nutrition.carbohydrates, recipe_json.nutrition.sugar);
+        this.nutrition = new Nutrition(recipe_json.nutrition.fiber / this.portion,
+            recipe_json.nutrition.calories / this.portion,
+            recipe_json.nutrition.fat / this.portion,
+            recipe_json.nutrition.protein / this.portion,
+            recipe_json.nutrition.carbohydrates / this.portion,
+            recipe_json.nutrition.sugar / this.portion
+        );
     }
 }
 
