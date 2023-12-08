@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="coast">
+    <div class="wave-rel-wrap">
+      <div class="wave"></div>
+    </div>
+  </div>
+  <div class="coast delay">
+    <div class="wave-rel-wrap">
+      <div class="wave delay"></div>
+    </div>
+  </div>
+  <div class="text text-w">F</div>
+  <div class="text text-a">o</div>
+  <div class="text text-v">o</div>
+  <div class="text text-e">d</div>
+  <div class="text text-u">y</div>
+  <div class="text text-love">&hearts;</div>
+</div>
+
+
+<div class="home-page">
+    <app-search-bar [comportment]="navigateToSearchPage"></app-search-bar>
+    <div class = "food-items">
+      <div class="row-food-items" *ngFor="let cocktailRecipe of searchCocktailFeed; index as indexOfElement;">
+        <div class = "food-item" (click)="navigateToRecipeDetails(cocktailRecipe.id, 'cocktail')">
+          <img class="food-img" [src]="cocktailRecipe.image" alt = "food image">
+          <div class = "food-content">
+            <div class="top-food-content">
+              <h2 class = "food-name">{{cocktailRecipe.name}}</h2>
+              <div class = "line"></div>
+            </div>
+            <div class="bottom-food-content">
+              <div class="notes">
+                <img src="./assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(cocktailRecipe.notes))"/>
+                <img src="./assets/images/cherry.png" alt="star" *ngIf="cocktailRecipe.notes % 1 !== 0"/>
+              </div>
+              <p class = "category">Category: <span>{{cocktailRecipe.type}}</span></p>
+            </div>
+          </div>
+        </div>
+        <div class = "food-item" *ngIf="searchFoodFeed.length > indexOfElement" (click)="navigateToRecipeDetails(searchFoodFeed[indexOfElement].id, 'food')">
+          <img class="food-img" [src]="searchFoodFeed[indexOfElement].image" alt = "food image">
+          <div class = "food-content">
+            <div class="top-food-content">
+              <h2 class = "food-name">{{searchFoodFeed[indexOfElement].name}}</h2>
+              <div class = "line"></div>
+            </div>
+            <div class="bottom-food-content">
+              <div class="notes">
+                <img src="./assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(searchFoodFeed[indexOfElement].notes))"/>
+                <img src="./assets/images/cherry.png" alt="star" *ngIf="searchFoodFeed[indexOfElement].notes % 1 !== 0"/>
+              </div>
+              <p class = "category">Category: <span>{{searchFoodFeed[indexOfElement].type}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

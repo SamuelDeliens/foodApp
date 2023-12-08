@@ -8,14 +8,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  protected readonly Array = Array;
-  protected readonly Math = Math;
+  @Input() recipe: Recipe = new Recipe("", {});
 
-  @Input()
-  recipe: Recipe = new Recipe("", {});
-
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) { }
 
   navigateToRecipeDetails() {
     console.log('navigateToRecipeDetails');
@@ -26,4 +21,6 @@ export class CardComponent {
     }
   }
 
+  protected readonly Array = Array;
+  protected readonly Math = Math;
 }

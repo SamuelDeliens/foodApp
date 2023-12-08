@@ -1,0 +1,22 @@
+<div class="search-page">
+
+    <div class="search-div">
+        <div id="back" class="close"></div>
+        <app-search-bar [comportment]="searchRecipes" [searchValue]="searchValue"></app-search-bar>
+        <app-filters [service]="foodService"></app-filters>
+    </div>
+
+    <div class="result-div">
+        <div class="result-wrapper">
+            <div class="food-div">
+                <h1><span *ngIf="searchValue == ''">Food</span>{{searchValue}}</h1>
+                <div class="grid-card">
+                    <app-card *ngFor="let recipe of recipes, index as index" [recipe]="recipe" style="animation-delay:{{index*0.02}}s"></app-card>
+                </div>
+            </div>
+            <div class="cocktail-div"></div>
+        </div>
+    </div>
+</div>
+<img class="foody6" src="./assets/images/foody6.png" alt="foody6"/>
+<img class="foody7" src="./assets/images/foody7.png" alt="foody7"/>
