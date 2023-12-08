@@ -28,7 +28,7 @@ app-search-bar {
     z-index: 2;
     margin: 0;
     padding: 0;
-    animation: presentationAnim 3.5s;
+    animation: presentationAnim 5s;
 }
 
 .food-items{
@@ -150,7 +150,7 @@ app-search-bar {
     left: calc(50% - 5rem);
     top: -20%;
     transform: translate(-50%, -50%);
-    animation: presentationIcon 2500ms ease-in-out;
+    animation: presentationIcon 3500ms ease-in-out;
     animation-delay: 200ms;
 }
 

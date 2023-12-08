@@ -1,5 +1,3 @@
-import {CookingTime} from "./detailFood";
-
 export class Recipe {
 
     public id: number;

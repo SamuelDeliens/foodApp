@@ -1,7 +1,7 @@
 <div class="discover-page">
 
+    <h1>Descover our recipes: </h1>
     <div class="result-wrapper">
-        <h1>Descover our recipes: </h1>
         <div class="result" *ngFor="let recipe of recipesTag">
             <h2>{{recipe.display_name}} :</h2>
             <app-carrousel [recipes]="recipe.results"></app-carrousel>

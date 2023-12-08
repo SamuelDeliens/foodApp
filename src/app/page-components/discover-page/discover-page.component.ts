@@ -1,10 +1,9 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { CocktailService } from 'src/app/services/cocktail.service';
 import { FoodService } from 'src/app/services/food.service';
-import {Recipe} from "../../../data/recipe";
-import {forkJoin} from "rxjs";
+import {Recipe} from "../../data/recipe";
 
 type MapperKey = 'alcoholic' | 'category' | 'glass' | 'ingredient' | 'name';
 

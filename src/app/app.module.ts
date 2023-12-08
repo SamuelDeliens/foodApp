@@ -12,12 +12,12 @@ import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './components/page-components/home-page/home-page.component';
-import { DiscoverPageComponent } from './components/page-components/discover-page/discover-page.component';
-import { FoodPageComponent } from './components/page-components/food-page/food-page.component';
-import { RecipeDetailsPageComponent } from './components/page-components/recipe-details-page/recipe-details-page.component';
-import { CocktailPageComponent } from './components/page-components/cocktail-page/cocktail-page.component';
-import { NotFoundPageComponent } from './components/page-components/not-found-page/not-found-page.component';
+import { HomePageComponent } from './page-components/home-page/home-page.component';
+import { DiscoverPageComponent } from './page-components/discover-page/discover-page.component';
+import { FoodPageComponent } from './page-components/food-page/food-page.component';
+import { RecipeDetailsPageComponent } from './page-components/recipe-details-page/recipe-details-page.component';
+import { CocktailPageComponent } from './page-components/cocktail-page/cocktail-page.component';
+import { NotFoundPageComponent } from './page-components/not-found-page/not-found-page.component';
 
 import { MainNavComponent } from './components/main-nav/main-nav.component'; 
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -25,7 +25,7 @@ import { CardComponent } from './components/card/card.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { CocktailDetailsPageComponent } from './components/page-components/cocktail-details-page/cocktail-details-page.component';
+import { CocktailDetailsPageComponent } from './page-components/cocktail-details-page/cocktail-details-page.component';
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FooterDownComponent } from './components/footer-down/footer-down.component';

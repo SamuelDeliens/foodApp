@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { AppComponent } from "../../../app.component";
-import { SearchBarComponent } from "../../search-bar/search-bar.component";
+import { AppComponent } from "../../app.component";
+import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
 import {Router} from "@angular/router";
 import { CocktailService } from 'src/app/services/cocktail.service';
 import { FoodService } from 'src/app/services/food.service';

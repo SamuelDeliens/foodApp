@@ -5,23 +5,23 @@
             <h1 class="name">{{ recipe.name }}</h1>
             <div class="notes-wrapper">
                 <div class="notes">
-                    <img src="assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
-                    <img src="assets/images/cherry.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
+                    <img src="../../../assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
+                    <img src="../../../assets/images/cherry.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
                 </div>
                 <span class="notes">{{ recipe.notes }} / 5 </span>
             </div>
             <p class="description">{{ recipe.description }}</p>
             <div class="group_top_details">
                 <div>
-                    <img src="assets/images/egg.png" alt="clock"/>
+                    <img src="../../../assets/images/egg.png" alt="clock"/>
                     <span>{{ recipe.cooking_time.display_time }}</span>
                 </div>
                 <div>
-                    <img src="assets/images/tocque.png" alt="clock"/>
+                    <img src="../../../assets/images/tocque.png" alt="clock"/>
                     <span>{{ recipe.difficulty }}</span>
                 </div>
                 <div>
-                    <img src="assets/images/price.png" alt="clock"/>
+                    <img src="../../../assets/images/price.png" alt="clock"/>
                     <span>{{ recipe.price}} $</span>
                 </div>
             </div>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="tags">
-        <div class="tag" *ngFor="let tag of recipe.tags; index as indexOfelement;" style="animation-delay:{{indexOfelement*0.01}}s">
+        <div class="tag" *ngFor="let tag of recipe.tags; index as index;" style="animation-delay:{{index*0.01}}s">
             <span>{{ tag.display_name }}</span>
         </div>
     </div>
@@ -109,14 +109,9 @@
         <div class="end-separator"></div>
     </div>
 </div>
-<div class="also-like">
+<div class="also-like" *ngIf="similarRecipes.length > 0">
     <h2>You may also like</h2>
     <app-carrousel [recipes]="similarRecipes"></app-carrousel>
 </div>
-<img class="foody1" src="assets/images/foody1.png" alt="foody1"/>
-<img class="foody3" src="assets/images/foody3.png" alt="foody3"/>
-<div class="foody4-banner">
-    <img class="foody4 foody4-1" src="./assets/images/foody4.png" alt="foody4"/>
-    <img class="foody4 foody4-2" src="./assets/images/foody4.png" alt="foody4"/>
-</div>
-```
+<img class="foody1" src="../../../assets/images/foody1.png" alt="foody1"/>
+<img class="foody3" src="../../../assets/images/foody3.png" alt="foody3"/>

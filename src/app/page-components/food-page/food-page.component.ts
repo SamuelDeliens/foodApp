@@ -1,9 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Recipe} from "../../../data/recipe";
+import {Recipe} from "../../data/recipe";
 import {ActivatedRoute} from "@angular/router";
-import {FoodService} from "../../../services/food.service";
+import {FoodService} from "../../services/food.service";
 import {Subscription} from "rxjs";
-import {FilterService} from "../../../services/filter.service";
+import {FilterService} from "../../services/filter.service";
 
 @Component({
   selector: 'app-search-food-page',

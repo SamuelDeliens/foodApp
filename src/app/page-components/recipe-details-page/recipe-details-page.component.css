@@ -350,7 +350,7 @@
 .foody1 {
     position: absolute;
     width: 15%;
-    bottom: -220%;
+    bottom: -200%;
     right: 15px;
     transform: rotateY(180deg);
 }
@@ -359,34 +359,4 @@
     width: 20%;
     bottom: 5%;
     right: 0px;
-}
-
-.foody4-banner {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    overflow: hidden;
-}
-.foody4 {
-    position: absolute;
-    top: 0;
-    width: 200%;
-    height: 50px;
-    object-fit: cover;
-    animation: loop linear infinite 60s;
-}
-foody4-1 {
-    left: 0;
-}
-foody4-2 {
-    left: 100%;
-}
-
-@keyframes loop {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
 }

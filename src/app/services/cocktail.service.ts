@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable, catchError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -88,7 +88,6 @@ export class CocktailService {
         .set("i", id)
 
     return this.http.get(apiUri, { headers, params });
-    //return this.http.get('assets/data/detailsCocktail.json');
   }
 
   getTags(): Observable<any> {

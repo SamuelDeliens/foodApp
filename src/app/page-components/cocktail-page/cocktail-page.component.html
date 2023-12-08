@@ -8,7 +8,7 @@
     <div class="result-div">
         <div class="result-wrapper">
             <div class="food-div">
-                <h1>Cocktail</h1>
+                <h1><span *ngIf="!searchValue || searchValue == ''">Cocktail</span>{{searchValue}}</h1>
                 <div class="grid-card">
                     <app-card *ngFor="let recipe of cocktail, index as index" [recipe]="recipe" style="animation-delay:{{index*0.02}}s"></app-card>
                 </div>
@@ -17,3 +17,6 @@
         </div>
     </div>
 </div>
+
+<img class="foody6" src="./assets/images/foody6.png" alt="foody6"/>
+<img class="foody7" src="./assets/images/foody7.png" alt="foody7"/>

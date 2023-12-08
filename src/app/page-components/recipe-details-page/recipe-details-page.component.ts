@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {FoodService} from "../../../services/food.service";
-import {RecipeDetails} from "../../../data/detailFood";
-import {ImageSearchService} from "../../../services/image-search.service";
-import {Recipe} from "../../../data/recipe";
+import {FoodService} from "../../services/food.service";
+import {RecipeDetails} from "../../data/detailFood";
+import {ImageSearchService} from "../../services/image-search.service";
+import {Recipe} from "../../data/recipe";
 
 @Component({
   selector: 'app-recipe-details-page',
@@ -13,8 +13,7 @@ import {Recipe} from "../../../data/recipe";
 export class RecipeDetailsPageComponent {
 
   private idRecipe: string = "";
-  public fetchCocktailDetails!:any; 
-  public videoURL!: string; 
+
   @Input()
   recipe: RecipeDetails = new RecipeDetails("", "");
   similarRecipes: Recipe[] = [];
@@ -35,23 +34,17 @@ export class RecipeDetailsPageComponent {
         this.foodService.searchDetails(id)
             .subscribe(data => {
                     this.recipe = new RecipeDetails(data, "food");
-                    console.log(this.recipe);
 
                     for (let ingredient of this.recipe.ingredients) {
                         this.imageSearchService.searchImages(ingredient.name)
                             .subscribe(data => {
-                                console.log(data);
                                 let image = data.photos.photo[0];
                                 ingredient.image = "https://live.staticflickr.com/" + image.server +
                                     "/" + image.id + "_" + image.secret + ".jpg";
-                                console.log(ingredient.name);
-                                console.log(ingredient.description);
-                                console.log(ingredient.image);
                             });
                     }
                 },
                   (error: any) => {
-                    console.log(error);
                     alert("No recipes found for " + id);
                   });
     }
@@ -59,11 +52,12 @@ export class RecipeDetailsPageComponent {
     searchSimilar: any = (id: number) => {
         this.foodService.searchSimilarRecipes(id)
             .subscribe(data => {
+                if (data.results.length != 0) {
                     this.similarRecipes = data.results.map((recipe: any) => new Recipe("food", recipe));
-                },
+                }},
                 (error: any) => {
                     console.log(error);
-                    alert("No recipes found for " + id);
+                    alert("No recipes similar found for " + id);
                 });
     }
 
