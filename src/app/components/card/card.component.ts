@@ -8,6 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  protected readonly Array = Array;
+  protected readonly Math = Math;
 
   @Input()
   recipe: Recipe = new Recipe("", {});
