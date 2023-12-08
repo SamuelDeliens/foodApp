@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { AppComponent } from "../../../app.component";
 import { SearchBarComponent } from "../../search-bar/search-bar.component";
 import {Router} from "@angular/router";
-import { FeedService } from 'src/app/services/feed.service';
 import { CocktailService } from 'src/app/services/cocktail.service';
 import { FoodService } from 'src/app/services/food.service';
 import { Recipe } from 'src/app/data/recipe';
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-home-page',
@@ -13,43 +13,61 @@ import { Recipe } from 'src/app/data/recipe';
   styleUrls: ['./home-page.component.css'],
   providers: [SearchBarComponent]
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
+  protected readonly Array = Array;
+  protected readonly Math = Math;
 
-  constructor(private appComponent: AppComponent, private router: Router,private foodService:FoodService, private cocktailService:CocktailService) {
+  @Input()
+  searchFoodFeed:any = Array<Recipe>();
+  searchCocktailFeed:any = Array<Recipe>();
+
+  constructor(
+      private appComponent: AppComponent,
+      private router: Router,
+      private foodService:FoodService,
+      private cocktailService:CocktailService
+  ) {
   }
-  public searchFirstRowFoodFeed!:any;
-  public searchSecondRowFoodFeed!:any;
-  public searchThirdRowFoodFeed!:any;
-  public searchFourthRowFoodFeed!:any;
-  public searchCocktailFeed!:any;
+
   ngOnInit(): void {
-
-    this.cocktailService.searchLatestCocktails().subscribe((result) =>{
-  
-      this.searchCocktailFeed = result
-      console.log('Données récupérées :', result);
+    this.cocktailService.searchLatestCocktails().subscribe((data) =>{
+      this.searchCocktailFeed = data.drinks.map((cocktail:any)=> new Recipe("cocktail", cocktail));
+      console.log('Cocktails récupérées :', this.searchCocktailFeed);
     });
-    this.foodService.searchRecipes("").subscribe((data)=>{
-      this.searchFirstRowFoodFeed = data.results.slice(0, 2).map((recipe:any)=> new Recipe("food", recipe))
-      this.searchSecondRowFoodFeed = data.results.slice(2, 4).map((recipe:any)=> new Recipe("food", recipe))
-      this.searchThirdRowFoodFeed = data.results.slice(4, 6).map((recipe:any)=> new Recipe("food", recipe))
-      this.searchFourthRowFoodFeed = data.results.slice(6, 8).map((recipe:any)=> new Recipe("food", recipe))
-
+    this.foodService.feedList().subscribe((data)=>{
+      data.results = data.results.slice(data.results.length - 10, data.results.length);
+      this.searchFoodFeed = data.results.map((recipe:any)=> new Recipe("food", recipe.item));
+      console.log('Cocktails récupérées :', this.searchFoodFeed);
     })
   }
 
-  get appTitle() {
-    return this.appComponent.title;
-  };
-  getArray(n: number): any[] {
-    return Array(n);
-  }
-
   navigateToSearchPage: any = (query: string) => {
-    this.router.navigate(['food', query]);
+    forkJoin([
+        this.cocktailService.searchName(query),
+        this.foodService.searchRecipes(query, "", "0", "10")
+    ]).subscribe(([cocktaildata, foodData]) => {
+      let path = '';
+      console.log(cocktaildata, foodData);
+      if (cocktaildata.drinks == null && foodData.results == null) {
+        alert("Aucun résultat trouvé");
+        return;
+      }
+      else {
+        if (cocktaildata.drinks == null) {
+          path = 'food';
+        } else if (foodData.results == null) {
+            path = 'cocktail';
+        } else if (cocktaildata.drinks.length <= foodData.results.length) {
+            path = 'food';
+        } else {
+            path = 'cocktail';
+        }
+      }
+      this.router.navigate([path, query]);
+    });
   }
-  onCocktailClick(id: string) {
 
-    this.router.navigate(['/recipe/food', id]);
+  navigateToRecipeDetails(id: string, type: string) {
+    this.router.navigate(['/recipe/' + type, id]);
   }
 }

@@ -11,12 +11,13 @@ import { CocktailPageComponent } from "./components/page-components/cocktail-pag
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomePageComponent },
+  { path: 'discover', component: DiscoverPageComponent },
   { path: 'food/:param', component: FoodPageComponent },
   { path: 'food', component: FoodPageComponent },
-  { path: 'recipe/food/:id', component: RecipeDetailsPageComponent},
-  { path: 'discover', component: DiscoverPageComponent },
   { path: 'cocktail/:param', component: CocktailPageComponent },
   { path: 'cocktail', component: CocktailPageComponent},
+  { path: 'recipe/food/:id', component: RecipeDetailsPageComponent},
+  { path: 'recipe/cocktail/:id', component: RecipeDetailsPageComponent},
   { path: '**', component: NotFoundPageComponent },
 ];
 
