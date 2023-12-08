@@ -155,36 +155,29 @@ export class DiscoverPageComponent {
  else if(data ==='glass')
  this.cocktailTagLists.map((tag)=>{
   console.log(tag)
-  this.cocktailService.searchGlassCocktails().subscribe((results)=>{
+  this.cocktailService.searchGlassCocktails(tag.name).subscribe((results)=>{
     if(results !== undefined && results.drinks !== "None Found")
     {
       this.searchCategorizedCocktails = results.drinks
       if(tag.name==='Hurricane glass'){ 
         console.log("Hurricane glass")
-        this.cocktailRecipesCategoriesHurricane = results.drinks.filter((drink:any)=>{
-          drink.strGlass==='Hurricane glass'
-        })
+        this.cocktailRecipesCategoriesHurricane = results.drinks
       }
       else if(tag.name === 'Whiskey Glass'){
-        this.cocktailRecipesCategoriesWhisky = results.drinks.filter((drink:any)=>{
-          drink.strGlass==='Whiskey Glass'
-        })
-
+     
+        this.cocktailRecipesCategoriesWhisky = results.drinks
       }
       else if (tag.name === "Cocktail_glass"){
-        this.cocktailRecipesCategoriesCockGlass= results.drinks.filter((drink:any)=>{
-          drink.strGlass==='Cocktail_glass'
-        })
+        this.cocktailRecipesCategoriesCockGlass= results.drinks
+        
       }
       else if (tag.name === "Martini Glass"){
-        this.cocktailRecipesCategoriesMartini = results.drinks.filter((drink:any)=>{
-          drink.strGlass==='Martini Glass'
-        })
+        this.cocktailRecipesCategoriesMartini = results.drinks
+       
+        console.log(this.cocktailRecipesCategoriesMartini)
       }
       else if (tag.name === "Highball glass"){
-        this.cocktailRecipesCategoriesHighball = results.drinks.filter((drink:any)=>{
-          drink.strGlass==='Highball glass'
-        })
+        this.cocktailRecipesCategoriesHighball = results.drinks
       }
     }
   })

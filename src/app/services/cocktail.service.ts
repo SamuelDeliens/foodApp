@@ -59,15 +59,16 @@ export class CocktailService {
     return this.http.get(apiUri, { headers, params });
   }
 
-  searchGlassCocktails(): Observable<any>{
-    const apiUri = this.apiUrl + "/randomselection.php"
+  searchGlassCocktails(query:string): Observable<any>{
+    const apiUri = this.apiUrl + "/filter.php"
 
     const headers = new HttpHeaders({
       'X-RapidAPI-Key': this.apiKey,
       'X-RapidAPI-Host': this.apiHost,
       "x-rapidapi-ua": this.apiUa
     });
-    const params = new HttpParams();
+    const params = new HttpParams()
+    .set('g', query);
 
     return this.http.get(apiUri, { headers, params });
   }

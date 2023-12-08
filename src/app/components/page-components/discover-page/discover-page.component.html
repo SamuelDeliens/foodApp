@@ -4,31 +4,31 @@
 
 <div class="result-wrapper">
     <h3>By Categories...</h3>
-    <div >
+    <div *ngIf="cocktailRecipesCategoriesCocktail">
         <h3>Cocktail</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesCocktail"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="cocktailRecipesCategoriesOrdinary" >
         <h3>Ordinary Drink</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesOrdinary"></app-discover-carrousel>
     </div>
-    <div >
+    <div  *ngIf="cocktailRecipesCategoriesHomemade" >
         <h3>Homemade Liqueur</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesHomemade"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="cocktailRecipesCategoriesAlcoholic">
         <h3>Alcoholic</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesAlcoholic"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="cocktailRecipesCategoriesNoAlcoholic">
         <h3>Non Alcoholic</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesNoAlcoholic"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="cocktailRecipesCategoriesSoft">
         <h3>Soft Drink</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesSoft"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="cocktailRecipesCategoriesCoffee">
         <h3>Coffee/ Tea</h3>
         <app-discover-carrousel [recipes]="cocktailRecipesCategoriesCoffee"></app-discover-carrousel>
     </div>
@@ -56,35 +56,35 @@
 
 
 
-    <div >
+    <div *ngIf="foodRecipesCategoriesDiet">
         <h3>Dietary</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesDiet"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="foodRecipesCategoriesBurger">
         <h3>Burgers</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesBurger"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="foodRecipesCategoriesHour">
         <h3>Under an hour</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesHour"></app-discover-carrousel>
     </div>
-    <div >
+    <div *ngIf="foodRecipesCategoriesDif">
         <h3>Easy to cook</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesDif"></app-discover-carrousel>
     </div>
-    <div>
+    <div *ngIf="foodRecipesCategoriesHandMixer">
         <h3>Hand Mixer</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesHandMixer"></app-discover-carrousel>
     </div>
-    <div>
+    <div *ngIf="foodRecipesCategoriesAfrican">
         <h3>African</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesAfrican"></app-discover-carrousel>
     </div>
-    <div>
+    <div *ngIf="foodRecipesCategoriesItalian">
         <h3>Italian</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesItalian"></app-discover-carrousel>
     </div>
-    <div>
+    <div *ngIf="foodRecipesCategoriesFrench">
         <h3>French</h3>
         <app-discover-carrousel [recipes]="foodRecipesCategoriesFrench"></app-discover-carrousel>
     </div>
