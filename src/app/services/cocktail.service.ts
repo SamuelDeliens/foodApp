@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable, catchError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class CocktailService {
   private apiUrl = 'https://the-cocktail-db.p.rapidapi.com'
   private apiHost = "the-cocktail-db.p.rapidapi.com"
   private apiUa = "RapidAPI-Playground"
-  selectedFilters: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   searchName(query: string): Observable<any> {
     const apiUri = this.apiUrl + "/search.php"
@@ -30,48 +30,6 @@ export class CocktailService {
 
     return this.http.get(apiUri, { headers, params });
   }
-  
-  searchCategorizedCocktails(query : string): Observable<any>{
-    const apiUri = this.apiUrl + "/filter.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-    const params = new HttpParams()
-    .set('c', query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
-  searchAlcoholicCocktails(query : string): Observable<any>{
-    const apiUri = this.apiUrl + "/filter.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-    const params = new HttpParams()
-    .set('a', query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
-  searchGlassCocktails(query:string): Observable<any>{
-    const apiUri = this.apiUrl + "/filter.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-    const params = new HttpParams()
-    .set('g', query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
 
   searchLatestCocktails(): Observable<any>{
     const apiUri = this.apiUrl + "/latest.php"
@@ -85,7 +43,7 @@ export class CocktailService {
 
     return this.http.get(apiUri, { headers, params });
   }
-//Cocktails retrieving methods
+
   searchPopularCocktails(): Observable<any>{
     const apiUri = this.apiUrl + "/popular.php"
 
@@ -99,49 +57,6 @@ export class CocktailService {
     return this.http.get(apiUri, { headers, params });
   }
 
-  fetchCocktailDetailsById(id : string): Observable<any>{
-    const apiUri = this.apiUrl + "/lookup.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-    const params = new HttpParams()
-        .set("i", id);
-    return this.http.get(apiUri, { headers, params });
-  }
-//food ones
-  searchIngredient(query: string): Observable<any> {
-    const apiUri = this.apiUrl + "/filter.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-
-    const params = new HttpParams()
-        .set("i", query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
-  searchIngredientName(query: string): Observable<any> {
-    const apiUri = this.apiUrl + "/search.php"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-
-    const params = new HttpParams()
-        .set("i", query);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
   filter(alcoholic: string, category: string, glass: string, ingredient: string): Observable<any> {
     const apiUri = this.apiUrl + "/filter.php"
 
@@ -151,14 +66,15 @@ export class CocktailService {
       "X-RapidApi-Ua": this.apiUa,
     });
 
-    const params = new HttpParams()
-        .set("a", alcoholic)
-        .set("c", category)
-        .set("g", glass)
-        .set("i", ingredient);
- 
+    let params = new HttpParams()
+    if (alcoholic != "") params = params.set("a", alcoholic)
+    if (category != "") params = params.set("c", category)
+    if (glass != "") params = params.set("g", glass)
+    if (ingredient != "") params = params.set("i", ingredient)
+
     return this.http.get(apiUri, { headers, params });
   }
+
   searchDetails(id: number): Observable<any> {
     const apiUri = this.apiUrl + "/lookup.php"
 
@@ -172,7 +88,6 @@ export class CocktailService {
         .set("i", id)
 
     return this.http.get(apiUri, { headers, params });
-    //return this.http.get('assets/data/detailsCocktail.json');
   }
 
   getTags(): Observable<any> {

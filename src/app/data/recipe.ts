@@ -1,5 +1,3 @@
-import {CookingTime} from "./detailFood";
-
 export class Recipe {
 
     public id: number;
@@ -56,7 +54,7 @@ export class Recipe {
         this.id = recipe_json.idDrink;
         this.name = recipe_json.strDrink;
         this.description = "";
-        this.image = recipe_json.strDrinkThumb;
+        this.image = recipe_json.strDrinkThumb + "/preview"
         this.image_alt = recipe_json.thumbnail_alt_text;
     
         const dateModified = recipe_json.dateModified;

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
-  private apiKey = '5b0d8c475fmsh85217c2c3c6fc2ap1093a0jsn947a9ec4d69b';
+  private apiKey = 'e43b223bb0mshe9bf5c22a43b131p1e322ajsnd9b963afc96d';
   private apiUrl = 'https://tasty.p.rapidapi.com';
   private apiHost = "tasty.p.rapidapi.com";
   private apiUa = "RapidAPI-Playground";
@@ -24,24 +24,7 @@ export class FoodService {
     return this.http.get(apiUri, { headers });
   }
 
-  searchCategorizedFoods(query : string): Observable<any>{
-    const apiUri = this.apiUrl + "/recipes/list"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-    const params = new HttpParams()
-    .set("from", "0")
-    .set('tags', query)
-    .set('size', 24);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
   searchRecipes(query: string, tags: string = "", from: string = "0", size: string = "20"): Observable<any> {
-    //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/recipes/list"
 
     const headers = new HttpHeaders({
@@ -56,23 +39,22 @@ export class FoodService {
         .set("tags", tags)
         .set("q", query)
 
-    //return this.http.get(apiUri, { headers, params });
-    return this.http.get('assets/data/recipeFood.json');
+    return this.http.get(apiUri, { headers, params });
   }
 
   searchSimilarRecipes(id: number): Observable<any> {
     const apiUri = this.apiUrl + "/recipes/list-similarities"
 
     const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiUrl
+      "x-rapidapi-host": this.apiHost,
+      "x-rapidapi-key": this.apiKey,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
         .set("recipe_id", id)
 
-    //return this.http.get(apiUri, { headers, params });
-    return this.http.get('assets/data/similar.json');
+    return this.http.get(apiUri, { headers, params });
   }
 
   searchDetails(id: number): Observable<any> {
@@ -81,16 +63,14 @@ export class FoodService {
     const headers = new HttpHeaders({
       "x-rapidapi-host": this.apiHost,
       "x-rapidapi-key": this.apiKey,
-      "x-rapidapi-ua": this.apiUa,
+      "x-rapidapi-ua": this.apiUa
     });
 
     const params = new HttpParams()
         .set("id", id)
 
-    //return this.http.get(apiUri, { headers, params });
-    return this.http.get('assets/data/detailFood2.json');
+    return this.http.get(apiUri, { headers, params });
   }
-
 
   feedList(): Observable<any> {
     const apiUri = this.apiUrl + "/feeds/list"
@@ -108,8 +88,7 @@ export class FoodService {
         .set("vegetarian", "false")
 
 
-    //return this.http.get(apiUri, { headers, params });
-    return this.http.get('assets/data/feedList.json');
+    return this.http.get(apiUri, { headers, params });
   }
 
   getTags(): Observable<any> {

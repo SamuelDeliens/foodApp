@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomePageComponent } from "./components/page-components/home-page/home-page.component";
-import { DiscoverPageComponent } from "./components/page-components/discover-page/discover-page.component";
-import { RecipeDetailsPageComponent } from "./components/page-components/recipe-details-page/recipe-details-page.component";
-import { NotFoundPageComponent } from "./components/page-components/not-found-page/not-found-page.component";
-import {FoodPageComponent} from "./components/page-components/food-page/food-page.component";
-import { CocktailPageComponent } from "./components/page-components/cocktail-page/cocktail-page.component";
-import { CocktailDetailsPageComponent } from './components/page-components/cocktail-details-page/cocktail-details-page.component';
+import { HomePageComponent } from "./page-components/home-page/home-page.component";
+import { DiscoverPageComponent } from "./page-components/discover-page/discover-page.component";
+import { RecipeDetailsPageComponent } from "./page-components/recipe-details-page/recipe-details-page.component";
+import { NotFoundPageComponent } from "./page-components/not-found-page/not-found-page.component";
+import {FoodPageComponent} from "./page-components/food-page/food-page.component";
+import { CocktailPageComponent } from "./page-components/cocktail-page/cocktail-page.component";
+import { CocktailDetailsPageComponent } from './page-components/cocktail-details-page/cocktail-details-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
