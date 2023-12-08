@@ -1,3 +1,8 @@
+app-carrousel {
+    position: relative;
+    overflow: hidden;
+}
+
 .fake-card {
     width: calc(5rem - 1rem);
 }
@@ -28,4 +33,212 @@
 
 .cards::-webkit-scrollbar-thumb:hover {
     background: transparent; /* Couleur de la barre de défilement au survol */
+}
+
+
+
+
+
+.blur-wall {
+    position: absolute;
+    width: 2.5rem;
+    height: calc(100% - 2rem);
+    z-index: 5;
+    pointer-events: none;
+}
+.blur-wall-left {
+    inset: 0 auto 0 0;
+    left: 0;
+}
+.blur-wall-right {
+    inset: 0 0 0 auto;
+    right: 0;
+}
+
+.blur-wall-left > div,
+.blur-wall-left::before,
+.blur-wall-left::after {
+    position: absolute;
+    inset: 0;
+}
+.blur-wall-left::before {
+    content: "";
+    z-index: 1;
+    backdrop-filter: blur(0.5px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 12.5%,
+            rgba(0, 0, 0, 1) 25%,
+            rgba(0, 0, 0, 0) 37.5%
+    );
+}
+.blur-wall-left > div:nth-of-type(1) {
+    z-index: 2;
+    backdrop-filter: blur(1px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 12.5%,
+            rgba(0, 0, 0, 1) 25%,
+            rgba(0, 0, 0, 1) 37.5%,
+            rgba(0, 0, 0, 0) 50%
+    );
+}
+.blur-wall-left > div:nth-of-type(2) {
+    z-index: 3;
+    backdrop-filter: blur(2px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 25%,
+            rgba(0, 0, 0, 1) 37.5%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) 62.5%
+    );
+}
+.blur-wall-left > div:nth-of-type(3) {
+    z-index: 4;
+    backdrop-filter: blur(4px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 37.5%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 1) 62.5%,
+            rgba(0, 0, 0, 0) 75%
+    );
+}
+.blur-wall-left > div:nth-of-type(4) {
+    z-index: 5;
+    backdrop-filter: blur(8px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 1) 62.5%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 87.5%
+    );
+}
+.blur-wall-left > div:nth-of-type(5) {
+    z-index: 6;
+    backdrop-filter: blur(16px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 62.5%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 1) 87.5%,
+            rgba(0, 0, 0, 0) 100%
+    );
+}
+.blur-wall-left > div:nth-of-type(6) {
+    z-index: 7;
+    backdrop-filter: blur(32px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 75%,
+            rgba(0, 0, 0, 1) 87.5%,
+            rgba(0, 0, 0, 1) 100%
+    );
+}
+.blur-wall-left::after {
+    content: "";
+    z-index: 8;
+    backdrop-filter: blur(64px);
+    mask: linear-gradient(
+            to left,
+            rgba(0, 0, 0, 0) 87.5%,
+            rgba(0, 0, 0, 1) 100%
+    );
+}
+
+.blur-wall-right > div,
+.blur-wall-right::before,
+.blur-wall-right::after {
+    position: absolute;
+    inset: 0;
+}
+.blur-wall-right::before {
+    content: "";
+    z-index: 1;
+    backdrop-filter: blur(0.5px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 12.5%,
+            rgba(0, 0, 0, 1) 25%,
+            rgba(0, 0, 0, 0) 37.5%
+    );
+}
+.blur-wall-right > div:nth-of-type(1) {
+    z-index: 2;
+    backdrop-filter: blur(1px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 12.5%,
+            rgba(0, 0, 0, 1) 25%,
+            rgba(0, 0, 0, 1) 37.5%,
+            rgba(0, 0, 0, 0) 50%
+    );
+}
+.blur-wall-right > div:nth-of-type(2) {
+    z-index: 3;
+    backdrop-filter: blur(2px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 25%,
+            rgba(0, 0, 0, 1) 37.5%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) 62.5%
+    );
+}
+.blur-wall-right > div:nth-of-type(3) {
+    z-index: 4;
+    backdrop-filter: blur(4px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 37.5%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 1) 62.5%,
+            rgba(0, 0, 0, 0) 75%
+    );
+}
+.blur-wall-right > div:nth-of-type(4) {
+    z-index: 5;
+    backdrop-filter: blur(8px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 1) 62.5%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 0) 87.5%
+    );
+}
+.blur-wall-right > div:nth-of-type(5) {
+    z-index: 6;
+    backdrop-filter: blur(16px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 62.5%,
+            rgba(0, 0, 0, 1) 75%,
+            rgba(0, 0, 0, 1) 87.5%,
+            rgba(0, 0, 0, 0) 100%
+    );
+}
+.blur-wall-right > div:nth-of-type(6) {
+    z-index: 7;
+    backdrop-filter: blur(32px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 75%,
+            rgba(0, 0, 0, 1) 87.5%,
+            rgba(0, 0, 0, 1) 100%
+    );
+}
+.blur-wall-right::after {
+    content: "";
+    z-index: 8;
+    backdrop-filter: blur(64px);
+    mask: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 87.5%,
+            rgba(0, 0, 0, 1) 100%
+    );
 }
