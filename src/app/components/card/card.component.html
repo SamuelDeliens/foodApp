@@ -1,10 +1,11 @@
 <button class="card" (click)="navigateToRecipeDetails()">
+    <img class="image" [defaultImage]="" [lazyLoad]="recipe.image" alt="{{ recipe.image_alt }}"/>
     <img class="image" [src]="recipe.image" alt="{{ recipe.image_alt }}"/>
     <div class="content">
         <div class="top-content">
             <div class="notes" *ngIf="recipe.notes != 0">
-                <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
-                <img src="assets/images/cherry2.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
+                <img src="assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
+                <img src="assets/images/cherry.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
             </div>
             <span class="date" *ngIf="recipe.creation_date">{{ recipe.creation_date }}</span>
         </div>

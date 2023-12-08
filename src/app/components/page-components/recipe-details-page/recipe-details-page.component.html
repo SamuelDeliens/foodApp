@@ -5,8 +5,8 @@
             <h1 class="name">{{ recipe.name }}</h1>
             <div class="notes-wrapper">
                 <div class="notes">
-                    <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
-                    <img src="assets/images/cherry2.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
+                    <img src="assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
+                    <img src="assets/images/cherry.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
                 </div>
                 <span class="notes">{{ recipe.notes }} / 5 </span>
             </div>

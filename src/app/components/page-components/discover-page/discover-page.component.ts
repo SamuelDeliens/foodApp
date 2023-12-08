@@ -4,8 +4,16 @@ import { AppComponent } from 'src/app/app.component';
 import { CocktailService } from 'src/app/services/cocktail.service';
 import { FoodService } from 'src/app/services/food.service';
 import {Recipe} from "../../../data/recipe";
-import { Category, Tag } from 'src/app/data/tag';
+import {forkJoin} from "rxjs";
 
+type MapperKey = 'alcoholic' | 'category' | 'glass' | 'ingredient' | 'name';
+
+interface Tag {
+    type: string;
+    category: MapperKey;
+    name: string;
+    display_name: string;
+}
 
 @Component({
   selector: 'app-discover-page',
@@ -15,218 +23,128 @@ import { Category, Tag } from 'src/app/data/tag';
 
 export class DiscoverPageComponent {
   
-  @Input()
-    foodRecipes: Recipe[] = [];
-    
+    @Input()
+    public tag: any[] = [];
+    recipesTag: {display_name: string, results: Recipe[]}[] = [];
 
-  constructor(private appComponent: AppComponent, private router: Router,private cocktailService: CocktailService,
-  private foodService:FoodService){}
-  public searchCategorizedCocktails!:any[]; 
-  public cocktailCategoryList : string[] = [];
-  public cocktailTagLists: Tag[] = [];
-  public cocktailRecipesCategoriesOrdinary: any;
-  public cocktailRecipesCategoriesHomemade : any;
-  public cocktailRecipesCategoriesSoft : any;
-  public cocktailRecipesCategoriesCoffee : any;
-  public cocktailRecipesCategoriesAlcoholic : any;
-  public cocktailRecipesCategoriesNoAlcoholic : any;
-  public cocktailRecipesCategoriesCocktail: any;
-  public cocktailRecipesCategoriesMartini : any;
-  public cocktailRecipesCategoriesWhisky : any;
-  public cocktailRecipesCategoriesHighball : any;
-  public cocktailRecipesCategoriesCockGlass: any;
-  public cocktailRecipesCategoriesHurricane: any;
+    constructor(
+        private appComponent: AppComponent,
+        private router: Router,
+        private cocktailService: CocktailService,
+        private foodService:FoodService
+    ){
+        this.tag = [
+            {type:"cocktail", category: "category",name:"Ordinary_Drink", display_name: "Ordinary Drink"},
+            {type: "cocktail", category: "ingredient", name: "Gin", display_name: "Gin"},
+            {type: "cocktail", category: "alcoholic", name: "Alcoholic", display_name: "Alcoholic"},
+            {type: "cocktail", category: "glass", name: "Cocktail_glass", display_name: "Cocktail glass"},
+            {type: "cocktail", category: "ingredient", name: "Orange,Vodka", display_name: "Orange"},
+            {type: "cocktail", category: "name", name: "Martini", display_name: "Martini"},
 
-  public searchCategorizedFoods!:any[]; 
-  public foodCategoryList : string[] = [];
-  public foodTagLists: Tag[] = [];
-  public foodRecipesCategoriesDiet: any;
-  public foodRecipesCategoriesHour : any;
-  public foodRecipesCategoriesDif : any;
-  public foodRecipesCategoriesAp: any;
-  public foodRecipesCategoriesCuisines: any;
-  public foodRecipesCategoriesHandMixer: any;
-  public foodRecipesCategoriesBurger: any;
-  public foodRecipesCategoriesAfrican: any;
-  public foodRecipesCategoriesFrench: any;
-  public foodRecipesCategoriesItalian: any;
-
-  ngOnInit() : void {
-
-    this.cocktailService.getTags().subscribe((datas: { [x: string]: {
-      count: string; results: any; 
-      } })=> {
-        for (let category_name in datas) {
-          let category: Category = new Category(category_name, datas[category_name].count, new Array<Tag>());
-          for (let tag of datas[category_name].results) {
-              category.tags.push(new Tag(tag.name, tag.display_name));
-              this.cocktailTagLists.push(new Tag(tag.name, tag.display_name))
-          }
-        
-          this.cocktailCategoryList.push(category_name);
-        }
-        this.setCategorizedCocktailList()
-        })
-
-        
- 
-        // this.foodService.getTags().subscribe((datas: { [x: string]: {
-        //   count: string; results: any; 
-        //   } })=> {
-        //     for (let category_name in datas) {
-        //       let category: Category = new Category(category_name, datas[category_name].count, new Array<Tag>());
-        //       for (let tag of datas[category_name].results) {
-        //           category.tags.push(new Tag(tag.name, tag.display_name));
-        //           this.foodTagLists.push(new Tag(tag.name, tag.display_name));
-                 
-        //       }
-              
-        //       this.foodCategoryList.push(category_name);
-        //     }
-        //     this.foodCategoryList.push('easy');
-        //     this.foodCategoryList.push('under_1_hour');
-        //     this.foodCategoryList.push('hand_mixer');
-        //     this.foodCategoryList.push('burgers');
-        //     this.foodCategoryList.push('african');
-        //     this.foodCategoryList.push('italian');
-        //     this.foodCategoryList.push('french');
-        //    this.setCategorizedFoodList()
-        //     })
-  }
-
- setCategorizedCocktailList(){
-  this.cocktailCategoryList.map((data)=> {
-           
-    if(data ==='category')
-   this.cocktailTagLists.map((tag)=>{
-    console.log(tag)
-    this.cocktailService.searchCategorizedCocktails(tag.name).subscribe((results)=>{
-      if(results !== undefined && results.drinks !== "None Found")
-      {
-        this.searchCategorizedCocktails = results.drinks
-        if(tag.name==='Ordinary_Drink'){ 
-          this.cocktailRecipesCategoriesOrdinary = results.drinks
-        }
-        else if(tag.name === 'Homemade Liqueur'){
-          this.cocktailRecipesCategoriesHomemade = results.drinks
-
-        }
-        else if (tag.name === "Soft Drink"){
-          this.cocktailRecipesCategoriesSoft = results.drinks
-        }
-        else if (tag.name === "Coffee \/ Tea"){
-          this.cocktailRecipesCategoriesCoffee = results.drinks
-        }
-        else if (tag.name === "Cocktail"){
-          this.cocktailRecipesCategoriesCocktail = results.drinks
-        }
-      }
-    })
-  })
-    
-  else if(data ==='alcoholic')
-  this.cocktailTagLists.map((tag)=>{
-   console.log(tag)
-   this.cocktailService.searchAlcoholicCocktails(tag.name).subscribe((results)=>{
-     if(results !== undefined && results.drinks !== "None Found")
-     {
-       this.searchCategorizedCocktails = results.drinks
-       if(tag.name==='Alcoholic'){ 
-         this.cocktailRecipesCategoriesAlcoholic = results.drinks
-       }
-       else if(tag.name === 'Non_Alcoholic'){
-         this.cocktailRecipesCategoriesNoAlcoholic = results.drinks
-
-       }
-       else if (tag.name === "Soft Drink"){
-         this.cocktailRecipesCategoriesSoft = results.drinks
-       }
-       else if (tag.name === "Coffee \/ Tea"){
-         this.cocktailRecipesCategoriesCoffee = results.drinks
-       }
-       else if (tag.name === "Cocktail"){
-         this.cocktailRecipesCategoriesCocktail = results.drinks
-       }
-     }
-   })
- })
-
-
- else if(data ==='glass')
- this.cocktailTagLists.map((tag)=>{
-  console.log(tag)
-  this.cocktailService.searchGlassCocktails(tag.name).subscribe((results)=>{
-    if(results !== undefined && results.drinks !== "None Found")
-    {
-      this.searchCategorizedCocktails = results.drinks
-      if(tag.name==='Hurricane glass'){ 
-        console.log("Hurricane glass")
-        this.cocktailRecipesCategoriesHurricane = results.drinks
-      }
-      else if(tag.name === 'Whiskey Glass'){
-     
-        this.cocktailRecipesCategoriesWhisky = results.drinks
-      }
-      else if (tag.name === "Cocktail_glass"){
-        this.cocktailRecipesCategoriesCockGlass= results.drinks
-        
-      }
-      else if (tag.name === "Martini Glass"){
-        this.cocktailRecipesCategoriesMartini = results.drinks
-       
-        console.log(this.cocktailRecipesCategoriesMartini)
-      }
-      else if (tag.name === "Highball glass"){
-        this.cocktailRecipesCategoriesHighball = results.drinks
-      }
+            {type: "food", category: "cuisines", name: "japanese", display_name: "Japanese"},
+            {type: "food", category: "cuisines", name: "french", display_name: "French"},
+            {type: "food", category: "dietary", name: "vegetarian", display_name: "Vegetarian"},
+            {type: "food", category: "difficulty", name: "under_30_minutes", display_name: "Under 30 Minutes"},
+            {type: "food", category: "difficulty", name: "easy", display_name: "Easy"},
+            {type: "food", category: "meals", name: "burgers", display_name: "Burgers"},
+            {type: "food", category: "cuisines", name: "italian", display_name: "Italian"},
+            {type: "food", category: "meals", name: "pasta", display_name: "Pasta"},
+        ];
     }
-  })
-})
-  })
-  
- }
- setCategorizedFoodList(){
-  this.foodCategoryList.map((data)=> {
-   this.foodTagLists.map((tag)=>{
-    console.log(tag)
-    this.foodService.searchCategorizedFoods(data).subscribe((results)=>{
-      if(results !== undefined && results.results !== "None Found")
-      {
-        this.searchCategorizedFoods = results.results
-        if(data==='dietary'){ 
-          this.foodRecipesCategoriesDiet = results.results
-        }
-        else if(data==='under_1_hour'){
-          this.foodRecipesCategoriesHour = results.results
 
+    ngOnInit() : void {
+        this.selectTags();
+
+        this.cocktailService.searchPopularCocktails().subscribe((results)=>{
+            if(results !== undefined && results.drinks !== "None Found")
+            {
+                let resultsTag = results.drinks.map((drink: any) => {
+                    return new Recipe("cocktail", drink);
+                });
+                resultsTag = resultsTag.splice(0, 6);
+                this.recipesTag.push(
+                    {display_name: "Popular Cocktails",
+                        results: resultsTag
+                    });
+            }
+        });
+
+        this.cocktailService.searchLatestCocktails().subscribe((results)=>{
+            if(results !== undefined && results.drinks !== "None Found")
+            {
+                let resultsTag = results.drinks.map((drink: any) => {
+                    return new Recipe("cocktail", drink);
+                });
+                resultsTag = resultsTag.splice(0, 6);
+                this.recipesTag.push(
+                    {display_name: "Latest Cocktails",
+                        results: resultsTag
+                    });
+            }
+        });
+
+        for (let tag of this.tag) {
+            if (tag.type == "cocktail") {
+                console.log("cocktail", tag);
+                this.searchCocktail(tag);
+            } else if (tag.type == "food") {
+                console.log("food", tag);
+                this.searchFood(tag);
+            }
         }
-        else if (data === "easy"){
-          this.foodRecipesCategoriesDif = results.results
+    }
+
+    selectTags() {
+        let randomTags = [];
+        for (let i = 0; i < 3; i++) {
+            let tagLength = this.tag.length;
+            let randomIndex = Math.floor(Math.random() * tagLength);
+            randomTags.push(this.tag[randomIndex]);
+            this.tag.splice(randomIndex, 1);
         }
-        else if (data === "hand_mixer"){
-          this.foodRecipesCategoriesHandMixer= results.results
+        this.tag = randomTags;
+    }
+
+    searchCocktail(tag: Tag) {
+        let mapper: { [key in MapperKey]: string } = { alcoholic: "", category: "", glass: "", ingredient: "", name: "" };
+        mapper[tag.category] = tag.name;
+        if (mapper.name) {
+            this.cocktailService.searchName(mapper.name).subscribe((results) => {
+                if (results !== undefined && results.drinks !== "None Found") {
+                    let resultsTag = results.drinks.map((drink: any) => {
+                        return new Recipe("cocktail", drink);
+                    });
+                    resultsTag = resultsTag.splice(0, 6);
+                    this.recipesTag.push({ display_name: tag.display_name, results: resultsTag});
+                }
+            });
         }
-        else if (data === "burgers"){
-          this.foodRecipesCategoriesBurger= results.results
+        else {
+            this.cocktailService.filter(mapper.alcoholic, mapper.category, mapper.glass, mapper.ingredient)
+                .subscribe((results) => {
+                    if (results !== undefined && results.drinks !== "None Found") {
+                        let resultsTag = results.drinks.map((drink: any) => {
+                            return new Recipe("cocktail", drink);
+                        });
+                        resultsTag = resultsTag.splice(0, 6);
+                        this.recipesTag.push({ display_name: tag.display_name, results: resultsTag});
+                }
+            });
         }
-        else if (data === "african"){
-          this.foodRecipesCategoriesAfrican= results.results
-        }
-        else if (data === "italian"){
-          this.foodRecipesCategoriesItalian= results.results
-        }
-        else if (data === "french"){
-          this.foodRecipesCategoriesFrench= results.results
-        }
-      }
-    })
-  })
-    
-  })
-  
- }
-     
-  }
+    }
+
+    searchFood(tag: any) {
+        this.foodService.searchRecipes("", tag.name, "0", "6").subscribe((results) => {
+            if (results !== undefined && results.results !== "None Found") {
+                let resultsTag = results.results.map((food: any) => {
+                    return new Recipe("food", food);
+                });
+                resultsTag = resultsTag.splice(0, 6);
+                this.recipesTag.push({ display_name: tag.display_name, results: resultsTag});
+            }
+        });
+    }
+}
 
   
 

@@ -24,22 +24,6 @@ export class FoodService {
     return this.http.get(apiUri, { headers });
   }
 
-  searchCategorizedFoods(query : string): Observable<any>{
-    const apiUri = this.apiUrl + "/recipes/list"
-
-    const headers = new HttpHeaders({
-      'X-RapidAPI-Key': this.apiKey,
-      'X-RapidAPI-Host': this.apiHost,
-      "x-rapidapi-ua": this.apiUa
-    });
-    const params = new HttpParams()
-    .set("from", "0")
-    .set('tags', query)
-    .set('size', 24);
-
-    return this.http.get(apiUri, { headers, params });
-  }
-
   searchRecipes(query: string, tags: string = "", from: string = "0", size: string = "20"): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
     const apiUri = this.apiUrl + "/recipes/list"
@@ -90,7 +74,6 @@ export class FoodService {
     //return this.http.get(apiUri, { headers, params });
     return this.http.get('assets/data/detailFood2.json');
   }
-
 
   feedList(): Observable<any> {
     const apiUri = this.apiUrl + "/feeds/list"

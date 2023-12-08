@@ -29,8 +29,7 @@ import { CocktailDetailsPageComponent } from './components/page-components/cockt
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FooterDownComponent } from './components/footer-down/footer-down.component';
-import { CocktailCardComponent } from './components/cocktail-card/cocktail-card.component';
-import { DiscoverCarrouselComponent } from './components/discover-carousel/discover-carrousel.component';
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 
 @NgModule({
@@ -49,27 +48,26 @@ import { DiscoverCarrouselComponent } from './components/discover-carousel/disco
     FooterDownComponent,  
     FiltersComponent,
     FilterComponent,
-    CocktailCardComponent,
     CocktailDetailsPageComponent,
-    DiscoverCarrouselComponent,
   ],
-  imports: [
-    BrowserModule, 
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    YouTubePlayerModule,
-    HttpClientJsonpModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        YouTubePlayerModule,
+        HttpClientJsonpModule,
 
-    //Material
-   
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule
-  ],
+        //Material
+
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        LazyLoadImageModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

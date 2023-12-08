@@ -31,8 +31,8 @@
             </div>
             <div class="bottom-food-content">
               <div class="notes">
-                <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(cocktailRecipe.notes))"/>
-                <img src="assets/images/cherry2.png" alt="star" *ngIf="cocktailRecipe.notes % 1 !== 0"/>
+                <img src="assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(cocktailRecipe.notes))"/>
+                <img src="assets/images/cherry.png" alt="star" *ngIf="cocktailRecipe.notes % 1 !== 0"/>
               </div>
               <p class = "category">Category: <span>{{cocktailRecipe.type}}</span></p>
             </div>
@@ -47,8 +47,8 @@
             </div>
             <div class="bottom-food-content">
               <div class="notes">
-                <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(searchFoodFeed[indexOfElement].notes))"/>
-                <img src="assets/images/cherry2.png" alt="star" *ngIf="searchFoodFeed[indexOfElement].notes % 1 !== 0"/>
+                <img src="assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(searchFoodFeed[indexOfElement].notes))"/>
+                <img src="assets/images/cherry.png" alt="star" *ngIf="searchFoodFeed[indexOfElement].notes % 1 !== 0"/>
               </div>
               <p class = "category">Category: <span>{{searchFoodFeed[indexOfElement].type}}</span></p>
             </div>
