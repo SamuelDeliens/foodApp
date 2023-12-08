@@ -2,15 +2,111 @@
 <h1 style="color: var(--primary-color); margin: 2rem; text-align: center; box-shadow: inset;">Discover our users' most popular dishes</h1>
 
 
-  <div class="result-div">
+<div class="result-wrapper">
+    <h3>By Categories...</h3>
+    <div >
+        <h3>Cocktail</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesCocktail"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Ordinary Drink</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesOrdinary"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Homemade Liqueur</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesHomemade"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Alcoholic</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesAlcoholic"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Non Alcoholic</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesNoAlcoholic"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Soft Drink</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesSoft"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Coffee/ Tea</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesCoffee"></app-discover-carrousel>
+    </div>
+    <div *ngIf="cocktailRecipesCategoriesWhisky">
+        <h3>whiskey Glass</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesWhisky"></app-discover-carrousel>
+    </div>
+    <div *ngIf="cocktailRecipesCategoriesHurricane">
+        <h3>Hurricane Glass</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesHurricane"></app-discover-carrousel>
+    </div>
+    <div *ngIf="cocktailRecipesCategoriesCockGlass">
+        <h3>Cocktail Glass</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesCockGlass"></app-discover-carrousel>
+    </div>
+    <div *ngIf="cocktailRecipesCategoriesMartini">
+        <h3>Martini Glass</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesMartini"></app-discover-carrousel>
+    </div>
+    <div *ngIf="cocktailRecipesCategoriesHighball">
+        <h3>Higball Glass</h3>
+        <app-discover-carrousel [recipes]="cocktailRecipesCategoriesHighball"></app-discover-carrousel>
+    </div>
+
+
+
+
+    <div >
+        <h3>Dietary</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesDiet"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Burgers</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesBurger"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Under an hour</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesHour"></app-discover-carrousel>
+    </div>
+    <div >
+        <h3>Easy to cook</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesDif"></app-discover-carrousel>
+    </div>
+    <div>
+        <h3>Hand Mixer</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesHandMixer"></app-discover-carrousel>
+    </div>
+    <div>
+        <h3>African</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesAfrican"></app-discover-carrousel>
+    </div>
+    <div>
+        <h3>Italian</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesItalian"></app-discover-carrousel>
+    </div>
+    <div>
+        <h3>French</h3>
+        <app-discover-carrousel [recipes]="foodRecipesCategoriesFrench"></app-discover-carrousel>
+    </div>
+</div>
+<!-- <h2>Vegetarian</h2>
+<div class="result-wrapper">
+    <div >
+        <h1>Cocktail</h1>
+    <app-cocktail-card *ngFor="let recipe of searchCategorizedDrinks" [recipe]="recipe">   </app-cocktail-card>
+    </div>
+ 
+</div> -->
+
+  <!-- <div class="result-div">
     <div class="result-wrapper">
         <div class="food-div">
           <h1>Food ...</h1>
             <div class="grid-card">
                 <app-card *ngFor="let recipe of foodRecipes" [recipe]="recipe"></app-card>
             </div>
-        </div>
-        <div class="cocktail-div">
+        </div> -->
+        <!-- <div >
           <h2>Classic</h2>
             <div class="grid-card">
               
@@ -46,10 +142,10 @@
                 </app-cocktail-card>
             </div>
             
-        </div>
-    </div>
+        </div> -->
+    <!-- </div>
 </div>
-</div>
+</div> -->
 
 
 

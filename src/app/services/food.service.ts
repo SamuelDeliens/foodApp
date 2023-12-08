@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
-  private apiKey = 'f84786a83emshddc7548c0d36a4fp15646fjsna3ae3a7af6b4';
+  private apiKey = '5b0d8c475fmsh85217c2c3c6fc2ap1093a0jsn947a9ec4d69b';
   private apiUrl = 'https://tasty.p.rapidapi.com';
   private apiHost = "tasty.p.rapidapi.com";
   private apiUa = "RapidAPI-Playground";
@@ -23,6 +23,23 @@ export class FoodService {
 
     return this.http.get(apiUri, { headers });
   }
+
+  searchCategorizedFoods(query : string): Observable<any>{
+    const apiUri = this.apiUrl + "/recipes/list"
+
+    const headers = new HttpHeaders({
+      'X-RapidAPI-Key': this.apiKey,
+      'X-RapidAPI-Host': this.apiHost,
+      "x-rapidapi-ua": this.apiUa
+    });
+    const params = new HttpParams()
+    .set("from", "0")
+    .set('tags', query)
+    .set('size', 24);
+
+    return this.http.get(apiUri, { headers, params });
+  }
+
 
   searchRecipes(query: string, tags: string = "", from: string = "0"): Observable<any> {
     //const apiUri = this.apiUrl + "/recipes/list"
