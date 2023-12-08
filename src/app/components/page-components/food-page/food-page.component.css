@@ -96,4 +96,18 @@ h1 {
 
 app-card {
     height: 100%;
+    animation: card-show .2s 1;
+}
+
+@keyframes card-show {
+    from {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
