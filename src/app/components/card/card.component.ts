@@ -19,6 +19,11 @@ export class CardComponent {
 
   navigateToRecipeDetails() {
     console.log('navigateToRecipeDetails');
-    this.router.navigate(['/recipe/food', this.recipe.id]);
+    if (this.recipe.type == "cocktail") {
+      this.router.navigate(['/recipe/cocktail', this.recipe.id]);
+    } else if (this.recipe.type == "food") {
+      this.router.navigate(['/recipe/food', this.recipe.id]);
+    }
   }
+
 }

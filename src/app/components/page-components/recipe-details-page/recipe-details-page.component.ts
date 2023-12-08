@@ -16,7 +16,7 @@ export class RecipeDetailsPageComponent {
   public fetchCocktailDetails!:any; 
   public videoURL!: string; 
   @Input()
-  recipe: RecipeDetails = new RecipeDetails("");
+  recipe: RecipeDetails = new RecipeDetails("", "");
   similarRecipes: Recipe[] = [];
 
   constructor(private route: ActivatedRoute, private foodService: FoodService, private imageSearchService: ImageSearchService) {
@@ -34,7 +34,7 @@ export class RecipeDetailsPageComponent {
     searchDetails: any = (id: number) => {
         this.foodService.searchDetails(id)
             .subscribe(data => {
-                    this.recipe = new RecipeDetails(data);
+                    this.recipe = new RecipeDetails(data, "food");
                     console.log(this.recipe);
 
                     for (let ingredient of this.recipe.ingredients) {
@@ -49,7 +49,7 @@ export class RecipeDetailsPageComponent {
                                 console.log(ingredient.image);
                             });
                     }
-                  },
+                },
                   (error: any) => {
                     console.log(error);
                     alert("No recipes found for " + id);

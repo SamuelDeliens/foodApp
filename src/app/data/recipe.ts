@@ -12,8 +12,9 @@ export class Recipe {
     public notes: number = 0;
 
 
+
     constructor(
-        private type: string,
+        public type: string,
         public recipe_json: any
     ) {
         this.id = 0;
