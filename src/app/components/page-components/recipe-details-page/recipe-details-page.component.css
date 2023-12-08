@@ -144,11 +144,47 @@
     }
 }
 
+
+/* Middle Details */
+
+.mid-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mid-details-content {
+    display: grid;
+    gap: 3rem;
+}
+
+
 /* Portion Details */
 
 .portion-wrapper {
     display: flex;
+    justify-content: center;
+    position: relative;
 }
+.portion-wrapper .separator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2rem;
+    border-top: 0.3rem solid var(--primary-color);
+    border-radius: 1rem;
+    z-index: -1;
+}
+.end-separator {
+    width: 100%;
+    height: 2rem;
+    border-bottom: 0.3rem solid var(--primary-color);
+    border-radius: 1rem;
+    z-index: -1;
+}
+
 .portion {
     display: flex;
     align-items: center;
@@ -156,7 +192,6 @@
     background-color: var(--tertiary-color);
     border-radius: 1rem;
     padding: 0 1rem;
-    margin: 5rem 0 0 0;
     transition: all 0.1s ease-in-out;
 }
 .portion button {
@@ -196,6 +231,7 @@
 /* Nutrition */
 
 .nutrition {
+    position: relative;
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
@@ -217,6 +253,7 @@
 /* Ingredients */
 
 .ingredients {
+    position: relative;
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -269,6 +306,7 @@
 /* Preparation */
 
 .preparation {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -294,10 +332,25 @@
 
 
 
+/* Also Likes */
+.also-like {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.also-like h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 20%;
+}
+
+
 .foody1 {
     position: absolute;
     width: 15%;
-    bottom: -240%;
+    bottom: -220%;
     right: 15px;
     transform: rotateY(180deg);
 }
@@ -308,13 +361,25 @@
     right: 0px;
 }
 
+.foody4-banner {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+}
 .foody4 {
     position: absolute;
+    top: 0;
     width: 200%;
     height: 50px;
-    bottom: -50px;
     object-fit: cover;
     animation: loop linear infinite 60s;
+}
+foody4-1 {
+    left: 0;
+}
+foody4-2 {
+    left: 100%;
 }
 
 @keyframes loop {
@@ -322,6 +387,6 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }

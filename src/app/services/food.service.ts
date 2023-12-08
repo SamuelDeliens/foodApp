@@ -55,7 +55,8 @@ export class FoodService {
     const params = new HttpParams()
         .set("recipe_id", id)
 
-    return this.http.get(apiUri, { headers, params });
+    //return this.http.get(apiUri, { headers, params });
+    return this.http.get('assets/data/similar.json');
   }
 
   searchDetails(id: number): Observable<any> {

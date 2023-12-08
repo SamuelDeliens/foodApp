@@ -34,75 +34,89 @@
             <span>{{ tag.display_name }}</span>
         </div>
     </div>
-    <div class="portion-wrapper">
-        <div class="portion">
-            <button class="minus" (click)="decreasePortion()">-</button>
-            <div class="portion-input">
-                <input type="number" [(ngModel)]="recipe.portion" min="1" max="100"/>
-                <span>People</span>
+    <div class="mid-details">
+        <div class="portion-wrapper">
+            <div class="separator"></div>
+            <div class="portion">
+                <button class="minus" (click)="decreasePortion()">-</button>
+                <div class="portion-input">
+                    <input type="number" [(ngModel)]="recipe.portion" min="1" max="100"/>
+                    <span>People</span>
+                </div>
+                <button class="plus" (click)="increasePortion()">+</button>
             </div>
-            <button class="plus" (click)="increasePortion()">+</button>
         </div>
+        <div class="mid-details-content">
+            <div class="nutrition">
+                <h2>Nutrition</h2>
+                <div class="group_nutrition">
+                    <span class="type">Calories: </span>
+                    <span>{{ recipe.nutrition.calories * recipe.portion}}</span>
+                </div>
+                <div class="group_nutrition">
+                    <span class="type">Protein: </span>
+                    <span>{{ recipe.nutrition.protein * recipe.portion }}</span>
+                    <span> %</span>
+                </div>
+                <div class="group_nutrition">
+                    <span class="type">Carbs: </span>
+                    <span>{{ recipe.nutrition.carbs * recipe.portion }}</span>
+                    <span> %</span>
+                </div>
+                <div class="group_nutrition">
+                    <span class="type">Fat: </span>
+                    <span>{{ recipe.nutrition.fat * recipe.portion }}</span>
+                    <span> %</span>
+                </div>
+                <div class="sugar">
+                    <span class="type">Sugar: </span>
+                    <span>{{ recipe.nutrition.sugar * recipe.portion }}</span>
+                    <span> %</span>
+                </div>
+                <div class="fiber">
+                    <span class="type">Fiber: </span>
+                    <span>{{ recipe.nutrition.fiber * recipe.portion }}</span>
+                    <span> %</span>
+                </div>
+            </div>
+            <div class="ingredients">
+                <h2>Ingredients</h2>
+                <div class="group_ingredients" *ngFor="let ingredient of recipe.ingredients">
+                    <div class="img">
+                        <img src="{{ingredient.image}}" alt="check"/>
+                    </div>
+                    <div class="group_ingredients_details_1" *ngIf="ingredient.quantity != 0">
+                        <span class="quantity">{{ ingredient.quantity * recipe.portion}} {{ ingredient.unit }}</span>
+                    </div>
+                    <div class="group_ingredients_details_2">
+                        <span class="name">{{ ingredient.name }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="preparation">
+                <h2>Preparation</h2>
+                <div class="group_preparation" *ngFor="let instruction of recipe.instructions">
+                    <h3>Step {{ recipe.instructions.indexOf(instruction) + 1 }}</h3>
+                    <div class="group_preparation_details">
+                        <span *ngIf="instruction.start_time != instruction.end_time">start-time: {{ instruction.start_time }} s</span>
+                        <span *ngIf="instruction.start_time != instruction.end_time">end-time: {{ instruction.end_time }} s</span>
+                        <span *ngIf="instruction.temperature">temperature: {{ instruction.temperature }}</span>
+                    </div>
+                    <span>{{ instruction.description }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="end-separator"></div>
     </div>
-    <div class="nutrition">
-        <h2>Nutrition</h2>
-        <div class="group_nutrition">
-            <span class="type">Calories: </span>
-            <span>{{ recipe.nutrition.calories * recipe.portion}}</span>
-        </div>
-        <div class="group_nutrition">
-            <span class="type">Protein: </span>
-            <span>{{ recipe.nutrition.protein * recipe.portion }}</span>
-            <span> %</span>
-        </div>
-        <div class="group_nutrition">
-            <span class="type">Carbs: </span>
-            <span>{{ recipe.nutrition.carbs * recipe.portion }}</span>
-            <span> %</span>
-        </div>
-        <div class="group_nutrition">
-            <span class="type">Fat: </span>
-            <span>{{ recipe.nutrition.fat * recipe.portion }}</span>
-            <span> %</span>
-        </div>
-        <div class="sugar">
-            <span class="type">Sugar: </span>
-            <span>{{ recipe.nutrition.sugar * recipe.portion }}</span>
-            <span> %</span>
-        </div>
-        <div class="fiber">
-            <span class="type">Fiber: </span>
-            <span>{{ recipe.nutrition.fiber * recipe.portion }}</span>
-            <span> %</span>
-        </div>
-    </div>
-    <div class="ingredients">
-        <h2>Ingredients</h2>
-        <div class="group_ingredients" *ngFor="let ingredient of recipe.ingredients">
-            <div class="img">
-                <img src="{{ingredient.image}}" alt="check"/>
-            </div>
-            <div class="group_ingredients_details_1" *ngIf="ingredient.quantity != 0">
-                <span class="quantity">{{ ingredient.quantity * recipe.portion}} {{ ingredient.unit }}</span>
-            </div>
-            <div class="group_ingredients_details_2">
-                <span class="name">{{ ingredient.name }}</span>
-            </div>
-        </div>
-    </div>
-    <div class="preparation">
-        <h2>Preparation</h2>
-        <div class="group_preparation" *ngFor="let instruction of recipe.instructions">
-            <h3>Step {{ recipe.instructions.indexOf(instruction) + 1 }}</h3>
-            <div class="group_preparation_details">
-                <span *ngIf="instruction.start_time != instruction.end_time">start-time: {{ instruction.start_time }} s</span>
-                <span *ngIf="instruction.start_time != instruction.end_time">end-time: {{ instruction.end_time }} s</span>
-                <span *ngIf="instruction.temperature">temperature: {{ instruction.temperature }}</span>
-            </div>
-            <span>{{ instruction.description }}</span>
-        </div>
-    </div>
+</div>
+<div class="also-like">
+    <h2>You may also like</h2>
+    <app-carrousel [recipes]="similarRecipes"></app-carrousel>
 </div>
 <img class="foody1" src="assets/images/foody1.png" alt="foody1"/>
 <img class="foody3" src="assets/images/foody3.png" alt="foody3"/>
-<img class="foody4" src="./assets/images/foody4.png" alt="foody4"/>
+<div class="foody4-banner">
+    <img class="foody4 foody4-1" src="./assets/images/foody4.png" alt="foody4"/>
+    <img class="foody4 foody4-2" src="./assets/images/foody4.png" alt="foody4"/>
+</div>
+```
