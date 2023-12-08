@@ -8,6 +8,18 @@
     justify-content: center;
     position: relative;
     cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.filter:hover {
+    scale: 1.1;
+    transition: all 0.2s ease-out;
+}
+
+.filter:hover .filter-content {
+    scale: 0.9;
+    transform: translateY(-0.9rem);
+    transition: all 0.2s ease-out;
 }
 
 .filter-title {
