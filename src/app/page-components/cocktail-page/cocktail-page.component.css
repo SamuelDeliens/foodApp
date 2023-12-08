@@ -115,18 +115,17 @@ app-card {
     }
 }
 
-.foody6 {
+.cockty4 {
     position: absolute;
     width: 15%;
     top: 40vh;
     right: 15px;
     z-index: -1;
 }
-.foody7 {
+.cockty1 {
     position: absolute;
     width: 20%;
     top: 15vh;
     left: 15px;
     z-index: -1;
-    transform: rotate(180deg);
 }
