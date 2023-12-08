@@ -26,6 +26,11 @@
     padding: 1rem 3rem;
 }
 
+.search-button a:hover {
+    scale: 1.1;
+    transition: all 0.2s ease-in;
+}
+
 .search-button a {
     background-color: var(--primary-color);
     border-radius: 1rem;
@@ -40,6 +45,10 @@
 
 .selected-filters.close {
     display: none;
+}
+.selected-filter:hover {
+    scale: 1.1;
+    transition: all 0.2s ease-in;
 }
 .filter-remove {
     margin-left: 1rem;

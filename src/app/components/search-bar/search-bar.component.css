@@ -1,18 +1,17 @@
 #search-bar {
+    position: relative;
     background-color: var(--tertiary-color);
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     border-radius: 75px;
     display: flex;
     justify-content: space-between;
-    margin:3rem;
-    animation: fadeIn 2s;
-    width: 70%;
+    width: calc(100% - 6rem);
 }
 
 #search-bar input {
     background: none;
     border: none;
-    width: 100%;
+    width: 95%;
     color: var(--secondary-color);
     font-size: 1.3rem;
     padding: 10px;
@@ -24,11 +23,25 @@
 
 #search-bar input:focus {
     outline: none;
-    border-bottom: 2px var(--secondary-color) solid;
+}
+
+#search-bar #search-bar-line {
+    position: absolute;
+    bottom: 20%;
+    left: 7%;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: all 0.2s ease-out;
+}
+#search-bar input:hover ~ #search-bar-line {
+    width: 40%;
+}
+#search-bar input:focus ~ #search-bar-line{
+    width: 80%;
 }
 
 #search-bar button {
-    
     background: none;
     border: none;
     margin: 0;
@@ -37,8 +50,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease-out;
 }
 
 #search-bar button mat-icon {
     font-size: 2rem;
+}
+
+#search-bar button:hover {
+    cursor: pointer;
+    scale: 1.2;
+    transition: all 0.2s ease-out;
 }

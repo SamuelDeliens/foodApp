@@ -23,7 +23,8 @@ export class RecipeDetails {
     //compilation: any; => compilation of how is done the recipe
 
     constructor(
-        public recipe_json: any
+        public recipe_json: any,
+        public type: string
     ) {
         console.log(recipe_json);
 
@@ -53,7 +54,46 @@ export class RecipeDetails {
             console.log("Empty recipe");
             return;
         }
-        this.createRecipe(recipe_json);
+
+        if (type == "cocktail") {
+            this.createRecipeCocktail(recipe_json);
+        } else if (type == "food") {
+            this.createRecipe(recipe_json);
+        }
+    }
+
+    createRecipeCocktail(recipe_json: any) {
+        this.id = recipe_json.idDrink;
+        this.name = recipe_json.strDrink;
+        this.description = recipe_json.strInstructions;
+        this.image = recipe_json.strDrinkThumb;
+
+        const dateModified = recipe_json.dateModified;
+
+        if (dateModified) {
+            const date = new Date(dateModified);
+            if (!isNaN(date.getTime())) {
+                this.creation_date_int = date.getTime().toString();
+                this.creation_date = date.getDate().toString() + "/" + (date.getMonth() + 1).toString() + "/" + date.getFullYear().toString();
+            }
+        }
+
+        //INGREDIENT
+        for (let i = 1; i <= 15; i++) {
+            const ingredientKey = `strIngredient${i}`;
+            const measureKey = `strMeasure${i}`;
+            if (recipe_json[ingredientKey] && recipe_json[measureKey]) {
+                this.ingredients.push(new Ingredient(recipe_json[ingredientKey], 1, recipe_json[measureKey], ""));
+            }
+        }
+
+        //INSTRUCTION 
+        this.instructions.push(new Instruction(recipe_json.strInstructions, 0, 0, 0));
+
+        //TAGS
+        if (recipe_json.strAlcoholic) this.tags.push(new Tag("Alcoholic", recipe_json.strAlcoholic));
+        if (recipe_json.strCategory) this.tags.push(new Tag("Category", recipe_json.strCategory));
+        if (recipe_json.strGlass) this.tags.push(new Tag("Glass", recipe_json.strGlass));
     }
 
     createRecipe(recipe_json: any) {
@@ -104,7 +144,13 @@ export class RecipeDetails {
         for (let instruction of recipe_json.instructions) {
             this.instructions.push(new Instruction(instruction.display_text, instruction.start_time, instruction.end_time, instruction.temperature));
         }
-        this.nutrition = new Nutrition(recipe_json.nutrition.fiber, recipe_json.nutrition.calories, recipe_json.nutrition.fat, recipe_json.nutrition.protein, recipe_json.nutrition.carbohydrates, recipe_json.nutrition.sugar);
+        this.nutrition = new Nutrition(recipe_json.nutrition.fiber / this.portion,
+            recipe_json.nutrition.calories / this.portion,
+            recipe_json.nutrition.fat / this.portion,
+            recipe_json.nutrition.protein / this.portion,
+            recipe_json.nutrition.carbohydrates / this.portion,
+            recipe_json.nutrition.sugar / this.portion
+        );
     }
 }
 

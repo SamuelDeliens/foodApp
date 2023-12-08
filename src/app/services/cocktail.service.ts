@@ -159,6 +159,21 @@ export class CocktailService {
  
     return this.http.get(apiUri, { headers, params });
   }
+  searchDetails(id: number): Observable<any> {
+    const apiUri = this.apiUrl + "/lookup.php"
+
+    const headers = new HttpHeaders({
+      "x-rapidapi-host": this.apiHost,
+      "x-rapidapi-key": this.apiKey,
+      "X-RapidApi-Ua": this.apiUa,
+    });
+
+    const params = new HttpParams()
+        .set("i", id)
+
+    return this.http.get(apiUri, { headers, params });
+    //return this.http.get('assets/data/detailsCocktail.json');
+  }
 
   getTags(): Observable<any> {
     return this.http.get("assets/data/tagsCocktail.json");

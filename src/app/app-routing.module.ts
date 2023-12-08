@@ -7,16 +7,18 @@ import { RecipeDetailsPageComponent } from "./components/page-components/recipe-
 import { NotFoundPageComponent } from "./components/page-components/not-found-page/not-found-page.component";
 import {FoodPageComponent} from "./components/page-components/food-page/food-page.component";
 import { CocktailPageComponent } from "./components/page-components/cocktail-page/cocktail-page.component";
+import { CocktailDetailsPageComponent } from './components/page-components/cocktail-details-page/cocktail-details-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomePageComponent },
+  { path: 'discover', component: DiscoverPageComponent },
   { path: 'food/:param', component: FoodPageComponent },
   { path: 'food', component: FoodPageComponent },
-  { path: 'recipe/food/:id', component: RecipeDetailsPageComponent},
-  { path: 'discover', component: DiscoverPageComponent },
   { path: 'cocktail/:param', component: CocktailPageComponent },
   { path: 'cocktail', component: CocktailPageComponent},
+  { path: 'recipe/food/:id', component: RecipeDetailsPageComponent},
+  { path: 'recipe/cocktail/:id', component: CocktailDetailsPageComponent},
   { path: '**', component: NotFoundPageComponent },
 ];
 

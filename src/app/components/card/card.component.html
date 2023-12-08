@@ -1,7 +1,13 @@
 <button class="card" (click)="navigateToRecipeDetails()">
     <img class="image" [src]="recipe.image" alt="{{ recipe.image_alt }}"/>
     <div class="content">
+        <div class="top-content">
+            <div class="notes" *ngIf="recipe.notes != 0">
+                <img src="assets/images/cherries2.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
+                <img src="assets/images/cherry2.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
+            </div>
             <span class="date" *ngIf="recipe.creation_date">{{ recipe.creation_date }}</span>
-            <h2>{{ recipe.name }}</h2>
+        </div>
+        <h2>{{ recipe.name }}</h2>
     </div>
 </button>
