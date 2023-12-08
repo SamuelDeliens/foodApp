@@ -14,7 +14,16 @@
                     <app-card *ngFor="let recipe of recipes, index as index" [recipe]="recipe" style="animation-delay:{{index*0.02}}s"></app-card>
                 </div>
             </div>
-            <div class="cocktail-div"></div>
+            <div class="button-page">
+                <div class="button-page-wrapper">
+                    <button class="button" (click)="previousPage()"><</button>
+                    <div class="page-input">
+                        <input type="number" [ngModel]="from" min="1" max="100"/>
+                        <span>Page</span>
+                    </div>
+                    <button class="button" (click)="nextPage()">></button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

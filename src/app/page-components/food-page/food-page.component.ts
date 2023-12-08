@@ -17,7 +17,7 @@ export class FoodPageComponent implements OnInit, OnDestroy {
     recipes: Recipe[] = [];
     subscription: Subscription = new Subscription();
     selectedFilters: Array<any> = [];
-    from: number = 0;
+    from: number = 1;
 
     constructor(
         private route: ActivatedRoute,
@@ -48,7 +48,7 @@ export class FoodPageComponent implements OnInit, OnDestroy {
             tags += filter.value + ",";
         }
 
-        this.foodService.searchRecipes(query, tags, this.from.toString())
+        this.foodService.searchRecipes(query, tags, ((this.from - 1) * 20).toString())
             .subscribe(data => {
                   console.log(data);
                   if (data.results.length == 0) {
@@ -61,5 +61,18 @@ export class FoodPageComponent implements OnInit, OnDestroy {
                   console.error("An error occurred:", error);
                   alert(error.error.message);
                 });
+    }
+
+    previousPage() {
+        let newFrom = this.from;
+        newFrom--;
+        if (newFrom <= 0) {return;}
+        this.from = newFrom;
+        this.searchRecipes(this.searchValue);
+    }
+
+    nextPage() {
+        this.from++;
+        this.searchRecipes(this.searchValue);
     }
 }

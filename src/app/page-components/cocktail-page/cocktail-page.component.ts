@@ -76,6 +76,4 @@ export class CocktailPageComponent {
         console.log(data);
       });
   }
-  
-  
 }

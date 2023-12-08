@@ -4,8 +4,8 @@
     <div class="content">
         <div class="top-content">
             <div class="notes" *ngIf="recipe.notes != 0">
-                <img src="assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
-                <img src="assets/images/cherry.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
+                <img src="./assets/images/cherries.png" alt="star" *ngFor="let star of Array(Math.floor(recipe.notes))"/>
+                <img src="./assets/images/cherry.png" alt="star" *ngIf="recipe.notes % 1 !== 0"/>
             </div>
             <span class="date" *ngIf="recipe.creation_date">{{ recipe.creation_date }}</span>
         </div>
