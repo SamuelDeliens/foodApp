@@ -30,6 +30,7 @@ import { CocktailDetailsPageComponent } from './components/page-components/cockt
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { FooterDownComponent } from './components/footer-down/footer-down.component';
 import { CocktailCardComponent } from './components/cocktail-card/cocktail-card.component';
+import { DiscoverCarrouselComponent } from './components/discover-carousel/discover-carrousel.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { CocktailCardComponent } from './components/cocktail-card/cocktail-card.
     FilterComponent,
     CocktailCardComponent,
     CocktailDetailsPageComponent,
+    DiscoverCarrouselComponent,
   ],
   imports: [
     BrowserModule, 

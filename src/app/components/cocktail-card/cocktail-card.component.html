@@ -1,6 +1,6 @@
 <button class="card" (click)="navigateToRecipeDetails()">
-    <img class="image" [src]="recipe.strDrinkThumb" alt="{{ recipe.thumbnail_alt_text }}"/>
+    <img class="image" [src]="recipe.strDrinkThumb ?? recipe.thumbnail_url" alt="{{ recipe.thumbnail_alt_text }}"/>
     <div class="content">
-            <h2>{{ recipe.strDrink }}</h2>
+            <p>{{ recipe.strDrink?? recipe.name }}</p>
     </div>
 </button>

@@ -28,7 +28,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.service.getTags().subscribe((data: { [x: string]: {
             count: string; results: any; 
-}; }) => {
+            }; }) => {
             for (let category_name in data) {
                 let category: Category = new Category(category_name, data[category_name].count, new Array<Tag>());
                 for (let tag of data[category_name].results) {
