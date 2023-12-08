@@ -1,4 +1,5 @@
 #search-bar {
+    position: relative;
     background-color: var(--tertiary-color);
     padding: 1rem 3rem;
     border-radius: 75px;
@@ -22,7 +23,22 @@
 
 #search-bar input:focus {
     outline: none;
-    border-bottom: 2px var(--secondary-color) solid;
+}
+
+#search-bar #search-bar-line {
+    position: absolute;
+    bottom: 20%;
+    left: 7%;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: all 0.2s ease-out;
+}
+#search-bar input:hover ~ #search-bar-line {
+    width: 40%;
+}
+#search-bar input:focus ~ #search-bar-line{
+    width: 80%;
 }
 
 #search-bar button {
@@ -34,8 +50,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease-out;
 }
 
 #search-bar button mat-icon {
     font-size: 2rem;
+}
+
+#search-bar button:hover {
+    cursor: pointer;
+    scale: 1.2;
+    transition: all 0.2s ease-out;
 }
