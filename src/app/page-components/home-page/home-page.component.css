@@ -13,10 +13,6 @@
         opacity: 0;
         margin-top: 50%;
     }
-    40% {
-        opacity: 0;
-        margin-top: 50%;
-    }
     100% {
         opacity: 1;
         margin-top: 0%;
@@ -27,8 +23,13 @@ app-search-bar {
     width: 50%;
     z-index: 2;
     margin: 0;
+    margin-top: 50%;
     padding: 0;
-    animation: presentationAnim 5s;
+}
+
+.up_search-bar {
+    margin-top: 0;
+    animation: presentationAnim 1600ms;
 }
 
 .food-items{
@@ -122,24 +123,35 @@ app-search-bar {
 }
 
 
+#loading {
+    z-index: 10;
+    width: 100px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    display: none;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+}
 
+#loading.show_loading {
+    display: block;
+    animation: fadeIn 300ms;
+}
 
+.container.hidden_logo {
+    top: -20%;
+    opacity: 0;
+    animation: presentationIcon 1000ms ease-in-out;
+}
 
 @keyframes presentationIcon {
     0% {
-        top: 40%;
-        opacity: 0;
-    }
-    10% {
-        top: 40%;
-        opacity: 1;
-    }
-    70% {
         top: 40%;
         opacity: 1;
     }
     100% {
         top: -10%;
+        opacity: 0;
     }
 }
 
@@ -148,10 +160,9 @@ app-search-bar {
     width: 17rem;
     height: 10rem;
     left: calc(50% - 5rem);
-    top: -20%;
+    top: 40%;
     transform: translate(-50%, -50%);
-    animation: presentationIcon 3500ms ease-in-out;
-    animation-delay: 200ms;
+    opacity: 1;
 }
 
 .text {

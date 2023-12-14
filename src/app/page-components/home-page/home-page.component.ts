@@ -30,18 +30,24 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cocktailService.searchLatestCocktails().subscribe((data) =>{
-      this.searchCocktailFeed = data.drinks.map((cocktail:any)=> new Recipe("cocktail", cocktail));
+    forkJoin([
+        this.cocktailService.searchLatestCocktails(),
+        this.foodService.feedList()
+    ]).subscribe(([cocktaildata, foodData]) => {
+      this.searchCocktailFeed = cocktaildata.drinks.map((cocktail:any)=> new Recipe("cocktail", cocktail));
       console.log('Cocktails récupérées :', this.searchCocktailFeed);
-    });
-    this.foodService.feedList().subscribe((data)=>{
-      data.results = data.results.slice(data.results.length - 10, data.results.length);
-      this.searchFoodFeed = data.results.map((recipe:any)=> new Recipe("food", recipe.item));
+
+      foodData.results = foodData.results.slice(foodData.results.length - 10, foodData.results.length);
+      this.searchFoodFeed = foodData.results.map((recipe:any)=> new Recipe("food", recipe.item));
       console.log('Cocktails récupérées :', this.searchFoodFeed);
-    })
+
+      document.getElementById("logo")!.classList.add("hidden_logo");
+      document.getElementsByTagName("app-search-bar")[0].classList.add("up_search-bar");
+    });
   }
 
   navigateToSearchPage: any = (query: string) => {
+    document.getElementById("loading")!.classList.add("show_loading");
     forkJoin([
         this.cocktailService.searchName(query),
         this.foodService.searchRecipes(query, "", "0", "10")

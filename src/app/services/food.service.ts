@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
-  private apiKey = 'e43b223bb0mshe9bf5c22a43b131p1e322ajsnd9b963afc96d';
+  private apiKey = '7befa77546mshdf2022a200c25d3p1793aejsn0ca0d0c39c91';
   private apiUrl = 'https://tasty.p.rapidapi.com';
   private apiHost = "tasty.p.rapidapi.com";
   private apiUa = "RapidAPI-Playground";

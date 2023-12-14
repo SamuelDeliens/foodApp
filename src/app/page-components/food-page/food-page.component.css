@@ -168,6 +168,22 @@ app-card {
 }
 
 
+#loading {
+    z-index: 10;
+    width: 100px;
+    aspect-ratio: 1/1;
+    position: absolute;
+    display: none;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+}
+
+#loading.show_loading {
+    display: block;
+    animation: fadeIn 300ms;
+}
+
+
 .foody6 {
     position: absolute;
     width: 15%;

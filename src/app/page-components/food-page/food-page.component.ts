@@ -24,6 +24,7 @@ export class FoodPageComponent implements OnInit, OnDestroy {
         public foodService: FoodService,
         private foodFilterService: FilterService
     ) {
+        this.searchValue = <string>this.route.snapshot.paramMap.get('param');
         if (this.searchValue != "" && this.searchValue != null) {
             this.searchRecipes(this.searchValue);
         } else {
@@ -43,6 +44,8 @@ export class FoodPageComponent implements OnInit, OnDestroy {
     }
 
     searchRecipes: any = (query: string) => {
+        document.getElementById("loading")!.classList.add("show_loading");
+
         let tags: string = "";
         for (let filter of this.selectedFilters) {
             tags += filter.value + ",";
@@ -56,9 +59,11 @@ export class FoodPageComponent implements OnInit, OnDestroy {
                   } else {
                     this.recipes = data.results.map((recipe: any) => new Recipe("food", recipe));
                   }
+                  document.getElementById("loading")!.classList.remove("show_loading");
                 },
                 (error: any) => {
                   console.error("An error occurred:", error);
+                  document.getElementById("loading")!.classList.remove("show_loading");
                   alert(error.error.message);
                 });
     }

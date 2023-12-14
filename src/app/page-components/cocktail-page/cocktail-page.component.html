@@ -1,7 +1,9 @@
+<img id="loading" src="./assets/images/loading.gif" alt="loading">
+
 <div class="search-page">
     <div class="search-div">
         <div id="back" class="close"></div>
-        <app-search-bar [comportment]="search"></app-search-bar>
+        <app-search-bar [comportment]="search" [searchValue]="searchValue"></app-search-bar>
         <app-filters [service]="cocktailService"></app-filters>
     </div>
 
@@ -10,8 +12,18 @@
             <div class="cocktail-div">
                 <h1><span *ngIf="!searchValue || searchValue == ''">Cocktail</span>{{searchValue}}</h1>
                 <div class="grid-card">
-                    <app-card *ngFor="let recipe of cocktail, index as index" [recipe]="recipe" style="animation-delay:{{index*0.02}}s"></app-card>
+                    <app-card *ngFor="let recipe of cocktail.slice((page - 1) * 20, page * 20), index as index" [recipe]="recipe" style="animation-delay:{{index*0.02}}s"></app-card>
                 </div>
+            </div>
+        </div>
+        <div class="button-page" *ngIf="max_page > 1">
+            <div class="button-page-wrapper">
+                <button class="button" (click)="previousPage()" [ngClass]="page > 1 ? '' : 'disabled'"><</button>
+                <div class="page-input">
+                    <input type="number" [ngModel]="page" min="1" max="{{max_page}}" (keyup.enter)="setValue($event)"/>
+                    <span>Page</span>
+                </div>
+                <button class="button" (click)="nextPage()" [ngClass]="page < max_page ? '' : 'disabled'">></button>
             </div>
         </div>
     </div>
